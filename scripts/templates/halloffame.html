@@ -1,0 +1,36 @@
+
+<section id="halloffame" class="Hidden">
+
+<h1>Salón de la fama</h1>
+
+<table id="players">
+<thead>
+<tr>
+	<th>#</th>
+	<th>Jugador</th>
+	<th>Puntuación</th>
+	<th>Nivel</th>
+	<th>Dia y hora</th>
+</tr>
+</thead>
+<tbody id="hofEntries">
+</tbody>
+</table>
+
+<p>
+	<button id="resetScores">Borrar puntuaciones</button>
+	<button id="gotoIntro">Volver</button>
+</p>
+
+</section>
+
+<script id="hofEntry" type="text/x-handlebars-template">
+<tr>
+	<td>{{position}}</td>
+	<td>{{player.name}}</td>
+	<td>{{game.score}}</td>
+	<td>{{game.level}}</td>
+	<td>{{game.datetime}}</td>
+</tr>
+</script>
+

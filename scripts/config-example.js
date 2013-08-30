@@ -1,0 +1,3 @@
+
+var CONTEXT_PATH = '';
+

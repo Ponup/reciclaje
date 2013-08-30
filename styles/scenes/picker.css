@@ -1,0 +1,11 @@
+
+#picker
+{
+	position: relative;
+}
+
+#picker .Element
+{
+	position: absolute;
+}
+
