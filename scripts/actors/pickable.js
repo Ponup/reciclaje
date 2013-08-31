@@ -1,7 +1,5 @@
 
-define(
-	[ 'actors/base', 'game/context' ],
-	function( Actor, gaco )
+define( [ 'scullge/actor', 'game/context' ], function( Actor, gaco )
 	{
 		var PickableState = {
 			STANDING: 	0,
@@ -35,6 +33,7 @@ define(
 			this.img.style.top = this.properties.y + 'px';
 			this.img.style.width = ( ( this.properties.y > 500 ? 1.5 : 0.7 ) * 60 ) + 'px'; 
 			this.img.style.width = ( this.getProperty( 'scale' ) * 60 ) + 'px'; 
+			this.img.style.position = 'absolute';
 
 			this.img.onclick = function()
 			{

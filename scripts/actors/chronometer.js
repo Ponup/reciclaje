@@ -1,5 +1,5 @@
 
-define( [ 'actors/base' ], function( BaseActor )
+define( [ 'scullge/actor' ], function( BaseActor )
 	{
 		function Chronometer()
 		{
@@ -15,6 +15,16 @@ define( [ 'actors/base' ], function( BaseActor )
 		{
 			this.node = document.createElement( 'div' );
 			this.node.className = 'Chronometer';
+
+			var nodeStyle = this.node.style;
+			nodeStyle.fontFamily = 'GameFont';
+			nodeStyle.fontSize = '40px';
+			nodeStyle.color = '#fce94f';
+			nodeStyle.textShadow = '1px 1px 1px rgba(0, 0, 0, 0.3)';
+			nodeStyle.position = 'absolute';
+			nodeStyle.left = '40px';
+			nodeStyle.top = '680px';
+
 			picker.appendChild( this.node );
 
 			this.initTime = Date.now();

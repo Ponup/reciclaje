@@ -70,10 +70,7 @@ require( dependencies,
 		gaco.sceneManager = new SceneManager();
 
 		var cssLoader = new CssLoader();
-		cssLoader.loadCsss([
-			CONTEXT_PATH + '/styles/scenes/intro.css',
-			CONTEXT_PATH + '/styles/scenes/picker.css',
-		]);
+		cssLoader.loadCsss([ CONTEXT_PATH + '/styles/scenes/intro.css' ]);
 
 		$( document ).ready( function( ev )
 			{

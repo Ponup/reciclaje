@@ -78,23 +78,3 @@ div#loading
 	src: url('../fonts/doctor-soos-bold.ttf');
 }
 
-.Chronometer
-{
-	font-family: 'GameFont';
-	font-size: 40px;
-	color: #fce94f;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-	position: absolute;
-	left: 40px; top: 680px;
-}
-
-.ScoreBoard
-{
-	font-family: 'GameFont';
-	font-size: 40px;
-	color: #fce94f;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-	position: absolute;
-	right: 40px; top: 680px;
-}
-

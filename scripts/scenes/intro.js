@@ -109,23 +109,16 @@ define( [ 'game/context', 'scenes/base', 'game/audiomanager', 'text!templates/in
 		var playerName = localStorage.getItem( 'playerName' );
 		if( null !== playerName ) $( '#playerName' ).val( playerName );
 
-                                gaco.sceneManager.add( new IntroScene() );
-                                gaco.sceneManager.add( new HelpScene() );
-                                gaco.sceneManager.add( new HalloffameScene() );
-                                gaco.sceneManager.add( new GameplayScene() );
-                                gaco.sceneManager.add( new GameoverScene() );
-
+		gaco.sceneManager.add( new IntroScene() );
+		gaco.sceneManager.add( new HelpScene() );
+		gaco.sceneManager.add( new GameplayScene() );
+		gaco.sceneManager.add( new GameoverScene() );
 
 		$( '#playButton' ).on( 'click', function( ev )
 			{
 				bgMusic.pause();
 				localStorage.setItem( 'playerName', $( '#playerName' ).val() );
 				gaco.sceneManager.switchTo( 'help' );
-			}
-		);
-		$( '#viewHalloffame' ).on( 'click', function( ev )
-			{
-				gaco.sceneManager.switchTo( 'halloffame' );
 			}
 		);
 

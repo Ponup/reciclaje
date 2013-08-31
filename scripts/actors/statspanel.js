@@ -1,5 +1,5 @@
 
-define( [ 'game/context', 'actors/base' ], function( gaco, Actor )
+define( [ 'game/context', 'scullge/actor' ], function( gaco, Actor )
 	{
 		function StatsPanel()
 		{

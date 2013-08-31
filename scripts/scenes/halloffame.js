@@ -19,7 +19,7 @@ define( [ 'handlebars', 'game/context', 'scenes/base', 'game/scores', 'text!temp
 
 		$( '#gotoIntro' ).on( 'click', function( ev )
 			{
-				gaco.sceneManager.switchTo( 'intro' );
+				gaco.sceneManager.switchTo( 'welcome' );
 			}
 		);
 		$( '#resetScores' ).on( 'click', function( ev )

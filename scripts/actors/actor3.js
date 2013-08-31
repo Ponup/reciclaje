@@ -1,5 +1,5 @@
 
-define( [ 'actors/base', 'game/context' ], function( BaseActor, gaco )
+define( [ 'scullge/actor', 'game/context' ], function( BaseActor, gaco )
 	{
 		var Actor3State = {
 			MOVING: 0,

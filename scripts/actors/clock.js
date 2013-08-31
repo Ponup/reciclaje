@@ -1,5 +1,5 @@
 
-define( [ 'actors/base' ], function( Actor )
+define( [ 'scullge/actor' ], function( Actor )
 	{
 		function Clock()
 		{

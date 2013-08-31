@@ -10,4 +10,3 @@ var getRequestAnimationFrame = function () {
            };
 };
 
-

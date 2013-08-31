@@ -1,9 +1,11 @@
 
-define( [ 'actors/base', 'utils/arrays', 'game/context' ], function( Actor, ArraysUtils, gaco )
+define( [ 'scullge/actor', 'utils/arrays', 'game/context' ], function( Actor, ArraysUtils, gaco )
 	{
 		function Machine()
 		{
 			Actor.call( this );
+
+			this.machines = this.machine = null;
 		}
 
 		Machine.prototype = new Actor();
@@ -23,7 +25,6 @@ define( [ 'actors/base', 'utils/arrays', 'game/context' ], function( Actor, Arra
 
 			$( this.node ).on( 'click', function()
 				{
-//					$.proxy( self.updateMachine, self );
 					self.updateMachine();
 				}
 			);
@@ -31,13 +32,26 @@ define( [ 'actors/base', 'utils/arrays', 'game/context' ], function( Actor, Arra
 
 		Machine.prototype.updateMachine = function()
 		{
-			this.machine = ArraysUtils.randomItem( gaco.machines );
+			if( null == this.machines )
+			{
+				this.machines = ArraysUtils.shuffle( gaco.machines.slice() );
+			}
+			
+			if( null == this.machine )
+			{
+				this.machine = this.machines.pop();
+			}
+			else
+			{
+				var tempMachine = this.machines.shift();
+				this.machines.push( this.machine );
+				this.machine = tempMachine;
+			}
+
 			var userPositions = gaco.userPositions.split( '' );
 			userPositions[ this.properties.position ] = this.machine.code;
 			gaco.userPositions = userPositions.join( '' );
 			console.clear();
-			console.log(gaco.rightPositions);
-			console.log(gaco.userPositions);
 		};
 
 		Machine.prototype.redraw = function()

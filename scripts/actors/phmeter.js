@@ -1,5 +1,5 @@
 
-define( [ 'actors/base' ], function( BaseActor )
+define( [ 'scullge/actor' ], function( BaseActor )
 	{
 		function Phmeter()
 		{

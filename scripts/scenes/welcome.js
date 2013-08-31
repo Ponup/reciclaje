@@ -1,7 +1,7 @@
 
 define(
-	[ 'scenes/base', 'scenes/conveyorbelt', 'scenes/pickerbrief', 'scenes/recyclingPlant', 'scenes/intro', 'game/context', 'text!templates/scenes/welcome.html' ],
-	function( SceneBase, ConveyorBeltScene, PickerBriefScene, RecyclingPlantScene, IntroScene, gaco, tplHtml )
+	[ 'scenes/base', 'scenes/conveyorbelt', 'scenes/pickerbrief', 'scenes/recyclingPlant', 'scenes/intro', 'scenes/halloffame', 'game/context', 'text!templates/scenes/welcome.html' ],
+	function( SceneBase, ConveyorBeltScene, PickerBriefScene, RecyclingPlantScene, IntroScene, HalloffameScene, gaco, tplHtml )
 	{
 		function WelcomeScene()
 		{
@@ -49,6 +49,13 @@ define(
 				}
 			);
 
+			$( '#viewHalloffame' ).on( 'click', function( ev )
+				{
+					var scene = new HalloffameScene();
+                                	gaco.sceneManager.add( scene );
+					gaco.sceneManager.switchTo( scene );
+				}
+			);
 		};
 
 		return WelcomeScene;
