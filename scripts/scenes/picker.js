@@ -1,6 +1,6 @@
 
 define(
-	[ 'utils/arrays', 'game/context', 'game/engine', 'scenes/base', 'actors/pickable', 'actors/scoreboard', 'actors/chronometer', 'text!templates/scenes/picker.html' ],
+	[ 'utils/arrays', 'game/context', 'game/engine', 'scullge/scene', 'actors/pickable', 'actors/scoreboard', 'actors/chronometer', 'text!templates/scenes/picker.html' ],
 	function( ArraysUtils, gaco, GameEngine, Scene, PickableActor, ScoreBoardActor, ChronometerActor, tplHtml )
 {
 	function PickerScene()

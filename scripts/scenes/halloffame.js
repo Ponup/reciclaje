@@ -1,5 +1,5 @@
 
-define( [ 'handlebars', 'game/context', 'scenes/base', 'game/scores', 'text!templates/halloffame.html' ], function( Handlebars, gaco, Scene, Scores, hofHtml )
+define( [ 'handlebars', 'game/context', 'scullge/scene', 'game/scores', 'text!templates/halloffame.html' ], function( Handlebars, gaco, Scene, Scores, hofHtml )
 {
 	function HalloffameScene()
 	{

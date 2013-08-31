@@ -1,6 +1,6 @@
 
 define(
-	[ 'scenes/base', 'scenes/conveyorbelt', 'scenes/pickerbrief', 'scenes/recyclingPlant', 'scenes/intro', 'scenes/halloffame', 'game/context', 'text!templates/scenes/welcome.html' ],
+	[ 'scullge/scene', 'scenes/conveyorbelt', 'scenes/pickerbrief', 'scenes/recyclingPlant', 'scenes/intro', 'scenes/halloffame', 'game/context', 'text!templates/scenes/welcome.html' ],
 	function( SceneBase, ConveyorBeltScene, PickerBriefScene, RecyclingPlantScene, IntroScene, HalloffameScene, gaco, tplHtml )
 	{
 		function WelcomeScene()

@@ -1,5 +1,5 @@
 
-define( [ 'game/context', 'scenes/base', 'text!templates/help.html' ], function( gaco, Scene, helpHtml )
+define( [ 'game/context', 'scullge/scene', 'text!templates/help.html' ], function( gaco, Scene, helpHtml )
 {
 	function HelpScene()
 	{

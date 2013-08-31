@@ -1,5 +1,5 @@
 
-define( [ 'scenes/base' ], function( BaseScene )
+define( [ 'scullge/scene' ], function( BaseScene )
 {
 	function SceneManager()
 	{

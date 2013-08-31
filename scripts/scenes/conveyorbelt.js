@@ -1,6 +1,6 @@
 
 define(
-	[ 'scenes/base', 'scenes/picker', 'actors/phmeter', 'actors/actor3', 'game/engine', 'game/context', 'text!templates/scenes/conveyorBelt.html' ],
+	[ 'scullge/scene', 'scenes/picker', 'actors/phmeter', 'actors/actor3', 'game/engine', 'game/context', 'text!templates/scenes/conveyorBelt.html' ],
 	function( SceneBase, PickerScene, PhmeterActor, Actor3, GameEngine, gaco, tplHtml )
 {
 	function ConveyorBeltScene()

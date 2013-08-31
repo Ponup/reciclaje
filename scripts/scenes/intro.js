@@ -1,5 +1,5 @@
 
-define( [ 'game/context', 'scenes/base', 'game/audiomanager', 'text!templates/intro.html',
+define( [ 'game/context', 'scullge/scene', 'game/audiomanager', 'text!templates/intro.html',
         'scenes/halloffame',
         'scenes/help',
         'scenes/gameplay',
