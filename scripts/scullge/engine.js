@@ -4,8 +4,11 @@ define( [ 'scullge/actor' ], function( Actor )
 		function GameEngine()
 		{
 			this.intervalId = null;
+			
 			this.actors = [];
 			this.updateListeners = [];
+
+			this.context = {};
 		}
 
 		GameEngine.prototype.addUpdateListener = function( listener )

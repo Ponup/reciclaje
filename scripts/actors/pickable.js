@@ -1,10 +1,10 @@
 
-define( [ 'scullge/actor', 'game/context' ], function( Actor, gaco )
+define( [ 'scullge/actor', 'utils/dom', 'game/context' ], function( Actor, DomUtils, gaco )
 	{
 		var PickableState = {
 			STANDING: 	0,
 			CLICKED: 	1,
-			HIGHLIGHTED: 	2,
+			DEAD:		2,
 		};
 
 		function Pickable()
@@ -37,6 +37,7 @@ define( [ 'scullge/actor', 'game/context' ], function( Actor, gaco )
 
 			this.img.onclick = function()
 			{
+				self.img.onclick = function() {};
 				gaco.score += ( self.properties.data.correct ? +10 : -5 );
 				self.state = PickableState.CLICKED;
 			};
@@ -50,6 +51,8 @@ define( [ 'scullge/actor', 'game/context' ], function( Actor, gaco )
 
 		Pickable.prototype.redraw = function()
 		{
+			var self = this;
+
 			switch( this.state )
 			{
 				case PickableState.STANDING:
@@ -57,12 +60,13 @@ define( [ 'scullge/actor', 'game/context' ], function( Actor, gaco )
 					this.img.style.top = this.properties.y + 'px';
 					break;
 				case PickableState.CLICKED:
-					$( this.img ).animate({ border: '10px solid black' }, 1000 );
-					this.state = PickableState.STANDING;
-
-//					this.img.style.display = 'none';
+					$( this.img ).animate({ opacity: 0 }, 100, function()
+						{
+							self.state = PickableState.DEAD;
+					});
 					break;
-				case PickableState.HIGHLIGHTED:
+				case PickableState.DEAD:
+					DomUtils.removeNode( this.img );
 					break;
 			}
 		};

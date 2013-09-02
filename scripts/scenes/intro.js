@@ -96,7 +96,6 @@ define( [ 'game/context', 'scullge/scene', 'game/audiomanager', 'text!templates/
 
                 var cssLoader = new CssLoader();
                 cssLoader.loadCsss([
-                        CONTEXT_PATH + '/styles/scenes/intro.css',
                         CONTEXT_PATH + '/styles/scenes/help.css',
                         CONTEXT_PATH + '/styles/scenes/gameplay.css',
                         CONTEXT_PATH + '/styles/scenes/gameover.css',

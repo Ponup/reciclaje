@@ -16,11 +16,10 @@ var dependencies = [
 	'game/audiomanager',
 	'scenes/manager',
 	'scenes/welcome',
-	'utils/cssloader',
 ];
 
 require( dependencies, 
-	function( $, gaco, AudioManager, SceneManager, WelcomeScene, CssLoader )
+	function( $, gaco, AudioManager, SceneManager, WelcomeScene )
 	{
 		gaco.audioManager = new AudioManager();
 		gaco.audioManager.load( 'tap', CONTEXT_PATH + '/sounds/tap.mp3' );
@@ -68,9 +67,6 @@ require( dependencies,
 		gaco.activeElement = null;
 				
 		gaco.sceneManager = new SceneManager();
-
-		var cssLoader = new CssLoader();
-		cssLoader.loadCsss([ CONTEXT_PATH + '/styles/scenes/intro.css' ]);
 
 		$( document ).ready( function( ev )
 			{
