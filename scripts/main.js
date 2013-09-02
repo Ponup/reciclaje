@@ -16,10 +16,11 @@ var dependencies = [
 	'game/audiomanager',
 	'scenes/manager',
 	'scenes/intro',
+	'scenes/gameover',
 ];
 
 require( dependencies, 
-	function( $, gaco, AudioManager, SceneManager, IntroScene )
+	function( $, gaco, AudioManager, SceneManager, IntroScene, GameoverScene )
 	{
 		gaco.audioManager = new AudioManager();
 		gaco.audioManager.load( 'tap', CONTEXT_PATH + '/sounds/tap.mp3' );
@@ -67,6 +68,7 @@ require( dependencies,
 		gaco.activeElement = null;
 				
 		gaco.sceneManager = new SceneManager();
+		gaco.sceneManager = new SceneManager( new GameoverScene() ); // The only common scene.
 
 		$( document ).ready( function( ev )
 			{

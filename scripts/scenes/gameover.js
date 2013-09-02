@@ -33,13 +33,13 @@ define( [ 'game/context', 'scullge/scene', 'text!templates/gameover.html' ], fun
 		if( hasWin ) 
 		{
 			gaco.audioManager.play( 'gameWin' );
+			$( '#gameOver' ).addClass( 'Winner' );
 		}
 		else
 		{
 			gaco.audioManager.play( 'gameLose' );
+			$( '#gameOver' ).addClass( 'Loser' );
 		}
-
-		var imgSrc = hasWin ? '/images/messages/game_win.png' : '/images/messages/game_lose.png';
 
 		$( '#outcome' ).attr( 'src', CONTEXT_PATH + imgSrc );
 		$( '#gameover' ).fadeIn();
