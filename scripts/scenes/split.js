@@ -1,28 +1,28 @@
 
-define( [ 'game/context', 'scullge/scene', 'actors/element', 'actors/container', 'actors/statspanel', 'scullge/engine', 'text!templates/gameplay.html', 'game/scores', 'actors/clock', 'utils/arrays' ], function( gaco, Scene, Element, Container, StatsPanel, GameEngine, gameplayHtml, Scores, ClockActor, ArrayUtils )
+define( [ 'game/context', 'scullge/scene', 'actors/element', 'actors/container', 'actors/statspanel', 'scullge/engine', 'text!templates/scenes/split.html', 'game/scores', 'actors/clock', 'utils/arrays' ], function( gaco, Scene, Element, Container, StatsPanel, GameEngine, tplHtml, Scores, ClockActor, ArraysUtils )
 {
-	function GameplayScene()
+	function SplitScene()
 	{
 		Scene.call( this );
 
-		this.setId( 'gameplay' );
+		this.setId( 'split' );
 	};
 
-	GameplayScene.prototype = new Scene();
+	SplitScene.prototype = new Scene();
 
-	GameplayScene.prototype.switchFrom = function( prevScene )
+	SplitScene.prototype.switchFrom = function( prevScene )
 	{
 		prevScene.hide();
 
 		$( '#canvas' ).empty();
-		$( '#canvas' ).append( $( gameplayHtml ) );
+		$( '#canvas' ).append( $( tplHtml) );
 		
 		gaco.gameEngine = new GameEngine();
 
 		this.start();
 	};
 
-	GameplayScene.prototype.start = function()
+	SplitScene.prototype.start = function()
 	{
 		gaco.gameVars = {
 			score: 0,
@@ -44,7 +44,7 @@ define( [ 'game/context', 'scullge/scene', 'actors/element', 'actors/container',
 		gaco.gameEngine.start();
 	};
 
-	GameplayScene.prototype.newLevel = function( level )
+	SplitScene.prototype.newLevel = function( level )
 	{
 		gaco.gameVars = $.extend({}, gaco.gameVars, {
 			remainingTime: 60,
@@ -52,11 +52,11 @@ define( [ 'game/context', 'scullge/scene', 'actors/element', 'actors/container',
 			elapsedSeconds: 0,
 			correctMovements: 0,
 			currentLevel: level,
-			elementsAvailable: ArrayUtils.shuffle( gaco.elements.slice() ),
+			elementsAvailable: ArraysUtils.shuffle( gaco.elements.slice() ),
 		});
 	};
 
-	GameplayScene.prototype.updateElements = function()
+	SplitScene.prototype.updateElements = function()
 	{
 		gaco.gameVars.remainingTime++;
 
@@ -86,7 +86,7 @@ define( [ 'game/context', 'scullge/scene', 'actors/element', 'actors/container',
 					containers[i].properties.numElements = 0;
 				}
 				gaco.gameVars.correctMovements = 0;
-				gaco.gameVars.elementsAvailable = shuffleArray( gaco.elements.slice() );
+				gaco.gameVars.elementsAvailable = ArraysUtils.shuffle( gaco.elements.slice() );
 				
 				gaco.gameVars.state = gaco.GameState.WAITING_ELEMENT;
 				break;
@@ -133,7 +133,7 @@ define( [ 'game/context', 'scullge/scene', 'actors/element', 'actors/container',
 		}
 	};
 
-	GameplayScene.prototype.setupContainers = function( $gameplay )
+	SplitScene.prototype.setupContainers = function( $gameplay )
 	{
 		$( '.Container' ).remove();
 
@@ -152,6 +152,6 @@ define( [ 'game/context', 'scullge/scene', 'actors/element', 'actors/container',
 		}
 	};
 
-	return GameplayScene;
+	return SplitScene;
 });
 

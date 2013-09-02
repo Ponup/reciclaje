@@ -15,11 +15,11 @@ var dependencies = [
 	'game/context',
 	'game/audiomanager',
 	'scenes/manager',
-	'scenes/welcome',
+	'scenes/intro',
 ];
 
 require( dependencies, 
-	function( $, gaco, AudioManager, SceneManager, WelcomeScene )
+	function( $, gaco, AudioManager, SceneManager, IntroScene )
 	{
 		gaco.audioManager = new AudioManager();
 		gaco.audioManager.load( 'tap', CONTEXT_PATH + '/sounds/tap.mp3' );
@@ -70,8 +70,9 @@ require( dependencies,
 
 		$( document ).ready( function( ev )
 			{
-				gaco.sceneManager.add( new WelcomeScene() );
-				gaco.sceneManager.switchTo( 'welcome' );
+				var scene = new IntroScene();
+				gaco.sceneManager.add( scene );
+				gaco.sceneManager.switchTo( scene );
 			}
 		);
 	}

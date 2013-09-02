@@ -1,0 +1,64 @@
+
+<style>
+
+#rankingScene
+{
+	background: #46c2c6;
+	width: 1024px;
+	height: 768px;
+	position: relative;
+	margin: 0px auto;
+	padding: 20px;
+	display: none;
+}
+
+#introBg
+{
+	position: absolute;
+	bottom: 0px;
+}
+
+#rankingButtons
+{
+	text-align: right;
+}
+
+</style>
+
+<div id="rankingScene">
+
+	<img src="images/scenes/intro/bg.png" id="introBg" />
+
+	<div id="rankingButtons">
+		<button id="resetScores">Borrar puntuaciones</button>
+		<button id="gotoIntro">Volver</button>
+	</div>
+
+	<h1>Salón de la fama</h1>
+
+	<table id="players">
+	<thead>
+	<tr>
+		<th>#</th>
+		<th>Jugador</th>
+		<th>Puntuación</th>
+		<th>Nivel</th>
+		<th>Dia y hora</th>
+	</tr>
+	</thead>
+	<tbody id="hofEntries">
+	</tbody>
+	</table>
+
+</div>
+
+<script id="hofEntry" type="text/x-handlebars-template">
+<tr>
+	<td>{{position}}</td>
+	<td>{{player.name}}</td>
+	<td>{{game.score}}</td>
+	<td>{{game.level}}</td>
+	<td>{{game.datetime}}</td>
+</tr>
+</script>
+

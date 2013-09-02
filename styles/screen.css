@@ -1,15 +1,24 @@
 
+@font-face
+{
+	font-family: 'GameFont';
+	src: url('../fonts/doctor-soos-bold.ttf');
+}
+
 body
 {
 	background-color: white;
+	font-family: 'GameFont';
+	color: white;
 }
 
 input[type=text]
 {
 	font-size: x-large;
 	padding: 10px;
-	border: 0px;
-	border-bottom: 4px dashed #3eaf3e;
+	border: 2px solid rgba(0, 0, 0, .4);
+	box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, .4);
+	border-radius: 22px;
 	text-align: center;
 }
 
@@ -17,12 +26,13 @@ button
 {
 	font-size: x-large;
 	font-weight: bold;
-	padding: 24px;
+	padding: 10px 24px;
 	background-color: #3eaf3e;
 	color: white;
 	border: 0px;
-	border-radius: 10px;
-	box-shadow: 0px;
+	border-top-left-radius: 40px;
+	border-bottom-right-radius: 40px;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
 }
 	button:hover
 	{
@@ -70,11 +80,5 @@ div#logos
 div#loading
 {
 	text-align: center;
-}
-
-@font-face
-{
-	font-family: 'GameFont';
-	src: url('../fonts/doctor-soos-bold.ttf');
 }
 

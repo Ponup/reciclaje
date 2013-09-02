@@ -1,25 +1,22 @@
 
-define( [ 'handlebars', 'game/context', 'scullge/scene', 'game/scores', 'text!templates/halloffame.html' ], function( Handlebars, gaco, Scene, Scores, hofHtml )
+define( [ 'handlebars', 'game/context', 'scullge/scene', 'game/scores', 'text!templates/scenes/ranking.html' ], function( Handlebars, gaco, Scene, Scores, tplHtml )
 {
-	function HalloffameScene()
+	function RankingScene()
 	{
 		Scene.call( this );
 
-		this.setId( 'halloffame' );
+		this.setId( 'ranking' );
 	}
 
-	HalloffameScene.prototype = new Scene();
+	RankingScene.prototype = new Scene();
 
-	HalloffameScene.prototype.switchFrom = function( prevScene )
+	RankingScene.prototype.switchFrom = function( prevScene )
 	{
-		prevScene.hide();
-
-		$( '#canvas' ).empty();
-		$( '#canvas' ).append( $( hofHtml ) );
+		$( '#canvas' ).empty().append( $( tplHtml ) );
 
 		$( '#gotoIntro' ).on( 'click', function( ev )
 			{
-				gaco.sceneManager.switchTo( 'welcome' );
+				gaco.sceneManager.switchTo( 'intro' );
 			}
 		);
 		$( '#resetScores' ).on( 'click', function( ev )
@@ -44,9 +41,10 @@ define( [ 'handlebars', 'game/context', 'scullge/scene', 'game/scores', 'text!te
 			$hofEntries.append( html );
 		}
 
-		$( '#halloffame' ).fadeIn();
+		prevScene.hide();
+		$( '#rankingScene' ).fadeIn();
 	};
 
-	return HalloffameScene;
+	return RankingScene;
 });
 

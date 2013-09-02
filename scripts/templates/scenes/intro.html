@@ -1,0 +1,73 @@
+
+<style>
+
+#introScene
+{
+	background: #46c2c6;
+	width: 1024px;
+	height: 768px;
+	position: relative;
+	margin: 0px auto;
+	display: none;
+}
+
+#introBg
+{
+	position: absolute;
+	bottom: 0px;
+}
+
+#introButtons
+{
+	text-align: right;
+}
+	#introButtons img
+	{
+		cursor: pointer;
+	}
+
+#introLogo
+{
+	display: block;
+	margin: 0px auto;
+}
+
+#playerName
+{
+	margin: 0px auto 30px auto;
+	display: block;
+}
+
+#introText
+{
+	position: absolute;
+	bottom: 100px;
+	left: 0px;
+	right: 0px;
+	margin: 30px 0px;
+	text-align: center;
+	color: white;
+	font-size: 50px;
+}
+
+</style>
+
+<div id="introScene">
+
+	<img src="images/scenes/intro/bg.png" id="introBg" />
+
+	<div id="introButtons">
+		<img src="images/scenes/intro/button_ranking.png" id="introBtnRanking" />
+		<img src="images/scenes/intro/button_bonus.png" id="introBtnBonus" />
+		<img src="images/scenes/intro/button_process.png" id="introBtnProcess" />
+		<img src="images/scenes/intro/button_conveyorBelt.png" id="introBtnConveyorBelt" />
+	</div>
+
+	<img src="images/scenes/intro/logo.png" id="introLogo" />
+
+	<input type="text" id="playerName" placeholder="Tu nombre" />
+
+	<div id="introText">Toque la pantalla para comenzar a jugar</div>
+
+</div>
+

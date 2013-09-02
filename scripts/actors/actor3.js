@@ -23,9 +23,9 @@ define( [ 'scullge/actor', 'game/context' ], function( BaseActor, gaco )
 			this.node = document.createElement( 'img' );
 			this.node.className = 'Actor3';
 			this.node.style.position = 'absolute';
-			this.node.style.width = '200px';
-			this.node.style.height = '200px';
-			this.node.style.top = '380px';
+			this.node.style.width = '100px';
+			this.node.style.height = '100px';
+			this.node.style.top = '480px';
 			this.node.style.left = '-60px';
 			this.node.src = CONTEXT_PATH + '/images/items/' + this.properties.image + '.png';
 			this.node.onclick = function()
@@ -48,7 +48,7 @@ define( [ 'scullge/actor', 'game/context' ], function( BaseActor, gaco )
 			switch( this.state )
 			{
 				case Actor3State.MOVING:
-					this.properties.left++;
+					this.properties.left += 3;
 					break;
 			}
 		};
