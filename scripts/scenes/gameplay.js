@@ -1,5 +1,5 @@
 
-define( [ 'game/context', 'scullge/scene', 'actors/element', 'actors/container', 'actors/statspanel', 'game/engine', 'text!templates/gameplay.html', 'game/scores', 'actors/clock', 'utils/arrays' ], function( gaco, Scene, Element, Container, StatsPanel, GameEngine, gameplayHtml, Scores, ClockActor, ArrayUtils )
+define( [ 'game/context', 'scullge/scene', 'actors/element', 'actors/container', 'actors/statspanel', 'scullge/engine', 'text!templates/gameplay.html', 'game/scores', 'actors/clock', 'utils/arrays' ], function( gaco, Scene, Element, Container, StatsPanel, GameEngine, gameplayHtml, Scores, ClockActor, ArrayUtils )
 {
 	function GameplayScene()
 	{
