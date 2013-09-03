@@ -1,9 +1,9 @@
 
-define( [ 'scullge/engine', 'actors/pickable', 'actors/scoreboard', 'actors/chronometer', 'utils/arrays' ], function( Engine, PickableActor, ScoreBoardActor, ChronometerActor, ArraysUtils )
+define( [ 'scullge/engine', 'actors/pickable', 'actors/scoreboard', 'actors/chronometer', 'utils/arrays', 'game/context' ], function( Engine, PickableActor, ScoreBoardActor, ChronometerActor, ArraysUtils, gaco )
 	{
-		function PickerEngine()
+		function PickerEngine( nextScene )
 		{
-			this.context.currentLevel = 1;
+			this.nextScene = nextScene;
 		}
 
 		PickerEngine.prototype = new Engine();
@@ -79,6 +79,39 @@ define( [ 'scullge/engine', 'actors/pickable', 'actors/scoreboard', 'actors/chro
 
 			this.addActor( new ChronometerActor() );
 			this.addActor( new ScoreBoardActor() );
+
+			this.addUpdateListener( $.proxy( this.onUpdate, this ) );
+
+			gaco.gameVars = {
+				elapsedSecons: 0,
+				score: 0,
+			};
+
+			this.context.currentLevel = 1;
+			this.context.initTime = Date.now();
+			this.context.seconds = 0;
+		};
+
+		PickerEngine.prototype.onUpdate = function()
+		{
+			this.context.seconds = ( Date.now() - this.context.initTime ) / 1000;
+
+			// @TODO Use a single place to store common vars.
+			gaco.gameVars.elapsedSeconds = this.context.seconds;
+			gaco.gameVars.score = gaco.score;
+
+			if( gaco.score >= 40 )
+			{
+				this.stop();
+				gaco.sceneManager.switchTo( this.nextScene );
+				return;
+			}
+
+			if( this.context.seconds >= 10 )
+			{
+				this.stop();
+				gaco.sceneManager.switchTo( 'gameover' );
+			}
 		};
 
 		return PickerEngine;

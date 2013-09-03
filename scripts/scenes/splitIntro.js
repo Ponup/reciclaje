@@ -1,10 +1,9 @@
 
 define( [ 'game/context', 'scullge/scene', 'game/audiomanager', 'text!templates/scenes/splitIntro.html',
         'scenes/split',
-        'scenes/gameover',
         'utils/cssloader'
 
- ], function( gaco, Scene, AudioManager, tplHtml, SplitScene, GameoverScene, CssLoader )
+ ], function( gaco, Scene, AudioManager, tplHtml, SplitScene, CssLoader )
 {
 	function SplitIntroScene()
 	{
@@ -24,14 +23,6 @@ define( [ 'game/context', 'scullge/scene', 'game/audiomanager', 'text!templates/
 
 		$( '#canvas' ).empty();
 		$( '#canvas' ).append( $( tplHtml ) );
-
-                gaco.audioManager = new AudioManager();
-                gaco.audioManager.load( 'introMusic', CONTEXT_PATH + '/sounds/music.mp3' );
-                gaco.audioManager.load( 'helpMusic', CONTEXT_PATH + '/sounds/level-start.mp3' );
-                gaco.audioManager.load( 'gameWin', CONTEXT_PATH + '/sounds/game-win.mp3' );
-                gaco.audioManager.load( 'gameLose', CONTEXT_PATH + '/sounds/gameover.mp3' ); 
-                gaco.audioManager.load( 'tap', CONTEXT_PATH + '/sounds/tap.mp3' );
-                gaco.audioManager.load( 'tapWrong', CONTEXT_PATH + '/sounds/tap-wrong.mp3' );
 
                 gaco.GameState = {
                         NEW_GAME                :0,
@@ -96,9 +87,7 @@ define( [ 'game/context', 'scullge/scene', 'game/audiomanager', 'text!templates/
                 cssLoader.loadCsss([
                         CONTEXT_PATH + '/styles/scenes/help.css',
                         CONTEXT_PATH + '/styles/scenes/gameplay.css',
-                        CONTEXT_PATH + '/styles/scenes/gameover.css',
                 ]);
-
 
 		var bgMusic = gaco.audioManager.play( 'introMusic' );
 		bgMusic.pause();

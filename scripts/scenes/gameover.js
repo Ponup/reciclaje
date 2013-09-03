@@ -1,10 +1,11 @@
 
 define( [ 'game/context', 'scullge/scene', 'text!templates/gameover.html' ], function( gaco, Scene, gameoverHtml )
 {
-	function GameoverScene()
+	function GameoverScene( hasWin )
 	{
 		Scene.call( this );
 
+		this.hasWin = hasWin;
 		this.setId( 'gameover' );
 	}
 
@@ -12,38 +13,33 @@ define( [ 'game/context', 'scullge/scene', 'text!templates/gameover.html' ], fun
 
 	GameoverScene.prototype.switchFrom = function( prevScene )
 	{
-		$( '#canvas' ).empty();
-		$( '#canvas' ).append( $( gameoverHtml ) );
-
-		$( '#replayButton' ).unbind( 'click' );
-		$( '#replayButton' ).on( 'click', function( ev )
-			{
-				$( '#gameover' ).hide();
-				gaco.sceneManager.switchTo( 'help' );
-			}
-		);
+		$( '#canvas' ).empty().append( $( gameoverHtml ) );
 
 		$( '#viewHalloffame2' ).on( 'click', function( ev )
 			{
-				gaco.sceneManager.switchTo( 'halloffame' );
+				gaco.sceneManager.switchTo( 'ranking' );
 			}
 		);
 
-		var hasWin = gaco.canPassLevel();
-		if( hasWin ) 
+		if( this.hasWin ) 
 		{
 			gaco.audioManager.play( 'gameWin' );
-			$( '#gameOver' ).addClass( 'Winner' );
+			$( '#gameoverScene' ).addClass( 'Winner' ).fadeIn();
+			$( 'div.Winner' ).removeClass( 'Hidden' );
 		}
 		else
 		{
 			gaco.audioManager.play( 'gameLose' );
-			$( '#gameOver' ).addClass( 'Loser' );
+			$( '#gameoverScene' ).addClass( 'Loser' ).fadeIn();
+			$( 'div.Loser' ).removeClass( 'Hidden' );
 		}
 
-		$( '#outcome' ).attr( 'src', CONTEXT_PATH + imgSrc );
+		$( '.Puntos' ).html( gaco.gameVars.score );
+		$( '.Segundos' ).html( gaco.gameVars.elapsedSeconds );
+
 		$( '#gameover' ).fadeIn();
 	};
 
 	return GameoverScene;
 });
+

@@ -32,7 +32,7 @@ define( [ 'handlebars', 'game/context', 'scullge/scene', 'game/scores', 'text!te
 		var source = $( '#hofEntry' ).html();
 		var template = Handlebars.compile( source );
 
-		var scores = Scores.list();
+		var scores = Scores.list( 20 );
 		for( var i = 0; i < scores.length; i++ )
 		{
 			var score = scores[i];

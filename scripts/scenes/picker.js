@@ -1,13 +1,15 @@
 
 define(
-	[ 'engines/picker', 'scullge/scene', 'text!templates/scenes/picker.html' ],
-	function( PickerEngine, Scene, tplHtml )
+	[ 'engines/picker', 'scullge/scene', 'game/context', 'text!templates/scenes/picker.html' ],
+	function( PickerEngine, Scene, gaco, tplHtml )
 {
-	function PickerScene()
+	function PickerScene( nextScene )
 	{
 		Scene.call( this );
 
 		this.setId( 'picker' );
+
+		this.nextScene = nextScene;
 	}
 
 	PickerScene.prototype = new Scene();
@@ -24,9 +26,10 @@ define(
 		var picker = document.getElementById( 'picker' );
 		$( picker ).fadeIn();
 
-		var gameEngine = new PickerEngine();
-		gameEngine.init();
-		gameEngine.start();
+		gaco.engine = new PickerEngine();
+		gaco.engine.nextScene = this.nextScene;
+		gaco.engine.init();
+		gaco.engine.start();
 	};
 
 	return PickerScene;

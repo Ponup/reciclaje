@@ -3,11 +3,13 @@ define(
 	[ 'scullge/scene', 'scenes/picker', 'game/context', 'text!templates/scenes/pickerbrief.html' ],
 	function( SceneBase, PickerScene, gaco, tplHtml )
 {
-	function PickerBriefScene()
+	function PickerBriefScene( nextScene )
 	{
 		SceneBase.call( this );
 
 		this.setId( 'pickerbrief' );
+
+		this.nextScene = nextScene;
 	}
 
 	PickerBriefScene.prototype = new SceneBase();
@@ -15,6 +17,7 @@ define(
 
 	PickerBriefScene.prototype.switchFrom = function( prevScene )
 	{
+		var self = this;
 		prevScene.hide();
 
 		var canvas = document.getElementById( 'canvas' ),
@@ -25,7 +28,7 @@ define(
 		canvas.onclick = function()
 		{
 			canvas.onclick = function() {};
-			gaco.sceneManager.add( new PickerScene() );
+			gaco.sceneManager.add( new PickerScene( self.nextScene ) );
 			gaco.sceneManager.switchTo( 'picker' );
 		};
 	};

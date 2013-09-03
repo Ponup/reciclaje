@@ -1,35 +1,72 @@
 
 <style>
 
+#gameoverScene h1
+{
+	color: #F7DD63;
+	font-size: 50px;
+	text-align: center;
+}
+#gameoverScene h2
+{
+	font-size: 35px;
+	text-align: center;
+}
+
+#gameoverButtons
+{
+	text-align: right;
+}
+
+#gameoverLogo
+{
+	display: block;
+	margin: 0px auto;
+}
+
 #gameoverScene
 {
+	background: #46c2c6;
+	width: 1024px;
+	height: 768px;
 	position: relative;
+	margin: 0px auto;
+	display: none;
 }
-	#gameoverScene img.Sidebar
+	#gameoverScene.Winner
 	{
-		position: absolute;
-		top: 0px;
-		left: 0px;
+		background: #96c222;
 	}
-	#gameoverScene div
+	#gameoverScene.Loser
 	{
-		position: absolute;
-		top: 150px;
-		left: 0px;
-		right: 0px;
-		text-align: center;
+		background: #c3570d;
 	}
+
+#gameoverBg
+{
+	position: absolute;
+	bottom: 0px;
+}
 
 </style>
 
 <div id="gameoverScene">
-	<img src="images/brief_sidebar.png" class="Sidebar" />
 
-	<div>
-		<p><img src="" id="outcome" /></p>	
-		<p><img class="Button" id="replayButton" src="images/buttons/play-again.png" /></p>
+	<img src="images/scenes/intro/bg.png" id="gameoverBg" />
+
+	<div id="gameoverButtons"><button id="viewHalloffame2">Ir al salón de la fama</button></div>
+
+	<img src="images/logo.png" id="gameoverLogo" />
+
+	<div class="Winner Hidden">
+	<h1>¡Ganaste! :)</h1>
+	<h2>Lograste <span class="Puntos">0</span> puntos<br />en <span class="Segundos">0</span> segundos.</h2>
 	</div>
 
-	<p><button id="viewHalloffame2">Ir al salón de la fama</button></p>
+	<div class="Loser Hidden">
+	<h1>Perdiste :(</h1>
+	<h2>Lograste <span class="Puntos">0</span> puntos<br />en <span class="Segundos">0</span> segundos.</h2>
+	</div>
+
 </div>
 

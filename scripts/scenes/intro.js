@@ -1,7 +1,7 @@
 
 define(
-	[ 'scullge/scene', 'scenes/conveyorbelt', 'scenes/pickerbrief', 'scenes/recyclingPlant', 'scenes/splitIntro', 'scenes/ranking', 'game/context', 'text!templates/scenes/intro.html' ],
-	function( BaseScene, ConveyorBeltScene, PickerBriefScene, RecyclingPlantScene, SplitIntroScene, RankingScene, gaco, tplHtml )
+	[ 'scullge/scene', 'scenes/conveyorbelt', 'scenes/pickerbrief', 'scenes/recyclingPlant', 'scenes/splitIntro', 'game/context', 'text!templates/scenes/intro.html' ],
+	function( BaseScene, ConveyorBeltScene, PickerBriefScene, RecyclingPlantScene, SplitIntroScene, gaco, tplHtml )
 	{
 		function IntroScene()
 		{
@@ -23,9 +23,7 @@ define(
 
 			$( '#introBtnRanking' ).on( 'click', function()
 				{
-					var scene = new RankingScene();
-					gaco.sceneManager.add( scene );
-					gaco.sceneManager.switchTo( scene );
+					gaco.sceneManager.switchTo( 'ranking' );
 				}
 			);
 			$( '#introBtnBonus' ).on( 'click', function()
@@ -39,14 +37,20 @@ define(
 				{
 					var scene = new RecyclingPlantScene();
 					gaco.sceneManager.add( scene );
-					gaco.sceneManager.switchTo( scene );
+
+					var picker = new PickerBriefScene( scene );
+					gaco.sceneManager.add( picker );
+					gaco.sceneManager.switchTo( picker );
 				}
 			);
 			$( '#introBtnConveyorBelt' ).on( 'click', function()
 				{
 					var scene = new ConveyorBeltScene();
 					gaco.sceneManager.add( scene );
-					gaco.sceneManager.switchTo( scene );
+
+					var picker = new PickerBriefScene( scene );
+					gaco.sceneManager.add( picker );
+					gaco.sceneManager.switchTo( picker );
 				}
 			);
 			$( '#splitLink' ).on( 'click', function()

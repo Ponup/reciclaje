@@ -1,7 +1,7 @@
 
 define(
-	[ 'scullge/scene', 'engines/conveyorBelt', 'text!templates/scenes/conveyorBelt.html' ],
-	function( SceneBase, ConveyorBeltEngine, tplHtml )
+	[ 'scullge/scene', 'engines/conveyorBelt', 'game/context', 'text!templates/scenes/conveyorBelt.html' ],
+	function( SceneBase, ConveyorBeltEngine, gaco, tplHtml )
 {
 	function ConveyorBeltScene()
 	{
@@ -22,9 +22,9 @@ define(
 
 		$canvas.empty().append( tplHtml );
 
-		var engine = new ConveyorBeltEngine();
-		engine.init();
-		engine.start();
+		gaco.engine = new ConveyorBeltEngine();
+		gaco.engine.init();
+		gaco.engine.start();
 	};
 
 	return ConveyorBeltScene;

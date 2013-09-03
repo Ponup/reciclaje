@@ -59,6 +59,7 @@ define( [ 'game/context', 'scullge/scene', 'actors/element', 'actors/container',
 	SplitScene.prototype.updateElements = function()
 	{
 		gaco.gameVars.remainingTime++;
+		gaco.gameVars.elapsedSeconds = parseInt( ( Date.now() - gaco.gameVars.startTime ) / 1000 );
 
 		switch( gaco.gameVars.state )
 		{
