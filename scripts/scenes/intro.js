@@ -1,7 +1,7 @@
 
 define(
-	[ 'scullge/scene', 'scenes/conveyorbelt', 'scenes/pickerbrief', 'scenes/recyclingPlant', 'scenes/splitIntro', 'game/context', 'text!templates/scenes/intro.html' ],
-	function( BaseScene, ConveyorBeltScene, PickerBriefScene, RecyclingPlantScene, SplitIntroScene, gaco, tplHtml )
+	[ 'scullge/scene', 'scenes/conveyorbelt', 'scenes/pickerbrief', 'scenes/recyclingPlant', 'game/context', 'text!templates/scenes/intro.html' ],
+	function( BaseScene, ConveyorBeltScene, PickerBriefScene, RecyclingPlantScene, gaco, tplHtml )
 	{
 		function IntroScene()
 		{
@@ -28,9 +28,13 @@ define(
 			);
 			$( '#introBtnBonus' ).on( 'click', function()
 				{
-					var scene = new SplitIntroScene();
-					gaco.sceneManager.add( scene );
-					gaco.sceneManager.switchTo( scene );
+					require( [ 'scenes/splitIntro' ], function( SplitIntroScene )
+						{
+							var scene = new SplitIntroScene();
+							gaco.sceneManager.add( scene );
+							gaco.sceneManager.switchTo( scene );
+						}
+					);
 				}
 			);
 			$( '#introBtnProcess' ).on( 'click', function()

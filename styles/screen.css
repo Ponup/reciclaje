@@ -66,8 +66,17 @@ section
 	background-color: #EFECEA;
 }
 
-div#loading
+#loadingScene
 {
-	text-align: center;
+	background: #46c2c6;
+	width: 1024px;
+	height: 768px;
+	position: relative;
+	margin: 0px auto;
 }
+	#loadingLogo
+	{
+		display: block;
+		margin: 0px auto;
+	}
 

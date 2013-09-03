@@ -1,5 +1,5 @@
 
-define( [ 'game/context', 'scullge/scene', 'actors/element', 'actors/container', 'actors/statspanel', 'scullge/engine', 'text!templates/scenes/split.html', 'game/scores', 'actors/clock', 'utils/arrays' ], function( gaco, Scene, Element, Container, StatsPanel, GameEngine, tplHtml, Scores, ClockActor, ArraysUtils )
+define( [ 'game/context', 'scullge/scene', 'actors/element', 'actors/container', 'actors/statspanel', 'engines/split', 'text!templates/scenes/split.html', 'game/scores', 'actors/analogClock', 'utils/arrays' ], function( gaco, Scene, Element, Container, StatsPanel, SplitEngine, tplHtml, Scores, AnalogClockActor, ArraysUtils )
 {
 	function SplitScene()
 	{
@@ -17,13 +17,17 @@ define( [ 'game/context', 'scullge/scene', 'actors/element', 'actors/container',
 		$( '#canvas' ).empty();
 		$( '#canvas' ).append( $( tplHtml) );
 		
-		gaco.gameEngine = new GameEngine();
+		gaco.gameEngine = new SplitEngine();
 
 		this.start();
 	};
 
 	SplitScene.prototype.start = function()
 	{
+		gaco.gameEngine.init();
+		gaco.gameEngine.addActor( new StatsPanel() );
+		gaco.gameEngine.addActor( new AnalogClockActor() );
+
 		gaco.gameVars = {
 			score: 0,
 			state: gaco.GameState.NEW_GAME,
@@ -39,8 +43,6 @@ define( [ 'game/context', 'scullge/scene', 'actors/element', 'actors/container',
 		$gameplay.fadeIn();
 
 		gaco.gameEngine.addUpdateListener( $.proxy( this.updateElements, this ) );
-		gaco.gameEngine.addActor( new StatsPanel() );
-		gaco.gameEngine.addActor( new ClockActor() );
 		gaco.gameEngine.start();
 	};
 
