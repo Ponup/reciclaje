@@ -29,7 +29,14 @@ define(
 		gaco.engine = new PickerEngine();
 		gaco.engine.nextScene = this.nextScene;
 		gaco.engine.init();
-		gaco.engine.start();
+
+		$( '#pickerBrief' ).on( 'click', function()
+			{
+				$( this ).remove();
+
+				gaco.engine.start();
+			}
+		);
 	};
 
 	return PickerScene;
