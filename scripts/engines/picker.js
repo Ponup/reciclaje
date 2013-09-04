@@ -1,5 +1,5 @@
 
-define( [ 'scullge/engine', 'actors/pickable', 'actors/scoreboard', 'actors/chronometer', 'utils/arrays', 'game/context' ], function( Engine, PickableActor, ScoreBoardActor, ChronometerActor, ArraysUtils, gaco )
+define( [ 'scullge/engine', 'actors/pickable', 'actors/scoreboard', 'actors/chronometer', 'utils/arrays', 'game/context', 'data/items', 'data/places' ], function( Engine, PickableActor, ScoreBoardActor, ChronometerActor, ArraysUtils, gaco, itemsData, placesData )
 	{
 		function PickerEngine( nextScene )
 		{
@@ -13,59 +13,12 @@ define( [ 'scullge/engine', 'actors/pickable', 'actors/scoreboard', 'actors/chro
 		{
 			$( '#currentLevel' ).html( this.context.currentLevel );
 
-			var elements = [
-				{ name: 'bolsa', correct: true },
-				{ name: 'botella_plastico', correct: true},
-				{ name: 'botella_vidrio', correct: false },
-				{ name: 'botella_vidrio_rota', correct: true },
-				{ name: 'caja_carton', correct: true },
-				{ name: 'carta', correct: false },
-				{ name: 'cd', correct: true },
-				{ name: 'copa', correct: true },
-				{ name: 'detergente', correct: false },
-				{ name: 'jarra_vidrio', correct: false },
-				{ name: 'libro', correct: true },
-				{ name: 'papel', correct: true },
-				{ name: 'revista', correct: false },
-				{ name: 'tupper', correct: false },
-				{ name: 'vaso', correct: true },
-			];
-
-			var places = [
-				{
-					code: 'park',
-					elements: [
-						{ x: 780, y: 340, scale: .4 },
-						{ x: 145, y: 420, scale: .8 },
-						{ x: 300, y: 430, scale: .9 },
-						{ x: 745, y: 480, scale: 1 },
-						{ x: 110, y: 550, scale: 1.2 },
-						{ x: 445, y: 570, scale: 1.4 },
-						{ x: 840, y: 600, scale: 1.6  },
-					],
-				},
-				{
-					code: 'room',
-					elements: [
-						{ x: 780, y: 340, scale: .4 },
-						{ x: 145, y: 420, scale: .8 },
-						{ x: 300, y: 430, scale: .9 },
-						{ x: 745, y: 480, scale: 1 },
-						{ x: 110, y: 550, scale: 1.2 },
-						{ x: 445, y: 570, scale: 1.4 },
-						{ x: 840, y: 600, scale: 1.6  },
-					],
-				},
-			];
-
-			var availableElements = elements.slice();
+			var availableElements = itemsData.slice();
 			availableElements = ArraysUtils.shuffle( availableElements );
 
-			var place = ArraysUtils.randomItem( places );
+			var place = ArraysUtils.randomItem( placesData );
 			document.getElementById( 'picker' ).style.backgroundImage = "url('images/scenes/picker/" + place.code + ".png')";
 
-			var numElements = 20;
-			var numBadElements = 5;
 			for( i = 0; i < place.elements.length; i++ )
 			{
 				var element = place.elements[ i ];

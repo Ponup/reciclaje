@@ -1,5 +1,5 @@
 
-define( [ 'scullge/engine', 'actors/phmeter', 'actors/actor3' ], function( Engine, PhmeterActor, Actor3 )
+define( [ 'scullge/engine', 'actors/phmeter', 'actors/actor3', 'data/items' ], function( Engine, PhmeterActor, Actor3, itemsData )
 	{
 		function ConveyorBeltEngine()
 		{
@@ -10,27 +10,9 @@ define( [ 'scullge/engine', 'actors/phmeter', 'actors/actor3' ], function( Engin
 
 		ConveyorBeltEngine.prototype.init = function()
 		{
-			var elements = [
-				{ name: 'bolsa', correct: true },
-				{ name: 'botella_plastico' , correct: true},
-				{ name: 'botella_vidrio', correct: false },
-				{ name: 'botella_vidrio_rota', correct: true },
-				{ name: 'caja_carton', correct: true },
-				{ name: 'carta', correct: false },
-				{ name: 'cd', correct: true },
-				{ name: 'copa', correct: true },
-				{ name: 'detergente', correct: false },
-				{ name: 'jarra_vidrio', correct: false },
-				{ name: 'libro', correct: true },
-				{ name: 'papel', correct: true },
-				{ name: 'revista', correct: false },
-				{ name: 'tupper', correct: false },
-				{ name: 'vaso', correct: true },
-			];
-
-			for( i = 0; i < elements.length; i++ )
+			for( i = 0; i < itemsData.length; i++ )
 			{
-				var el = elements[ i ];
+				var el = itemsData[ i ];
 				var actor = new Actor3();
 				actor.setProperty( 'image', el.name );
 				actor.setProperty( 'left', i * -85 );

@@ -1,5 +1,5 @@
 
-define( [ 'scullge/engine', 'game/audiomanager', 'game/context' ], function( Engine, AudioManager, gaco )
+define( [ 'scullge/engine', 'game/audiomanager', 'data/containerType', 'game/context' ], function( Engine, AudioManager, ContainerType, gaco )
 	{
 		function SplitEngine()
 		{
@@ -36,34 +36,10 @@ define( [ 'scullge/engine', 'game/audiomanager', 'game/context' ], function( Eng
 				{ minCorrectMovements: 12 },
 			];
 
-			gaco.ContainerType = {
-				PLASTIC: 0,
-				PAPER: 1,
-				GLASS: 2,
-			};
-				
 			gaco.containers = [
-				{ name: 'papel', type: gaco.ContainerType.PAPER },
-				{ name: 'plastico', type: gaco.ContainerType.PLASTIC },
-				{ name: 'vidrio', type: gaco.ContainerType.GLASS },
-			];
-
-			gaco.elements = [
-				{ name: 'bolsa', containerType: gaco.ContainerType.PLASTIC },
-				{ name: 'botella_plastico', containerType: gaco.ContainerType.PLASTIC },
-				{ name: 'botella_vidrio', containerType: gaco.ContainerType.GLASS },
-				{ name: 'botella_vidrio_rota', containerType: gaco.ContainerType.GLASS },
-				{ name: 'caja_carton', containerType: gaco.ContainerType.PAPER },
-				{ name: 'carta', containerType: gaco.ContainerType.PAPER },
-				{ name: 'cd', containerType: gaco.ContainerType.PLASTICO },
-				{ name: 'copa', containerType: gaco.ContainerType.GLASS },
-				{ name: 'detergente', containerType: gaco.ContainerType.PLASTIC },
-				{ name: 'jarra_vidrio', containerType: gaco.ContainerType.GLASS },
-				{ name: 'libro', containerType: gaco.ContainerType.PAPER },
-				{ name: 'papel', containerType: gaco.ContainerType.PAPER },
-				{ name: 'revista', containerType: gaco.ContainerType.PAPER },
-				{ name: 'tupper', containerType: gaco.ContainerType.PLASTIC },
-				{ name: 'vaso', containerType: gaco.ContainerType.GLASS },
+				{ name: 'papel', type: ContainerType.PAPER },
+				{ name: 'plastico', type: ContainerType.PLASTIC },
+				{ name: 'vidrio', type: ContainerType.GLASS },
 			];
 
 			gaco.uniqueIndex = 0;

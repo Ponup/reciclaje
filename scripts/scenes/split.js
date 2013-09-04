@@ -1,5 +1,5 @@
 
-define( [ 'game/context', 'scullge/scenes/base', 'actors/element', 'actors/container', 'actors/statspanel', 'engines/split', 'text!templates/scenes/split.html', 'game/scores', 'actors/analogClock', 'utils/arrays' ], function( gaco, Scene, Element, Container, StatsPanel, SplitEngine, tplHtml, Scores, AnalogClockActor, ArraysUtils )
+define( [ 'game/context', 'scullge/scenes/base', 'actors/element', 'actors/container', 'actors/statspanel', 'engines/split', 'text!templates/scenes/split.html', 'game/scores', 'actors/analogClock', 'utils/arrays', 'data/items' ], function( gaco, Scene, Element, Container, StatsPanel, SplitEngine, tplHtml, Scores, AnalogClockActor, ArraysUtils, dataItems )
 {
 	function SplitScene()
 	{
@@ -54,7 +54,7 @@ define( [ 'game/context', 'scullge/scenes/base', 'actors/element', 'actors/conta
 			elapsedSeconds: 0,
 			correctMovements: 0,
 			currentLevel: level,
-			elementsAvailable: ArraysUtils.shuffle( gaco.elements.slice() ),
+			elementsAvailable: ArraysUtils.shuffle( dataItems.slice() ),
 		});
 	};
 
@@ -68,12 +68,12 @@ define( [ 'game/context', 'scullge/scenes/base', 'actors/element', 'actors/conta
 			case gaco.GameState.NEW_GAME:
 				var $gameplay = $( '#gameplay' );
 				this.setupContainers( $gameplay );
-						var containers = gaco.gameEngine.findActorsByType( 'Container' );
-						for( var i = 0; i < containers.length; i++ )
-						{
-							containers[i].setFull( false );
-							containers[i].properties.numElements = 0;
-						}
+				var containers = gaco.gameEngine.findActorsByType( 'Container' );
+				for( var i = 0; i < containers.length; i++ )
+				{
+					containers[i].setFull( false );
+					containers[i].properties.numElements = 0;
+				}
 
 				gaco.gameVars.state = gaco.GameState.WAITING_ELEMENT;
 				break;
@@ -89,7 +89,7 @@ define( [ 'game/context', 'scullge/scenes/base', 'actors/element', 'actors/conta
 					containers[i].properties.numElements = 0;
 				}
 				gaco.gameVars.correctMovements = 0;
-				gaco.gameVars.elementsAvailable = ArraysUtils.shuffle( gaco.elements.slice() );
+				gaco.gameVars.elementsAvailable = ArraysUtils.shuffle( dataItems.slice() );
 				
 				gaco.gameVars.state = gaco.GameState.WAITING_ELEMENT;
 				break;
