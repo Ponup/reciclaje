@@ -1,5 +1,5 @@
 
-define( [ 'handlebars', 'game/context', 'scullge/scene', 'game/scores', 'text!templates/scenes/ranking.html' ], function( Handlebars, gaco, Scene, Scores, tplHtml )
+define( [ 'handlebars', 'game/context', 'scullge/scenes/base', 'game/scores', 'text!templates/scenes/ranking.html' ], function( Handlebars, gaco, Scene, Scores, tplHtml )
 {
 	function RankingScene()
 	{

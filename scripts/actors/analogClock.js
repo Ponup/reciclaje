@@ -1,15 +1,15 @@
 
-define( [ 'scullge/actor' ], function( Actor )
+define( [ 'scullge/actor' ], function( BaseActor )
 	{
-		function AnalogClock()
+		function AnalogClockActor()
 		{
-			Actor.call( this );
+			BaseActor.call( this );
 		}
 
-		AnalogClock.prototype = new Actor();
-		AnalogClock.prototype.constructor = AnalogClock;
+		AnalogClockActor.prototype = new BaseActor();
+		AnalogClockActor.prototype.constructor = AnalogClockActor;
 
-		AnalogClock.prototype.init = function()
+		AnalogClockActor.prototype.init = function()
 		{
 			this.node = document.createElement( 'img' );
 			this.node.src = CONTEXT_PATH + '/images/sprites/clock.gif';
@@ -20,11 +20,11 @@ define( [ 'scullge/actor' ], function( Actor )
 			$( '#gameplay' ).append( this.node );
 		};
 
-		AnalogClock.prototype.redraw = function()
+		AnalogClockActor.prototype.redraw = function()
 		{
 		};
 
-		return AnalogClock;
+		return AnalogClockActor;
 	}
 );
 

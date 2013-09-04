@@ -1,6 +1,6 @@
 
 define(
-	[ 'scullge/scene', 'engines/conveyorBelt', 'game/context', 'text!templates/scenes/conveyorBelt.html' ],
+	[ 'scullge/scenes/base', 'engines/conveyorBelt', 'game/context', 'text!templates/scenes/conveyorBelt.html' ],
 	function( SceneBase, ConveyorBeltEngine, gaco, tplHtml )
 {
 	function ConveyorBeltScene()

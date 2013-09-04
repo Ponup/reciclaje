@@ -10,9 +10,11 @@ require.config({
 	urlArgs: 'bust=' + Date.now(),
 });
 
-require( [ 'jquery', 'game/context', 'game/audiomanager', 'scenes/manager', 'scenes/intro', 'scenes/ranking', 'scenes/gameover' ], 
+require( [ 'jquery', 'game/context', 'game/audiomanager', 'scullge/scenes/manager', 'scenes/intro', 'scenes/ranking', 'scenes/gameover' ], 
 	function( $, gaco, AudioManager, SceneManager, IntroScene, RankingScene, GameoverScene )
 	{
+		$( document ).on( 'dragstart', function() { return false; });
+
                 gaco.audioManager = new AudioManager();
                 gaco.audioManager.load( 'introMusic', CONTEXT_PATH + '/sounds/music.mp3' );
                 gaco.audioManager.load( 'helpMusic', CONTEXT_PATH + '/sounds/level-start.mp3' );

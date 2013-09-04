@@ -1,6 +1,6 @@
 
 define(
-	[ 'scullge/scene', 'scenes/picker', 'game/context', 'text!templates/scenes/pickerbrief.html' ],
+	[ 'scullge/scenes/base', 'scenes/picker', 'game/context', 'text!templates/scenes/pickerbrief.html' ],
 	function( SceneBase, PickerScene, gaco, tplHtml )
 {
 	function PickerBriefScene( nextScene )

@@ -1,51 +1,51 @@
 
 define( function()
 	{
-		function Actor()
+		function BaseActor()
 		{
 			this.active = true;
 			this.properties = {};
 			this.id = null;
 		}
 
-		Actor.prototype.init = function()
+		BaseActor.prototype.init = function()
 		{
 		};
 
-		Actor.prototype.setId = function( id )
+		BaseActor.prototype.setId = function( id )
 		{
 			this.id = id;
 		};
 
-		Actor.prototype.getId = function()
+		BaseActor.prototype.getId = function()
 		{
 			return this.id;
 		};
 
-		Actor.prototype.isActive = function()
+		BaseActor.prototype.isActive = function()
 		{
 			return this.active;
 		};
 
-		Actor.prototype.getType = function()
+		BaseActor.prototype.getType = function()
 		{
 			return this.constructor.name;
 		};
 
-		Actor.prototype.update = function()
+		BaseActor.prototype.update = function()
 		{
 		};
 
-		Actor.prototype.redraw = function()
+		BaseActor.prototype.redraw = function()
 		{
 		};
 
-		Actor.prototype.setProperty = function( name, value )
+		BaseActor.prototype.setProperty = function( name, value )
 		{
 			this.properties[ name ] = value;
 		};
 
-		Actor.prototype.getProperty = function( name )
+		BaseActor.prototype.getProperty = function( name )
 		{
 			if( !( name in this.properties ) )
 			{
@@ -55,12 +55,12 @@ define( function()
 			return this.properties[ name ];
 		};
 
-		Actor.prototype.setProperties = function( properties )
+		BaseActor.prototype.setProperties = function( properties )
 		{
 			this.properties = properties;
 		};
 
-		return Actor;
+		return BaseActor;
 	}
 );
 

@@ -1,18 +1,18 @@
 
 define(
-	[ 'engines/picker', 'scullge/scene', 'game/context', 'text!templates/scenes/picker.html' ],
-	function( PickerEngine, Scene, gaco, tplHtml )
+	[ 'engines/picker', 'scullge/scenes/base', 'game/context', 'text!templates/scenes/picker.html' ],
+	function( PickerEngine, BaseScene, gaco, tplHtml )
 {
 	function PickerScene( nextScene )
 	{
-		Scene.call( this );
+		BaseScene.call( this );
 
 		this.setId( 'picker' );
 
 		this.nextScene = nextScene;
 	}
 
-	PickerScene.prototype = new Scene();
+	PickerScene.prototype = new BaseScene();
 
 	PickerScene.prototype.switchFrom = function( prevScene )
 	{

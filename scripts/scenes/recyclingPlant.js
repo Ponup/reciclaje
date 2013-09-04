@@ -1,6 +1,6 @@
 
 define(
-	[ 'scullge/scene', 'scenes/picker', 'actors/phmeter', 'actors/actor3', 'actors/machine', 'scullge/engine', 'utils/arrays', 'game/context', 'text!templates/scenes/recyclingPlant.html' ],
+	[ 'scullge/scenes/base', 'scenes/picker', 'actors/phmeter', 'actors/actor3', 'actors/machine', 'scullge/engine', 'utils/arrays', 'game/context', 'text!templates/scenes/recyclingPlant.html' ],
 	function( SceneBase, PickerScene, PhmeterActor, Actor3, MachineActor, GameEngine, ArraysUtils, gaco, tplHtml )
 {
 	function RecyclingPlantScene()

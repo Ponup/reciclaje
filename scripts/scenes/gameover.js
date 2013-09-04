@@ -1,5 +1,5 @@
 
-define( [ 'game/context', 'scullge/scene', 'text!templates/gameover.html' ], function( gaco, Scene, gameoverHtml )
+define( [ 'game/context', 'scullge/scenes/base', 'text!templates/gameover.html' ], function( gaco, Scene, gameoverHtml )
 {
 	function GameoverScene( hasWin )
 	{
