@@ -1,9 +1,9 @@
 
-define( [ 'game/context', 'scullge/actor' ], function( gaco, Actor )
+define( [ 'data/context', 'scullge/actor' ], function( gaco, BaseActor )
 {
 	function Element( id, properties )
 	{
-		Actor.call( this );
+		BaseActor.call( this );
 
 		this.id = id;
 	
@@ -13,7 +13,7 @@ define( [ 'game/context', 'scullge/actor' ], function( gaco, Actor )
 		$.extend( this.properties, properties );
 	}
 
-	Element.prototype = new Actor();
+	Element.prototype = new BaseActor();
 	Element.prototype.constructor = Element;
 
 	Element.prototype.init = function()

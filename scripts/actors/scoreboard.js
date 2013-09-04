@@ -1,7 +1,5 @@
 
-define(
-	[ 'scullge/actor', 'game/context' ],
-	function( BaseActor, gaco )
+define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 	{
 		function ScoreBoard()
 		{
@@ -15,6 +13,7 @@ define(
 		{
 			this.node = document.createElement( 'div' );
 			this.node.className = 'ScoreBoard';
+			this.node.innerHTML = '0/100 puntos';
 
 			var style = this.node.style;
 			style.fontFamily = 'GameFont';
@@ -30,12 +29,11 @@ define(
 
 		ScoreBoard.prototype.update = function()
 		{
-
 		};
 
 		ScoreBoard.prototype.redraw = function()
 		{
-			this.node.innerHTML = gaco.score + '/100 puntos';
+			this.node.innerHTML = gaco.gameVars.score + '/100 puntos';
 		};
 
 		return ScoreBoard;

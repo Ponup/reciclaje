@@ -6,10 +6,17 @@ define( function()
 			this.active = true;
 			this.properties = {};
 			this.id = null;
+			this.initiated = false;
 		}
 
 		BaseActor.prototype.init = function()
 		{
+			this.initiated = true;
+		};
+
+		BaseActor.prototype.isInitiated = function()
+		{
+			return this.initiated;
 		};
 
 		BaseActor.prototype.setId = function( id )

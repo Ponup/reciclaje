@@ -1,14 +1,14 @@
 
-define( [ 'handlebars', 'game/context', 'scullge/scenes/base', 'game/scores', 'text!templates/scenes/ranking.html' ], function( Handlebars, gaco, Scene, Scores, tplHtml )
+define( [ 'handlebars', 'data/context', 'scullge/scenes/base', 'data/scores', 'text!templates/scenes/ranking.html' ], function( Handlebars, gaco, BaseScene, Scores, tplHtml )
 {
 	function RankingScene()
 	{
-		Scene.call( this );
+		BaseScene.call( this );
 
 		this.setId( 'ranking' );
 	}
 
-	RankingScene.prototype = new Scene();
+	RankingScene.prototype = new BaseScene();
 
 	RankingScene.prototype.switchFrom = function( prevScene )
 	{

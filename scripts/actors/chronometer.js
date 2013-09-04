@@ -1,5 +1,5 @@
 
-define( [ 'scullge/actor', 'game/context' ], function( BaseActor, gaco )
+define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 	{
 		function Chronometer()
 		{
@@ -11,8 +11,11 @@ define( [ 'scullge/actor', 'game/context' ], function( BaseActor, gaco )
 
 		Chronometer.prototype.init = function()
 		{
+			BaseActor.prototype.init.call( this );
+
 			this.node = document.createElement( 'div' );
 			this.node.className = 'Chronometer';
+			this.node.innerHTML = '0 segundos';
 
 			var nodeStyle = this.node.style;
 			nodeStyle.fontFamily = 'GameFont';

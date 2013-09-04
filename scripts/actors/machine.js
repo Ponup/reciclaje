@@ -1,14 +1,14 @@
 
-define( [ 'scullge/actor', 'utils/arrays', 'game/context' ], function( Actor, ArraysUtils, gaco )
+define( [ 'scullge/actor', 'scullge/utils/arrays', 'data/context' ], function( BaseActor, ArraysUtils, gaco )
 	{
 		function Machine()
 		{
-			Actor.call( this );
+			BaseActor.call( this );
 
 			this.machines = this.machine = null;
 		}
 
-		Machine.prototype = new Actor();
+		Machine.prototype = new BaseActor();
 		Machine.prototype.constructor = Machine;
 
 		Machine.prototype.init = function()

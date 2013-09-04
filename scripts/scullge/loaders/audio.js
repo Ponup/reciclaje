@@ -1,12 +1,12 @@
 
 define( function()
 {
-	function AudioManager()
+	function AudioLoader()
 	{
 		this.audios = {};
 	}
 
-	AudioManager.prototype.load = function( name, path )
+	AudioLoader.prototype.load = function( name, path )
 	{
 		var audio = new Audio( path );
 		audio.load();
@@ -14,7 +14,7 @@ define( function()
 		this.audios[ name ] = audio;
 	};
 
-	AudioManager.prototype.play = function( name )
+	AudioLoader.prototype.play = function( name )
 	{
 		if( 'undefined' === typeof( this.audios[ name ] ) )
 		{
@@ -25,6 +25,6 @@ define( function()
 		return this.audios[ name ];
 	};
 
-	return AudioManager;
+	return AudioLoader;
 });
 

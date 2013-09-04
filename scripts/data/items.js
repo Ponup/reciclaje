@@ -10,7 +10,7 @@ define( [ 'data/containerType' ], function( ContainerType )
 				ph: -3,
 				picker:
 				{
-					'biodigester': 10,
+					bioDigester: 10,
 					recyclingPlant: -10,
 				}
 

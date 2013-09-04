@@ -1,6 +1,6 @@
 
 define(
-	[ 'engines/picker', 'scullge/scenes/base', 'game/context', 'text!templates/scenes/picker.html' ],
+	[ 'engines/picker', 'scullge/scenes/base', 'data/context', 'text!templates/scenes/picker.html' ],
 	function( PickerEngine, BaseScene, gaco, tplHtml )
 {
 	function PickerScene( nextScene )
@@ -26,13 +26,15 @@ define(
 		var picker = document.getElementById( 'picker' );
 		$( picker ).fadeIn();
 
-		gaco.engine = new PickerEngine();
-		gaco.engine.nextScene = this.nextScene;
+		gaco.engine = new PickerEngine( this.nextScene );
 		gaco.engine.init();
 
 		$( '#pickerBrief' ).on( 'click', function()
 			{
 				$( this ).remove();
+
+				// Init the remaining actors.
+				gaco.engine.initActors();
 
 				gaco.engine.start();
 			}

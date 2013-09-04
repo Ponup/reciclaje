@@ -1,6 +1,6 @@
 
 define(
-	[ 'scullge/scenes/base', 'scenes/picker', 'game/context', 'text!templates/scenes/intro.html' ],
+	[ 'scullge/scenes/base', 'scenes/picker', 'data/context', 'text!templates/scenes/intro.html' ],
 	function( BaseScene, PickerScene, gaco, tplHtml )
 	{
 		function IntroScene()
@@ -58,6 +58,7 @@ define(
 					require( [ 'scenes/recyclingPlant' ], function( RecyclingPlantScene )
 						{
 							var scene = new RecyclingPlantScene();
+							gaco.finalSceneName = scene.getId();
 							gaco.sceneManager.add( scene );
 
 							var picker = new PickerScene( scene );
@@ -71,9 +72,10 @@ define(
 				{
 					self.savePlayerName();
 
-					require( [ 'scenes/conveyorbelt' ], function( ConveyorBeltScene )
+					require( [ 'scenes/bioDigester' ], function( BioDigesterScene )
 						{
-							var scene = new ConveyorBeltScene();
+							var scene = new BioDigesterScene();
+							gaco.finalSceneName = scene.getId();
 							gaco.sceneManager.add( scene );
 
 							var picker = new PickerScene( scene );

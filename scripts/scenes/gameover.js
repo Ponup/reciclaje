@@ -1,15 +1,15 @@
 
-define( [ 'game/context', 'scullge/scenes/base', 'text!templates/gameover.html' ], function( gaco, Scene, gameoverHtml )
+define( [ 'data/context', 'scullge/scenes/base', 'text!templates/gameover.html' ], function( gaco, BaseScene, gameoverHtml )
 {
 	function GameoverScene( hasWin )
 	{
-		Scene.call( this );
+		BaseScene.call( this );
 
 		this.hasWin = hasWin;
 		this.setId( 'gameover' );
 	}
 
-	GameoverScene.prototype = new Scene();
+	GameoverScene.prototype = new BaseScene();
 
 	GameoverScene.prototype.switchFrom = function( prevScene )
 	{

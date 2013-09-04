@@ -1,5 +1,5 @@
 
-define( [ 'scullge/actor', 'utils/dom', 'game/context' ], function( Actor, DomUtils, gaco )
+define( [ 'scullge/actor', 'scullge/utils/dom', 'data/context' ], function( BaseActor, DomUtils, gaco )
 	{
 		var PickableState = {
 			STANDING: 	0,
@@ -9,12 +9,12 @@ define( [ 'scullge/actor', 'utils/dom', 'game/context' ], function( Actor, DomUt
 
 		function Pickable()
 		{
-			Actor.call( this );
+			BaseActor.call( this );
 
 			this.state = PickableState.STANDING;
 		}
 
-		Pickable.prototype = new Actor();
+		Pickable.prototype = new BaseActor();
 		Pickable.prototype.constructor = Pickable;
 
 		Pickable.prototype.setElement = function( element )
@@ -27,7 +27,7 @@ define( [ 'scullge/actor', 'utils/dom', 'game/context' ], function( Actor, DomUt
 			var self = this;
 
 			this.img = document.createElement( 'img' );
-			this.img.className = 'Element';
+			this.img.className = 'Pickable';
 			this.img.src = CONTEXT_PATH + '/images/items/' + this.properties.data.name + '.png';
 			this.img.style.left = this.properties.x + 'px';
 			this.img.style.top = this.properties.y + 'px';
@@ -38,7 +38,7 @@ define( [ 'scullge/actor', 'utils/dom', 'game/context' ], function( Actor, DomUt
 			this.img.onclick = function()
 			{
 				self.img.onclick = function() {};
-				gaco.score += ( self.properties.data.correct ? +10 : -5 );
+				gaco.gameVars.score += self.properties.data.scoring.picker[ gaco.finalSceneName ];
 				self.state = PickableState.CLICKED;
 			};
 			picker.appendChild( this.img );

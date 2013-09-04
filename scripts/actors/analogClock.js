@@ -11,17 +11,15 @@ define( [ 'scullge/actor' ], function( BaseActor )
 
 		AnalogClockActor.prototype.init = function()
 		{
-			this.node = document.createElement( 'img' );
-			this.node.src = CONTEXT_PATH + '/images/sprites/clock.gif';
-			this.node.style.position = 'absolute';
-			this.node.style.top = '10px';
-			this.node.style.left = '10px';
-			
-			$( '#gameplay' ).append( this.node );
-		};
+			BaseActor.prototype.init.call( this );
 
-		AnalogClockActor.prototype.redraw = function()
-		{
+			var node = document.createElement( 'img' );
+			node.src = CONTEXT_PATH + '/images/sprites/clock.gif';
+			node.style.position = 'absolute';
+			node.style.top = '10px';
+			node.style.left = '10px';
+			
+			$( '#gameplay' ).append( node );
 		};
 
 		return AnalogClockActor;

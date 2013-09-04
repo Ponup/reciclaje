@@ -1,16 +1,21 @@
 
-define( [ 'scullge/engine', 'game/audiomanager', 'data/containerType', 'game/context' ], function( Engine, AudioManager, ContainerType, gaco )
+define( [ 'scullge/engine', 'data/containerType', 'actors/statspanel', 'actors/analogClock', 'data/context' ], function( BaseEngine, ContainerType, StatsPanelActor, AnalogClockActor, gaco )
 	{
 		function SplitEngine()
 		{
 			this.context.currentLevel = 1;
+
+			this.addActor( new StatsPanelActor() );
+			this.addActor( new AnalogClockActor() );
 		}
 
-		SplitEngine.prototype = new Engine();
+		SplitEngine.prototype = new BaseEngine();
 		SplitEngine.prototype.constructor = SplitEngine;
 
 		SplitEngine.prototype.init = function()
 		{
+			BaseEngine.prototype.init.call( this );
+
 			gaco.GameState = {
 				NEW_GAME		:0,
 				NEW_LEVEL 		:1,
@@ -46,7 +51,6 @@ define( [ 'scullge/engine', 'game/audiomanager', 'data/containerType', 'game/con
 
 			gaco.activeElement = null;
 
-			gaco.audioManager = new AudioManager();
 			gaco.audioManager.load( 'introMusic', CONTEXT_PATH + '/sounds/music.mp3' );
 			gaco.audioManager.load( 'helpMusic', CONTEXT_PATH + '/sounds/level-start.mp3' );
 			gaco.audioManager.load( 'gameWin', CONTEXT_PATH + '/sounds/game-win.mp3' );
@@ -54,6 +58,12 @@ define( [ 'scullge/engine', 'game/audiomanager', 'data/containerType', 'game/con
 			gaco.audioManager.load( 'tap', CONTEXT_PATH + '/sounds/tap.mp3' );
 			gaco.audioManager.load( 'tapWrong', CONTEXT_PATH + '/sounds/tap-wrong.mp3' );
 		};
+
+		SplitEngine.prototype.canPassLevel = function()
+		{
+			var minCorrectMovements = gaco.gameVars.currentLevel in gaco.levels ? gaco.levels[ gaco.gameVars.currentLevel ].minCorrectMovements : 7;
+			return gaco.gameVars.correctMovements > minCorrectMovements;
+		}
 
 		return SplitEngine;
 	}

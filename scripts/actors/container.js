@@ -1,9 +1,9 @@
 
-define( [ 'game/context', 'scullge/actor'  ], function( gaco, Actor )
+define( [ 'data/context', 'scullge/actor'  ], function( gaco, BaseActor )
 {
 	function Container( id, properties )
 	{
-		Actor.call( this );
+		BaseActor.call( this );
 
 		this.id = id;
 
@@ -15,7 +15,7 @@ define( [ 'game/context', 'scullge/actor'  ], function( gaco, Actor )
 		$.extend( this.properties, properties );
 	}
 
-	Container.prototype = new Actor();
+	Container.prototype = new BaseActor();
 	Container.prototype.constructor = Container;
 
 	Container.prototype.setFull = function( full )
@@ -48,7 +48,7 @@ define( [ 'game/context', 'scullge/actor'  ], function( gaco, Actor )
 				actor.properties.numElements++;
 				$( document.getElementById( gaco.activeElement.id ) ).animate({ opacity: 0, top: $this.offset().top, left: $this.position().left });
 		
-				var correctMovement = ( gaco.activeElement.properties.containerType == actor.properties.type );
+				var correctMovement = ( gaco.activeElement.properties.container == actor.properties.type );
 				if( correctMovement )
 				{
 					gaco.gameVars.correctMovements += 1;

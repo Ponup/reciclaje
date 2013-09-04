@@ -1,14 +1,14 @@
 
-define( [ 'game/context', 'scullge/scenes/base', 'game/audiomanager', 'text!templates/scenes/splitIntro.html', 'scenes/split' ], function( gaco, Scene, AudioManager, tplHtml, SplitScene )
+define( [ 'data/context', 'scullge/scenes/base', 'text!templates/scenes/splitIntro.html', 'scenes/split' ], function( gaco, BaseScene, tplHtml, SplitScene )
 {
 	function SplitIntroScene()
 	{
-		Scene.call( this );
+		BaseScene.call( this );
 
 		this.setId( 'splitIntro' );
 	}
 
-	SplitIntroScene.prototype = new Scene();
+	SplitIntroScene.prototype = new BaseScene();
 
 	SplitIntroScene.prototype.switchFrom = function( prevScene )
 	{

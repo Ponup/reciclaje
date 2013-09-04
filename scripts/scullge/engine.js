@@ -1,7 +1,7 @@
 
 define( [ 'scullge/actor' ], function( BaseActor )
 	{
-		function Engine()
+		function BaseEngine()
 		{
 			this.intervalId = null;
 			
@@ -11,12 +11,12 @@ define( [ 'scullge/actor' ], function( BaseActor )
 			this.context = {};
 		}
 
-		Engine.prototype.addUpdateListener = function( listener )
+		BaseEngine.prototype.addUpdateListener = function( listener )
 		{
 			this.updateListeners.push( listener );
 		};
 
-		Engine.prototype.addActor = function( actor )
+		BaseEngine.prototype.addActor = function( actor )
 		{
 			if( !( actor instanceof BaseActor ) )
 			{
@@ -25,7 +25,7 @@ define( [ 'scullge/actor' ], function( BaseActor )
 			this.actors.push( actor );
 		};
 
-		Engine.prototype.findActorById = function( id )
+		BaseEngine.prototype.findActorById = function( id )
 		{
 			for( var i = 0; i < this.actors.length; i++ )
 			{
@@ -35,7 +35,7 @@ define( [ 'scullge/actor' ], function( BaseActor )
 			throw 'Actor with id ' + id + ' was not found';
 		};
 
-		Engine.prototype.findActorsByType = function( type )
+		BaseEngine.prototype.findActorsByType = function( type )
 		{
 			var actors = [];
 			for( var i = 0; i < this.actors.length; i++ )
@@ -48,21 +48,34 @@ define( [ 'scullge/actor' ], function( BaseActor )
 			return actors;
 		};
 
-		Engine.prototype.start = function()
+		BaseEngine.prototype.init = function()
+		{
+			this.initActors();
+		};
+
+		BaseEngine.prototype.initActors = function()
 		{
 			for( var i = 0; i < this.actors.length; i++ )
 			{
-				this.actors[i].init();
+				var actor = this.actors[ i ];
+				if( !actor.isInitiated() )
+				{
+					actor.init();
+				}
 			}
+		};
+
+		BaseEngine.prototype.start = function()
+		{
 			this.runId = setInterval( $.proxy( this.gameLoop, this ), 1000 / 50 );
 		};
 
-		Engine.prototype.stop = function()
+		BaseEngine.prototype.stop = function()
 		{
 			clearInterval( this.runId );
 		};
 
-		Engine.prototype.gameLoop = function()
+		BaseEngine.prototype.gameLoop = function()
 		{
 			for( var i = 0; i < this.updateListeners.length; i++ )
 			{
@@ -78,7 +91,7 @@ define( [ 'scullge/actor' ], function( BaseActor )
 			this.redraw();
 		};
 
-		Engine.prototype.redraw = function()
+		BaseEngine.prototype.redraw = function()
 		{
 			$.each( this.actors, function( i, actor )
 				{
@@ -90,7 +103,7 @@ define( [ 'scullge/actor' ], function( BaseActor )
 			);
 		};
 
-		return Engine;
+		return BaseEngine;
 	}
 );
 

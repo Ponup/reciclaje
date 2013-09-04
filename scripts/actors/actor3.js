@@ -1,11 +1,12 @@
 
-define( [ 'scullge/actor', 'game/context' ], function( BaseActor, gaco )
+define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 	{
 		var Actor3State = {
 			MOVING: 0,
 			ANIMATING: 1,
 			DEAD: 2,
 		};
+
 		function Actor3()
 		{
 			BaseActor.call( this );
@@ -19,6 +20,8 @@ define( [ 'scullge/actor', 'game/context' ], function( BaseActor, gaco )
 
 		Actor3.prototype.init = function()
 		{
+			BaseActor.prototype.init.call( this );
+
 			var self = this;
 			this.node = document.createElement( 'img' );
 			this.node.className = 'Actor3';
@@ -36,7 +39,8 @@ define( [ 'scullge/actor', 'game/context' ], function( BaseActor, gaco )
 						{
 							self.state = Actor3State.DEAD;
 							var phmeter = gaco.engine.findActorById( 'phmeter' );
-							phmeter.setProperty( 'phLevel', phmeter.getProperty( 'phLevel' ) + 1 );
+							var phLevel = Math.min( 10, Math.max( 0, phmeter.getProperty( 'phLevel' ) + self.properties.phDelta ) );
+							phmeter.setProperty( 'phLevel', phLevel );
 						}
 					);
 			};

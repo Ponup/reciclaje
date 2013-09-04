@@ -1,14 +1,14 @@
 
-define( [ 'game/context', 'scullge/scenes/base', 'actors/element', 'actors/container', 'actors/statspanel', 'engines/split', 'text!templates/scenes/split.html', 'game/scores', 'actors/analogClock', 'utils/arrays', 'data/items' ], function( gaco, Scene, Element, Container, StatsPanel, SplitEngine, tplHtml, Scores, AnalogClockActor, ArraysUtils, dataItems )
+define( [ 'data/context', 'scullge/scenes/base', 'actors/element', 'actors/container', 'engines/split', 'text!templates/scenes/split.html', 'data/scores', 'actors/analogClock', 'scullge/utils/arrays', 'data/items' ], function( gaco, BaseScene, Element, Container, SplitEngine, tplHtml, Scores, AnalogClockActor, ArraysUtils, dataItems )
 {
 	function SplitScene()
 	{
-		Scene.call( this );
+		BaseScene.call( this );
 
 		this.setId( 'split' );
 	};
 
-	SplitScene.prototype = new Scene();
+	SplitScene.prototype = new BaseScene();
 
 	SplitScene.prototype.switchFrom = function( prevScene )
 	{
@@ -25,8 +25,6 @@ define( [ 'game/context', 'scullge/scenes/base', 'actors/element', 'actors/conta
 	SplitScene.prototype.start = function()
 	{
 		gaco.gameEngine.init();
-		gaco.gameEngine.addActor( new StatsPanel() );
-		gaco.gameEngine.addActor( new AnalogClockActor() );
 
 		gaco.gameVars = {
 			score: 0,
@@ -96,7 +94,7 @@ define( [ 'game/context', 'scullge/scenes/base', 'actors/element', 'actors/conta
 			case gaco.GameState.WAITING_ELEMENT:
 				if( gaco.gameVars.elementsAvailable.length == 0 )
 				{
-					if( gaco.canPassLevel() )
+					if( gaco.gameEngine.canPassLevel() )
 					{
 						gaco.gameVars.state = gaco.GameState.NEW_LEVEL;
 						return;
