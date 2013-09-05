@@ -23,6 +23,7 @@ define( [ 'handlebars', 'data/context', 'scullge/scenes/base', 'data/scores', 't
 			{
 				localStorage.removeItem( 'scores' );
 				$( '#hofEntries' ).html( '' );
+				$( this ).slideDown( 4000, function() { $( this ).remove(); } );
 			}
 		);
 

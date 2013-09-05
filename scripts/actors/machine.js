@@ -25,6 +25,7 @@ define( [ 'scullge/actor', 'scullge/utils/arrays', 'data/context' ], function( B
 
 			$( this.node ).on( 'click', function()
 				{
+					if( gaco.gameVars.score > 0 ) gaco.gameVars.score -= 1;
 					self.updateMachine();
 				}
 			);
@@ -51,7 +52,6 @@ define( [ 'scullge/actor', 'scullge/utils/arrays', 'data/context' ], function( B
 			var userPositions = gaco.userPositions.split( '' );
 			userPositions[ this.properties.position ] = this.machine.code;
 			gaco.userPositions = userPositions.join( '' );
-			console.clear();
 		};
 
 		Machine.prototype.redraw = function()

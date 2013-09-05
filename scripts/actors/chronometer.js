@@ -26,7 +26,7 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 			nodeStyle.left = '60px';
 			nodeStyle.top = '680px';
 
-			picker.appendChild( this.node );
+			$( '.Scene' ).append( this.node );
 		};
 
 		Chronometer.prototype.redraw = function()

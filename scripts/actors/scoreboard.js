@@ -24,7 +24,7 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 			style.right = '60px';
 			style.top = '680px';
 
-			picker.appendChild( this.node );
+			$( '.Scene' ).append( this.node );
 		};
 
 		ScoreBoard.prototype.update = function()

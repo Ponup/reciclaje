@@ -85,7 +85,7 @@ define( [ 'scullge/engine', 'actors/pickable', 'actors/scoreboard', 'actors/chro
 			// @TODO Use a single place to store common vars.
 			gaco.gameVars.elapsedSeconds = this.context.seconds;
 
-			if( gaco.gameVars.score >= 40 )
+			if( gaco.gameVars.score >= 10 )
 			{
 				this.destroy();
 				gaco.sceneManager.switchTo( this.nextScene );

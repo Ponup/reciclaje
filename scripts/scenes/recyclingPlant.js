@@ -1,7 +1,7 @@
 
 define(
-	[ 'scullge/scenes/base', 'scenes/picker', 'actors/phmeter', 'actors/machine', 'scullge/engine', 'scullge/utils/arrays', 'data/context', 'text!templates/scenes/recyclingPlant.html' ],
-	function( BaseScene, PickerScene, PhmeterActor, MachineActor, GameEngine, ArraysUtils, gaco, tplHtml )
+	[ 'scullge/scenes/base', 'engines/recyclingPlant', 'data/context', 'text!templates/scenes/recyclingPlant.html' ],
+	function( BaseScene, RecyclingPlantEngine, gaco, tplHtml )
 {
 	function RecyclingPlantScene()
 	{
@@ -22,38 +22,45 @@ define(
 
 		$canvas.empty().append( tplHtml );
 
-		gaco.machines = [
-			{ code: 'a', name: 'reciclado_prop_agua' },
-			{ code: 'g', name: 'reciclado_prop_guillotina' },
-			{ code: 'h', name: 'reciclado_prop_horno' },
-			{ code: 'p', name: 'reciclado_prop_prensa' },
-			{ code: 't', name: 'reciclado_prop_trituradora' },
-		];
-		gaco.rightPositions = 'aghpt';
-		gaco.userPositions = '     ';
 
-		gaco.engine = new GameEngine();
-
-		for( i = 0; i < gaco.machines.length; i++ )
-		{
-			var machine = new MachineActor();
-			machine.setProperty( 'position', i );
-			gaco.engine.addActor( machine );
-		}
+		gaco.engine = new RecyclingPlantEngine();
 
 		$( '#startRecyclingButton' ).on( 'click', function()
 			{
-				if( gaco.userPositions == gaco.rightPositions )
-				{
-					alert( 'ganaste' );
-				}
-				else
-				{
-					alert( 'perdiste' );
-				}
+				gaco.numTries++;
+
+				var img = this;
+				this.src = CONTEXT_PATH + '/images/actors/recyclingPlant/processing.png';
+
+				setTimeout( function() {
+					if( gaco.userPositions == gaco.rightPositions )
+					{
+						img.src = CONTEXT_PATH + '/images/actors/recyclingPlant/ok.png';
+
+						setTimeout( function() {
+							gaco.sceneManager.switchTo( 'gameover' );
+						}, 1000 );
+					}
+					else
+					{
+						img.src = CONTEXT_PATH + '/images/actors/recyclingPlant/ko.png';
+
+						setTimeout( function() {
+							if( gaco.numTries > 2 )
+							{
+								gaco.sceneManager.switchTo( 'gameover' );
+							}
+							else
+							{
+								img.src = CONTEXT_PATH + '/images/actors/recyclingPlant/start.png';
+							}
+						}, 2000 );
+					}
+				}, 2000 );
 			}
 		);
 
+		gaco.engine.init();
 		gaco.engine.start();
 	};
 
