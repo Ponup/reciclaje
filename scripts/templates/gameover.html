@@ -1,6 +1,17 @@
 
 <style>
 
+#bg_message 
+{
+	background:url('images/scenes/bg_mensaje.png') center top no-repeat;
+	position: absolute;
+	width:722px;
+	height:612px;
+	right:160px;
+	top: 0px;
+	z-index:-1;
+}
+
 #gameoverScene h1
 {
 	color: #F7DD63;
@@ -15,8 +26,16 @@
 
 #gameoverButtons
 {
-	text-align: right;
+	text-align: center;
+	position:absolute;
+	bottom:-7px;
+	width:98%;
 }
+	#gameoverButtons img
+		{
+			margin:0 100px;
+			cursor: pointer;
+		}
 
 #gameoverLogo
 {
@@ -26,16 +45,16 @@
 
 #gameoverScene
 {
-	background: #46c2c6;
+	background: #17bc99;
 	display: none;
 }
 	#gameoverScene.Winner
 	{
-		background: #96c222;
+		background: #17bc99;
 	}
 	#gameoverScene.Loser
 	{
-		background: #c3570d;
+		background: #e94c3d;
 	}
 
 #gameoverBg
@@ -48,9 +67,15 @@
 
 <div id="gameoverScene" class="Scene">
 
-	<img src="images/scenes/intro/bg.png" id="gameoverBg" />
+	<img style="display:none;" src="images/scenes/intro/bg.png" id="gameoverBg" />
 
-	<div id="gameoverButtons"><button id="viewHalloffame2">Ir al salón de la fama</button></div>
+	<div id="bg_message"></div><!-- nuevo fondito -->
+
+	<div id="gameoverButtons">
+
+		<img src="images/scenes/intro/button_puntaje.png" id="viewHalloffame2" />
+		<img src="images/scenes/intro/button_volver.png" id="gotoIntro" />
+	</div>
 
 	<img src="images/logo.png" id="gameoverLogo" />
 
@@ -63,6 +88,8 @@
 	<h1>Perdiste :(</h1>
 	<h2>Lograste <span class="Puntos">0</span> puntos<br />en <span class="Segundos">0</span> segundos.</h2>
 	</div>
+
+		
 
 </div>
 

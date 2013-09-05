@@ -15,15 +15,15 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 
 			this.node = document.createElement( 'div' );
 			this.node.className = 'Chronometer';
-			this.node.innerHTML = '0 segundos';
+			this.node.innerHTML = '0 <span style="color:#17bc99;font-size:.6em;">segundos</span>';
 
 			var nodeStyle = this.node.style;
 			nodeStyle.fontFamily = 'GameFont';
-			nodeStyle.fontSize = '40px';
-			nodeStyle.color = '#fce94f';
-			nodeStyle.textShadow = '1px 1px 1px rgba(0, 0, 0, 0.3)';
+			nodeStyle.fontSize = '60px';
+			nodeStyle.color = '#e94c3d';
+			nodeStyle.textShadow = '0px 1px 15px rgba(0, 0, 0, 0.4)';
 			nodeStyle.position = 'absolute';
-			nodeStyle.left = '40px';
+			nodeStyle.left = '60px';
 			nodeStyle.top = '680px';
 
 			picker.appendChild( this.node );
@@ -31,7 +31,7 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 
 		Chronometer.prototype.redraw = function()
 		{
-			var html = parseInt( gaco.engine.context.seconds, 10 ) + ' segundos';
+			var html = parseInt( gaco.engine.context.seconds, 10 ) + ' <span style="color:#17bc99;font-size:.6em;">segundos</span>';
 			if( html.length < 11 )
 			{
 				html = ' ' + html;

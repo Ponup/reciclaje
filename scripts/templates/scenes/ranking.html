@@ -1,73 +1,106 @@
 
 <style>
+#bg_message 
+{
+	background:url('images/scenes/bg_mensaje.png') center top no-repeat;
+	position: absolute;
+	width:722px;
+	height:612px;
+	right:160px;
+	top: 0px;
+	z-index:-1;
+}
 
 #rankingScene
 {
-	background: #46c2c6;
+	background: #17bc99;
 	padding: 20px;
 	display: none;
+	z-index:-2;
 }
 
-#introBg
-{
-	position: absolute;
-	bottom: 0px;
-}
+
 
 #rankingButtons
 {
-	text-align: right;
+	position:absolute;
+	bottom:-7px;
+	text-align:center;
+	width:98%;
+
 }
+	#rankingButtons img
+		{
+			margin:0 120px;
+			cursor: pointer;
+		}
+
+h1 {
+	margin:150px 0 0 0 ;
+	color:#25ae5e;
+	text-align:center;
+	font-size:4.5em;
+	font-weight:normal;
+	}
 
 table
 {
-	width: 80%;
+	color: #25ae5e;
+	z-index:5;
+	width: 450px;
 	margin: 0px auto;
-	font-size: 20px;
+	font-size: 2.5em;
 	text-align: center;
+
+
 }
-tbody tr:nth-child(odd)
-{
-	background: #cefcef;
-	color: black;
-}
+	.table_nombre {
+		text-align:left;
+	}
+	.table_puntos {
+		color:#e94c3d;
+		font-size:1.3em;
+	}
+	.table_position {
+		color:#58aee5;
+	}
 
 </style>
 
 <div id="rankingScene" class="Scene">
 
-	<img src="images/scenes/intro/bg.png" id="introBg" />
+	<h1>Puntuajes</h1>
 
-	<div id="rankingButtons">
-		<button id="resetScores">Borrar puntuaciones</button>
-		<button id="gotoIntro">Volver</button>
-	</div>
-
-	<h1>Salón de la fama</h1>
-
-	<table id="players">
-	<thead>
-	<tr>
-		<th>#</th>
-		<th>Jugador</th>
-		<th>Puntuación</th>
-		<th>Nivel</th>
-		<th>Dia y hora</th>
-	</tr>
-	</thead>
+	<table id="players" >
+		<thead style="display:none;">
+			<tr>
+				<th>#</th>
+				<th>Jugador</th>
+				<th>Puntos</th>
+				<th>Nivel</th>
+				<th>Dia y hora</th>
+			</tr>
+		</thead>
 	<tbody id="hofEntries">
 	</tbody>
 	</table>
+
+	<div id="bg_message"></div><!-- nuevo fondito -->
+
+	<div id="rankingButtons">
+		<img src="images/scenes/intro/button_reset.png" id="resetScores" />
+		<img src="images/scenes/intro/button_volver.png" id="gotoIntro" />
+	</div>
 
 </div>
 
 <script id="hofEntry" type="text/x-handlebars-template">
 <tr>
-	<td>{{position}}</td>
-	<td>{{player.name}}</td>
-	<td>{{game.score}}</td>
-	<td>{{game.level}}</td>
-	<td>{{game.datetime}}</td>
+	<td class="table_position">{{position}}</td>
+	<td class="table_nombre">{{player.name}}</td>
+	<td class="table_puntos">{{game.score}}</td>
+	<td style="display:none;">{{game.level}}</td>
+	<td style="display:none;">{{game.datetime}}</td>
 </tr>
 </script>
 
