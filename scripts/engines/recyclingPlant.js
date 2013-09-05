@@ -21,8 +21,6 @@ define( [ 'scullge/engine', 'actors/machine', 'actors/chronometer', 'actors/scor
 			gaco.rightPositions = 'aghpt';
 			gaco.userPositions = '     ';
 			gaco.numTries = 0;
-			gaco.engine.context.seconds = 0;
-			gaco.engine.context.initTime = Date.now();
 
 			for( i = 0; i < gaco.machines.length; i++ )
 			{
@@ -41,9 +39,7 @@ define( [ 'scullge/engine', 'actors/machine', 'actors/chronometer', 'actors/scor
 
 		RecyclingPlantEngine.prototype.onUpdate = function()
 		{
-			gaco.engine.context.seconds = ( Date.now() - gaco.engine.context.initTime ) / 1000;
-
-			if( gaco.engine.context.seconds > 20 )
+			if( gaco.engine.getElapsedTime( true ) > 20 )
 			{
 				gaco.engine.stop();
 				gaco.sceneManager.switchTo( 'gameover' );

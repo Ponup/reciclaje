@@ -4,6 +4,8 @@ define( [ 'scullge/actor' ], function( BaseActor )
 		function BaseEngine()
 		{
 			this.intervalId = null;
+
+			this.startTime = null;
 			
 			this.actors = [];
 			this.updateListeners = [];
@@ -67,7 +69,25 @@ define( [ 'scullge/actor' ], function( BaseActor )
 
 		BaseEngine.prototype.start = function()
 		{
+			this.startTime = Date.now();
 			this.runId = setInterval( $.proxy( this.gameLoop, this ), 1000 / 50 );
+		};
+
+		BaseEngine.prototype.getElapsedTime = function( inSeconds )
+		{
+			if( null === this.startTime )
+			{
+				return null;
+			}
+
+			var deltaTime = Date.now() - this.startTime;
+
+			if( 'undefined' !== typeof( inSeconds ) && inSeconds )
+			{
+				deltaTime /= 1000;
+			}
+
+			return deltaTime;
 		};
 
 		BaseEngine.prototype.stop = function()

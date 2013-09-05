@@ -1,5 +1,5 @@
 
-define( [ 'scullge/engine', 'actors/phmeter', 'actors/disposable', 'data/items' ], function( BaseEngine, PhmeterActor, DisposableActor, itemsData )
+define( [ 'scullge/engine', 'actors/phmeter', 'actors/disposable', 'actors/chronometer', 'data/items' ], function( BaseEngine, PhmeterActor, DisposableActor, ChronometerActor, itemsData )
 	{
 		function BioDigesterEngine()
 		{
@@ -22,6 +22,7 @@ define( [ 'scullge/engine', 'actors/phmeter', 'actors/disposable', 'data/items' 
 			}
 
 			this.addActor( new PhmeterActor() );
+			this.addActor( new ChronometerActor() );
 
 			this.initActors();
 		};

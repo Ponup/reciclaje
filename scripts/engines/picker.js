@@ -68,23 +68,10 @@ define( [ 'scullge/engine', 'actors/pickable', 'actors/scoreboard', 'actors/chro
 			};
 
 			this.context.currentLevel = 1;
-			this.context.seconds = 0;
-		};
-
-		PickerEngine.prototype.start = function()
-		{
-			BaseEngine.prototype.start.call( this );
-
-			this.context.initTime = Date.now();
 		};
 
 		PickerEngine.prototype.onUpdate = function()
 		{
-			this.context.seconds = ( Date.now() - this.context.initTime ) / 1000;
-
-			// @TODO Use a single place to store common vars.
-			gaco.gameVars.elapsedSeconds = this.context.seconds;
-
 			if( gaco.gameVars.score >= 10 )
 			{
 				this.destroy();
@@ -92,7 +79,7 @@ define( [ 'scullge/engine', 'actors/pickable', 'actors/scoreboard', 'actors/chro
 				return;
 			}
 
-			if( this.context.seconds >= 10 )
+			if( this.getElapsedTime( true ) >= 10 )
 			{
 				this.destroy();
 				gaco.sceneManager.switchTo( 'gameover' );

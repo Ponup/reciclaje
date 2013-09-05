@@ -35,7 +35,7 @@ define( [ 'data/context', 'scullge/scenes/base', 'text!templates/gameover.html' 
 		}
 
 		$( '.Puntos' ).html( gaco.gameVars.score );
-		$( '.Segundos' ).html( gaco.gameVars.elapsedSeconds );
+		$( '.Segundos' ).html( gaco.engine.getElapsedTime( true ) );
 
 		$( '#gameover' ).fadeIn();
 	};

@@ -31,7 +31,7 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 
 		Chronometer.prototype.redraw = function()
 		{
-			var html = parseInt( gaco.engine.context.seconds, 10 ) + ' <span style="color:#17bc99;font-size:.6em;">segundos</span>';
+			var html = parseInt( gaco.engine.getElapsedTime( true ), 10 ) + ' <span style="color:#17bc99;font-size:.6em;">segundos</span>';
 			if( html.length < 11 )
 			{
 				html = ' ' + html;

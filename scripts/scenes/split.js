@@ -48,8 +48,6 @@ define( [ 'data/context', 'scullge/scenes/base', 'actors/element', 'actors/conta
 	{
 		gaco.gameVars = $.extend({}, gaco.gameVars, {
 			remainingTime: 60,
-			startTime: Date.now(),
-			elapsedSeconds: 0,
 			correctMovements: 0,
 			currentLevel: level,
 			elementsAvailable: ArraysUtils.shuffle( dataItems.slice() ),
@@ -59,7 +57,6 @@ define( [ 'data/context', 'scullge/scenes/base', 'actors/element', 'actors/conta
 	SplitScene.prototype.updateElements = function()
 	{
 		gaco.gameVars.remainingTime++;
-		gaco.gameVars.elapsedSeconds = parseInt( ( Date.now() - gaco.gameVars.startTime ) / 1000 );
 
 		switch( gaco.gameVars.state )
 		{
