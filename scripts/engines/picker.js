@@ -68,10 +68,23 @@ define( [ 'scullge/engine', 'actors/pickable', 'actors/scoreboard', 'actors/chro
 			};
 
 			this.context.currentLevel = 1;
+			this.seconds = { 0: 1 };
 		};
 
 		PickerEngine.prototype.onUpdate = function()
 		{
+			var currentSecond = this.getElapsedTime( true ).toFixed( 1 );
+
+			if( currentSecond % 1.7 === 0 && !( currentSecond in this.seconds ) )
+			{
+				this.seconds[ currentSecond ] = 1;
+
+				var $pickables = $( '.Pickable' );
+				$pickables.removeClass( 'Shaker' );
+				var randomPickable = ArraysUtils.randomItem( $pickables );
+				$( randomPickable ).addClass( 'Shaker' );
+			}
+
 			if( gaco.gameVars.score >= 10 )
 			{
 				this.destroy();
@@ -79,7 +92,9 @@ define( [ 'scullge/engine', 'actors/pickable', 'actors/scoreboard', 'actors/chro
 				return;
 			}
 
-			if( this.getElapsedTime( true ) >= 10 )
+			var MAX_SECONDS = 15;
+
+			if( currentSecond >= MAX_SECONDS )
 			{
 				this.destroy();
 				gaco.sceneManager.switchTo( 'gameover' );

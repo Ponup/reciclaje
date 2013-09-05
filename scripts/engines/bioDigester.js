@@ -1,5 +1,5 @@
 
-define( [ 'scullge/engine', 'actors/phmeter', 'actors/disposable', 'actors/chronometer', 'data/items' ], function( BaseEngine, PhmeterActor, DisposableActor, ChronometerActor, itemsData )
+define( [ 'scullge/engine', 'actors/phmeter', 'actors/disposable', 'actors/chronometer', 'actors/bacterium', 'scullge/utils/arrays', 'data/items' ], function( BaseEngine, PhmeterActor, DisposableActor, ChronometerActor, BacteriumActor, ArraysUtils, itemsData )
 	{
 		function BioDigesterEngine()
 		{
@@ -23,8 +23,20 @@ define( [ 'scullge/engine', 'actors/phmeter', 'actors/disposable', 'actors/chron
 
 			this.addActor( new PhmeterActor() );
 			this.addActor( new ChronometerActor() );
+			this.addActor( new BacteriumActor() );
 
 			this.initActors();
+		};
+		
+		BioDigesterEngine.prototype.addDisposable = function()
+		{
+			var itemData = ArraysUtils.randomItem( itemsData );
+			var actor = new DisposableActor();
+			actor.setProperty( 'phDelta', itemData.scoring.ph );
+			actor.setProperty( 'image', itemData.name );
+			actor.setProperty( 'left', 13 * -85 );
+			actor.init();
+			this.addActor( actor );
 		};
 
 		return BioDigesterEngine;

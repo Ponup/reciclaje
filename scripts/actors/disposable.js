@@ -28,7 +28,7 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 			this.node.style.position = 'absolute';
 			this.node.style.width = '100px';
 			this.node.style.height = '100px';
-			this.node.style.top = '480px';
+			this.node.style.bottom = '180px';
 			this.node.style.left = '-60px';
 			this.node.src = CONTEXT_PATH + '/images/items/' + this.properties.image + '.png';
 			this.node.onclick = function()
@@ -44,6 +44,7 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 						}
 					);
 			};
+
 			conveyorBelt.appendChild( this.node );
 		};
 
@@ -53,6 +54,11 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 			{
 				case DisposableActorState.MOVING:
 					this.properties.left += 3;
+					if( this.properties.left > 1024 )
+					{
+						this.state = DisposableActorState.DEAD;
+						gaco.engine.addDisposable();
+					}
 					break;
 			}
 		};
@@ -65,7 +71,7 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 					this.node.style.left = this.properties.left + 'px';
 					break;
 				case DisposableActorState.DEAD:
-					this.node.style.display = 'none';
+					$( this.node ).remove();
 					break;
 			}
 		};
