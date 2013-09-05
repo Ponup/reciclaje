@@ -1,8 +1,9 @@
 
-define( [ 'scullge/engine', 'actors/phmeter', 'actors/actor3', 'data/items' ], function( BaseEngine, PhmeterActor, Actor3, itemsData )
+define( [ 'scullge/engine', 'actors/phmeter', 'actors/disposable', 'data/items' ], function( BaseEngine, PhmeterActor, DisposableActor, itemsData )
 	{
 		function BioDigesterEngine()
 		{
+			BaseEngine.call( this );
 		}
 
 		BioDigesterEngine.prototype = new BaseEngine();
@@ -13,7 +14,7 @@ define( [ 'scullge/engine', 'actors/phmeter', 'actors/actor3', 'data/items' ], f
 			for( i = 0; i < itemsData.length; i++ )
 			{
 				var el = itemsData[ i ];
-				var actor = new Actor3();
+				var actor = new DisposableActor();
 				actor.setProperty( 'phDelta', el.scoring.ph );
 				actor.setProperty( 'image', el.name );
 				actor.setProperty( 'left', i * -85 );

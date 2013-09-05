@@ -1,6 +1,7 @@
 
 <style>
-#bg_message 
+	
+#pageFold 
 {
 	background:url('images/scenes/bg_mensaje.png') center top no-repeat;
 	position: absolute;
@@ -16,10 +17,8 @@
 	background: #17bc99;
 	padding: 20px;
 	display: none;
-	z-index:-2;
+	z-index:0;
 }
-
-
 
 #rankingButtons
 {
@@ -27,6 +26,7 @@
 	bottom:-7px;
 	text-align:center;
 	width:98%;
+	z-index: 1;
 
 }
 	#rankingButtons img
@@ -49,17 +49,19 @@ table
 	z-index:5;
 	width: 450px;
 	margin: 0px auto;
-	font-size: 2.5em;
+	font-size: 2em;
 	text-align: center;
-
-
 }
+
+	th
+	{
+		color: gray;
+	}
 	.table_nombre {
 		text-align:left;
 	}
 	.table_puntos {
 		color:#e94c3d;
-		font-size:1.3em;
 	}
 	.table_position {
 		color:#58aee5;
@@ -69,23 +71,21 @@ table
 
 <div id="rankingScene" class="Scene">
 
-	<h1>Puntuajes</h1>
+	<h1>Puntajes</h1>
 
 	<table id="players" >
-		<thead style="display:none;">
+		<thead>
 			<tr>
 				<th>#</th>
 				<th>Jugador</th>
 				<th>Puntos</th>
-				<th>Nivel</th>
-				<th>Dia y hora</th>
 			</tr>
 		</thead>
 	<tbody id="hofEntries">
 	</tbody>
 	</table>
 
-	<div id="bg_message"></div><!-- nuevo fondito -->
+	<div id="pageFold"></div>
 
 	<div id="rankingButtons">
 		<img src="images/scenes/intro/button_reset.png" id="resetScores" />
@@ -96,11 +96,9 @@ table
 
 <script id="hofEntry" type="text/x-handlebars-template">
 <tr>
-	<td class="table_position">{{position}}</td>
-	<td class="table_nombre">{{player.name}}</td>
-	<td class="table_puntos">{{game.score}}</td>
-	<td style="display:none;">{{game.level}}</td>
-	<td style="display:none;">{{game.datetime}}</td>
+	<td class="table_position">{{ position }}</td>
+	<td class="table_nombre">{{ player.name }}</td>
+	<td class="table_puntos">{{ game.score }}</td>
 </tr>
 </script>
 

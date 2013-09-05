@@ -32,6 +32,12 @@ define( [ 'scullge/scenes/base' ], function( BaseScene )
 
 		var previousScene = this.currentScene;
 		this.currentScene = this.scenes[ sceneId ];
+		
+		if( null !== previousScene )
+		{
+			previousScene.cleanup();
+		}
+
 		this.currentScene.switchFrom( previousScene );
 	};
 

@@ -3,6 +3,8 @@ define( [ 'scullge/engine', 'actors/pickable', 'actors/scoreboard', 'actors/chro
 	{
 		function PickerEngine( nextScene )
 		{
+			BaseEngine.call( this );
+
 			this.nextScene = nextScene;
 
 			this.addActor( new ChronometerActor() );
@@ -85,16 +87,22 @@ define( [ 'scullge/engine', 'actors/pickable', 'actors/scoreboard', 'actors/chro
 
 			if( gaco.gameVars.score >= 40 )
 			{
-				this.stop();
+				this.destroy();
 				gaco.sceneManager.switchTo( this.nextScene );
 				return;
 			}
 
 			if( this.context.seconds >= 10 )
 			{
-				this.stop();
+				this.destroy();
 				gaco.sceneManager.switchTo( 'gameover' );
 			}
+		};
+
+		PickerEngine.prototype.destroy = function()
+		{
+			this.stop();
+			
 		};
 
 		return PickerEngine;

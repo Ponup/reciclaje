@@ -25,6 +25,11 @@ define( function()
 		$( document.getElementById( this.id ) ).hide();
 	};
 
+	BaseScene.prototype.cleanup = function()
+	{
+		$( document.getElementById( this.id ) ).remove();
+	};
+
 	BaseScene.prototype.show = function()
 	{
 		$( document.getElementById( this.id ) ).fadeIn();

@@ -3,6 +3,8 @@ define( [ 'scullge/engine', 'data/containerType', 'actors/statspanel', 'actors/a
 	{
 		function SplitEngine()
 		{
+			BaseEngine.call( this );
+
 			this.context.currentLevel = 1;
 
 			this.addActor( new StatsPanelActor() );
