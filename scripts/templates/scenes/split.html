@@ -1,22 +1,41 @@
 
 <style>
 
+body { background: #2d3e50;}
+
 #gameplay
 {
-	display: none;
-	height: 640px;
+	margin:auto !important;
+	display: block;
+	height: 740px;
 }
 	#gameplay dl
 	{
 		position: absolute;
-		top: 10px;
-		right: 30px;
+		text-align: right;
+		top: 50px;
+		right: 80px;
+		color: #fff;
+		font-size: 1.5em;
+		margin: 0;
+		padding: 0;
+	}
+	#gameplay dd {
+		color:#f2c40f;
+		font-size: 1.5em;
+		margin: 0;
+		padding: 0;
+	}
+
+#overlay {
+	background: url('images/scenes/brief/brief_overlay.png');
+	position:absolute;
 	}
 
 div#cinta
 {
 	overflow: hidden;
-	margin: 0px auto;
+	margin: 5px auto 0 auto;
 	width: 186px;
 	height: 269px;
 	background: url('images/cinta.png') no-repeat;
@@ -30,7 +49,7 @@ div#cinta
 div#containers
 {
 	position: absolute;
-	bottom: 0px;
+	bottom: 80px;
 	left: 0px;
 	right: 0px;
 	z-index: 10;
@@ -44,6 +63,7 @@ div#containers
 		div#containers div.Container img
 		{
 			cursor: pointer;
+			width:70%;
 		}
 
 	img.Element
@@ -54,18 +74,20 @@ div#containers
 
 dd, dl
 {
-	color: black;
-	font-size: 20px;
+	/*color: black;
+	font-size: 20px;*/
 }
 
 </style>
+
+<div id="overlay">
 
 <div id="gameplay" class="Scene">
 	<dl>
 		<dt>Nivel</dt>
 		<dd id="level">0</dd>
 	
-		<dt>Tiempo transcurrido</dt>
+		<dt>Tiempo</dt>
 		<dd id="elapsedTime">0</dd>
 
 		<dt>Puntos</dt>
@@ -82,4 +104,5 @@ dd, dl
 	<div id="containers"></div>
 
 </div>
+
 
