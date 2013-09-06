@@ -18,6 +18,8 @@ define(
 	{
 		prevScene.hide();
 
+		document.title = 'Recoje elementos - El juego del reciclaje';
+
 		var canvas = document.getElementById( 'canvas' ),
 			$canvas = $( canvas );
 

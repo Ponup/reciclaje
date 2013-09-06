@@ -1,5 +1,5 @@
 
-define( [ 'data/context', 'scullge/scenes/base', 'actors/element', 'actors/container', 'engines/split', 'text!templates/scenes/split.html', 'data/scores', 'actors/analogClock', 'scullge/utils/arrays', 'data/items' ], function( gaco, BaseScene, Element, Container, SplitEngine, tplHtml, Scores, AnalogClockActor, ArraysUtils, dataItems )
+define( [ 'data/context', 'scullge/scenes/base', 'actors/element', 'actors/container', 'engines/split', 'text!templates/scenes/split.html', 'actors/analogClock', 'scullge/utils/arrays', 'data/items' ], function( gaco, BaseScene, Element, Container, SplitEngine, tplHtml, AnalogClockActor, ArraysUtils, dataItems )
 {
 	function SplitScene()
 	{
@@ -12,19 +12,37 @@ define( [ 'data/context', 'scullge/scenes/base', 'actors/element', 'actors/conta
 
 	SplitScene.prototype.switchFrom = function( prevScene )
 	{
+		var self = this;
+
+		document.title = 'Separá la basura - El juego del reciclaje';
+		document.body.style.backgroundColor = '#2d3e50';
+
 		prevScene.hide();
 
-		$( '#canvas' ).empty();
-		$( '#canvas' ).append( $( tplHtml) );
-		
-		gaco.gameEngine = new SplitEngine();
+		var introImg = document.createElement( 'img' );
+		introImg.src = CONTEXT_PATH + '/images/scenes/brief/brief_bonus_titulo.png';
+		var style = introImg.style;
+		style.position = 'absolute';
+		style.top = style.left = '0px';
+		style.zIndex = 5;
 
-		this.start();
+		$( '#canvas' ).empty().append( introImg );
+
+		$( introImg ).on( 'click', function()
+			{
+				$( this ).remove();
+
+				$( '#canvas' ).empty().append( $( tplHtml ) );
+				
+				gaco.engine = new SplitEngine();
+				self.start();
+			}
+		);
 	};
 
 	SplitScene.prototype.start = function()
 	{
-		gaco.gameEngine.init();
+		gaco.engine.init();
 
 		gaco.gameVars = {
 			score: 0,
@@ -40,8 +58,8 @@ define( [ 'data/context', 'scullge/scenes/base', 'actors/element', 'actors/conta
 
 		$gameplay.fadeIn();
 
-		gaco.gameEngine.addUpdateListener( $.proxy( this.updateElements, this ) );
-		gaco.gameEngine.start();
+		gaco.engine.addUpdateListener( $.proxy( this.updateElements, this ) );
+		gaco.engine.start();
 	};
 
 	SplitScene.prototype.newLevel = function( level )
@@ -63,7 +81,7 @@ define( [ 'data/context', 'scullge/scenes/base', 'actors/element', 'actors/conta
 			case gaco.GameState.NEW_GAME:
 				var $gameplay = $( '#gameplay' );
 				this.setupContainers( $gameplay );
-				var containers = gaco.gameEngine.findActorsByType( 'Container' );
+				var containers = gaco.engine.findActorsByType( 'Container' );
 				for( var i = 0; i < containers.length; i++ )
 				{
 					containers[i].setFull( false );
@@ -77,7 +95,7 @@ define( [ 'data/context', 'scullge/scenes/base', 'actors/element', 'actors/conta
 				gaco.gameVars.remainingTime += 20;
 				gaco.gameVars.speed *= 1.3;
 				$( '<div style="width: 300px; height: 200px; margin: 0px auto; position: absolute; font-size: xx-large; text-align: center; z-index: 99999;">Nivel: ' + gaco.gameVars.currentLevel + '</div>' ).fadeIn('fast').delay(2000).fadeOut();
-				var containers = gaco.gameEngine.findActorsByType( 'Container' );
+				var containers = gaco.engine.findActorsByType( 'Container' );
 				for( var i = 0; i < containers.length; i++ )
 				{
 					containers[i].setFull( false );
@@ -91,7 +109,7 @@ define( [ 'data/context', 'scullge/scenes/base', 'actors/element', 'actors/conta
 			case gaco.GameState.WAITING_ELEMENT:
 				if( gaco.gameVars.elementsAvailable.length == 0 )
 				{
-					if( gaco.gameEngine.canPassLevel() )
+					if( gaco.engine.canPassLevel() )
 					{
 						gaco.gameVars.state = gaco.GameState.NEW_LEVEL;
 						return;
@@ -104,27 +122,15 @@ define( [ 'data/context', 'scullge/scenes/base', 'actors/element', 'actors/conta
 				var properties = gaco.gameVars.elementsAvailable.pop();
 				var actor = new Element( elementId, properties );
 				actor.init();
-				gaco.gameEngine.addActor( actor );
+				gaco.engine.addActor( actor );
 				gaco.activeElement = actor;
 
 				gaco.gameVars.state = gaco.GameState.ELEMENT_MOVING;
 				break;
 			case gaco.GameState.GAME_OVER:
-				gaco.gameEngine.stop();
+				gaco.engine.stop();
 
 				$( '#gameplay' ).hide();
-
-				var score = {
-					player: {
-						name: localStorage.getItem( 'playerName' ),
-					},
-					game: {
-						score: gaco.gameVars.score,
-						level: gaco.gameVars.currentLevel + 1,
-						datetime: new Date(),
-					},
-				};
-				Scores.save( score );
 
 				gaco.sceneManager.switchTo( 'gameover' );
 				break;
@@ -146,7 +152,7 @@ define( [ 'data/context', 'scullge/scenes/base', 'actors/element', 'actors/conta
 			};
 			var actor = new Container( elementId, properties );
 			actor.init();
-			gaco.gameEngine.addActor( actor );
+			gaco.engine.addActor( actor );
 		}
 	};
 

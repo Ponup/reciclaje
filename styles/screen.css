@@ -10,6 +10,7 @@ body
 	background-color: white;
 	font-family: 'GameFont';
 	color: white;
+	margin: 0px;
 }
 
 /* Selection disabler */
@@ -87,7 +88,7 @@ div.Scene
 		left: 118px;
 	}
 
-/* all */
+/* Input placeholder */
 ::-webkit-input-placeholder { color:rgba(255, 255, 255, .5); }
 ::-moz-placeholder { color:rgba(255, 255, 255, .5);} /* firefox 19+ */
 :-ms-input-placeholder { color:rgba(255, 255, 255, .5); } /* ie */

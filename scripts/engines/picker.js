@@ -15,7 +15,7 @@ define( [ 'scullge/engine', 'actors/pickable', 'actors/scoreboard', 'actors/chro
 		PickerEngine.prototype.constructor = PickerEngine;
 
 		PickerEngine.MAX_SCORE = 10;
-		PickerEngine.MAX_SECONDS = 20;
+		PickerEngine.MAX_SECONDS = 3;
 
 		PickerEngine.prototype.init = function()
 		{
@@ -88,7 +88,8 @@ define( [ 'scullge/engine', 'actors/pickable', 'actors/scoreboard', 'actors/chro
 				$( randomPickable ).addClass( 'Shaker' );
 			}
 
-			if( gaco.gameVars.score >= PickerEngine.MAX_SCORE )
+			gaco.hasWin = gaco.gameVars.score >= PickerEngine.MAX_SCORE;
+			if( gaco.hasWin )
 			{
 				this.destroy();
 				gaco.sceneManager.switchTo( this.nextScene );
@@ -105,7 +106,6 @@ define( [ 'scullge/engine', 'actors/pickable', 'actors/scoreboard', 'actors/chro
 		PickerEngine.prototype.destroy = function()
 		{
 			this.stop();
-			
 		};
 
 		return PickerEngine;

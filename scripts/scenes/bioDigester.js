@@ -15,6 +15,8 @@ define(
 
 	BioDigesterScene.prototype.switchFrom = function( prevScene )
 	{
+		document.title = 'Biodigestor - El juego del reciclaje';
+
 		prevScene.hide();
 
 		var canvas = document.getElementById( 'canvas' ),

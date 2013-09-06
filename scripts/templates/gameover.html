@@ -1,18 +1,9 @@
 
 <style>
-/* COLOR DE FONDO PARA LA INTRO, ELIMINAR SI ES INCORRECTA LA POSICION */
-body { background: #17bc99; }
-
-
-#bg_message 
+	
+body
 {
-	background:url('images/scenes/bg_mensaje.png') center top no-repeat;
-	position: absolute;
-	width:722px;
-	height:612px;
-	right:160px;
-	top: 0px;
-	z-index:-1;
+	background: #17bc99;
 }
 
 #gameoverScene h1
@@ -70,12 +61,7 @@ body { background: #17bc99; }
 
 <div id="gameoverScene" class="Scene">
 
-	<img style="display:none;" src="images/scenes/intro/bg.png" id="gameoverBg" />
-
-	<div id="bg_message"></div><!-- nuevo fondito -->
-
 	<div id="gameoverButtons">
-
 		<img src="images/scenes/intro/button_puntaje.png" id="viewHalloffame2" />
 		<img src="images/scenes/intro/button_volver.png" id="gotoIntro" />
 	</div>
@@ -91,8 +77,6 @@ body { background: #17bc99; }
 	<h1>Perdiste :(</h1>
 	<h2>Lograste <span class="Puntos">0</span> puntos<br />en <span class="Segundos">0</span> segundos.</h2>
 	</div>
-
-		
 
 </div>
 

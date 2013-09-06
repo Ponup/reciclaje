@@ -12,6 +12,8 @@ define( [ 'handlebars', 'data/context', 'scullge/scenes/base', 'data/scores', 't
 
 	RankingScene.prototype.switchFrom = function( prevScene )
 	{
+		document.title = 'Salón de la fama - El juego del reciclaje';
+
 		$( '#canvas' ).empty().append( $( tplHtml ) );
 
 		$( '#gotoIntro' ).on( 'click', function( ev )
@@ -36,8 +38,11 @@ define( [ 'handlebars', 'data/context', 'scullge/scenes/base', 'data/scores', 't
 		var scores = Scores.list( 5 );
 		for( var i = 0; i < scores.length; i++ )
 		{
-			var score = scores[0];
+			var score = scores[ i ];
+			if( score.player.name == '' )
+				score.player.name = 'Anónimo';
 			score.position = i + 1;
+
 			var html = template( score );
 			$hofEntries.append( html );
 		}

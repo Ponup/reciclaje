@@ -15,6 +15,8 @@ define(
 
 	RecyclingPlantScene.prototype.switchFrom = function( prevScene )
 	{
+		document.title = 'Reciclar papel - El juego del reciclaje';
+
 		prevScene.hide();
 
 		var canvas = document.getElementById( 'canvas' ),
@@ -28,13 +30,15 @@ define(
 		$( '#startRecyclingButton' ).on( 'click', function()
 			{
 				gaco.numTries++;
+				gaco.hasWin = gaco.userPositions == gaco.rightPositions;
 
 				var img = this;
 				this.src = CONTEXT_PATH + '/images/actors/recyclingPlant/processing.png';
 
 				setTimeout( function() {
-					if( gaco.userPositions == gaco.rightPositions )
+					if( gaco.hasWin )
 					{
+						gaco.engine.stop();
 						img.src = CONTEXT_PATH + '/images/actors/recyclingPlant/ok.png';
 
 						setTimeout( function() {
@@ -48,6 +52,7 @@ define(
 						setTimeout( function() {
 							if( gaco.numTries > 2 )
 							{
+								gaco.engine.stop();
 								gaco.sceneManager.switchTo( 'gameover' );
 							}
 							else

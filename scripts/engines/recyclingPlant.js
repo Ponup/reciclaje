@@ -18,7 +18,7 @@ define( [ 'scullge/engine', 'actors/machine', 'actors/chronometer', 'actors/scor
 				{ code: 'p', name: 'reciclado_prop_prensa' },
 				{ code: 't', name: 'reciclado_prop_trituradora' },
 			];
-			gaco.rightPositions = 'aghpt';
+			gaco.rightPositions = 'atphg';
 			gaco.userPositions = '     ';
 			gaco.numTries = 0;
 

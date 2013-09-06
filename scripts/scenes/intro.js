@@ -20,6 +20,8 @@ define(
 
 		IntroScene.prototype.switchFrom = function( prevScene )
 		{
+			document.title = 'El juego del reciclaje';
+
 			var canvas = document.getElementById( 'canvas' ),
 				$canvas = $( canvas ),
 				self = this;
@@ -42,9 +44,9 @@ define(
 				{
 					self.savePlayerName();
 
-					require( [ 'scenes/splitIntro' ], function( SplitIntroScene )
+					require( [ 'scenes/split' ], function( SplitScene )
 						{
-							var scene = new SplitIntroScene();
+							var scene = new SplitScene();
 							gaco.sceneManager.add( scene );
 							gaco.sceneManager.switchTo( scene );
 						}

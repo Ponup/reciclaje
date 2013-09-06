@@ -33,7 +33,7 @@ define( [ 'data/context', 'scullge/actor'  ], function( gaco, BaseActor )
 		image.setAttribute( 'draggable', false );
 		$( image ).on( 'click', function( ev )
 			{
-				var actor = gaco.gameEngine.findActorById( 'container_' + this.getAttribute( 'data-name' ) );
+				var actor = gaco.engine.findActorById( 'container_' + this.getAttribute( 'data-name' ) );
 
 				if( actor.getProperty( 'full' ) )
 				{

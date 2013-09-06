@@ -26,6 +26,18 @@ define( [ 'scullge/engine', 'actors/phmeter', 'actors/disposable', 'actors/chron
 			this.addActor( new BacteriumActor() );
 
 			this.initActors();
+
+			this.addUpdateListener( $.proxy( this.onUpdate, this ) );
+		};
+
+		BioDigesterEngine.prototype.onUpdate = function()
+		{
+			if( this.getElapsedTime( true ) > 20 )
+			{
+				this.stop()
+
+				gaco.sceneManager.switchTo( 'gameover' );
+			}
 		};
 		
 		BioDigesterEngine.prototype.addDisposable = function()
