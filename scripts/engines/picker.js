@@ -14,8 +14,8 @@ define( [ 'scullge/engine', 'actors/pickable', 'actors/scoreboard', 'actors/chro
 		PickerEngine.prototype = new BaseEngine();
 		PickerEngine.prototype.constructor = PickerEngine;
 
-		PickerEngine.MAX_SCORE = 10;
-		PickerEngine.MAX_SECONDS = 3;
+		PickerEngine.MAX_SCORE = 40;
+		PickerEngine.MAX_SECONDS = 20;
 
 		PickerEngine.prototype.init = function()
 		{

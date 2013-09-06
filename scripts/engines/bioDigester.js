@@ -1,5 +1,5 @@
 
-define( [ 'scullge/engine', 'actors/phmeter', 'actors/disposable', 'actors/chronometer', 'actors/bacterium', 'scullge/utils/arrays', 'data/items' ], function( BaseEngine, PhmeterActor, DisposableActor, ChronometerActor, BacteriumActor, ArraysUtils, itemsData )
+define( [ 'scullge/engine', 'actors/phmeter', 'actors/disposable', 'actors/chronometer', 'actors/bacterium', 'scullge/utils/arrays', 'data/items', 'data/context' ], function( BaseEngine, PhmeterActor, DisposableActor, ChronometerActor, BacteriumActor, ArraysUtils, itemsData, gaco )
 	{
 		function BioDigesterEngine()
 		{
