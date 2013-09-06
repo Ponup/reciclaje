@@ -297,8 +297,8 @@ define( [ 'data/containerType' ], function( ContainerType )
 				ph: 0,
 				picker:
 				{
-					bioDigester: 0,
-					recyclingPlant: 0,
+					bioDigester:-10,
+					recyclingPlant: 10,
 				}
 			}
 		},
@@ -349,8 +349,8 @@ define( [ 'data/containerType' ], function( ContainerType )
 				ph: 0,
 				picker:
 				{
-					bioDigester: 0,
-					recyclingPlant: 0,
+					bioDigester: -10,
+					recyclingPlant: 10,
 				}
 			}
 		},
@@ -416,6 +416,58 @@ define( [ 'data/containerType' ], function( ContainerType )
 				{
 					bioDigester: 10,
 					recyclingPlant: -10,
+				}
+			}
+		},
+		{
+			name: 'teverde',
+			container: ContainerType.ORGANIC,
+			scoring:
+			{
+				ph: 3,
+				picker:
+				{
+					bioDigester: 10,
+					recyclingPlant: -10,
+				}
+			}
+		},
+		{
+			name: 'papeles',
+			container: ContainerType.PAPER,
+			scoring:
+			{
+				ph: 0,
+				picker:
+				{
+					bioDigester: -10,
+					recyclingPlant: 10,
+				}
+			}
+		},
+		{
+			name: 'avion_papel',
+			container: ContainerType.PAPER,
+			scoring:
+			{
+				ph: 0,
+				picker:
+				{
+					bioDigester: -10,
+					recyclingPlant: 10,
+				}
+			}
+		},
+		{
+			name: 'anotador',
+			container: ContainerType.PAPER,
+			scoring:
+			{
+				ph: 0,
+				picker:
+				{
+					bioDigester: -10,
+					recyclingPlant: 10,
 				}
 			}
 		},
