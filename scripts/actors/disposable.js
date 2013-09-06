@@ -1,5 +1,5 @@
 
-define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
+define( [ 'scullge/actor', 'actors/flashScore', 'data/context' ], function( BaseActor, FlashScoreActor, gaco )
 	{
 		var DisposableActorState = {
 			MOVING: 0,
@@ -34,13 +34,23 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 			this.node.onclick = function()
 			{
 				self.state = DisposableActorState.ANIMATING;
-				$( this ).animate({ top: 0, left: 410 }, 450 ).delay( 300 )
-					.animate({ top: 230, left: 460, width: 0, height: 0, opacity: 30 }, 300, function()
+				$( this )
+					.animate(
+						{ top: 0, left: 410 }, 450 )
+					.delay( 300 )
+					.animate(
+						{ top: 230, left: 460, width: 0, height: 0, opacity: 30 }, 300,
+						function()
 						{
 							self.state = DisposableActorState.DEAD;
 							var phmeter = gaco.engine.findActorById( 'phmeter' );
 							var phLevel = Math.min( 10, Math.max( 0, phmeter.getProperty( 'phLevel' ) + self.properties.phDelta ) );
 							phmeter.setProperty( 'phLevel', phLevel );
+
+							var score = self.properties.phDelta;
+							var actor = new FlashScoreActor( score );
+							actor.setProperty( 'img', { style: { top: '160px', left: '460px' } } );
+							actor.init();
 						}
 					);
 			};

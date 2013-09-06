@@ -1,5 +1,5 @@
 
-define( [ 'scullge/actor', 'scullge/utils/dom', 'data/context' ], function( BaseActor, DomUtils, gaco )
+define( [ 'scullge/actor', 'scullge/utils/dom', 'actors/flashScore', 'data/context' ], function( BaseActor, DomUtils, FlashScoreActor, gaco )
 	{
 		var PickableState = {
 			STANDING: 	0,
@@ -42,34 +42,10 @@ define( [ 'scullge/actor', 'scullge/utils/dom', 'data/context' ], function( Base
 				gaco.gameVars.score += score;
 				self.state = PickableState.CLICKED;
 
-				var flashScore = document.createElement( 'div' );
-				flashScore.className = 'FlashScore';
-				flashScore.innerHTML = ( score > 0 ? '+' : '-' ) + Math.abs( score );
-
-				var style = flashScore.style;
-				style.position = 'absolute';
-				style.top = self.img.style.top;
-				style.left = self.img.style.left;
-				style.fontSize = '44px';
-				style.fontFamily = 'GameFont';
-				style.color = 'black';
-				style.opacity = 0;
-				style.zIndex = 5;
-				$( '.Scene' ).append( flashScore );
-
-				var scoreBoard = $( '.ScoreBoard' )[0];
-
-				$( flashScore )
-					.animate({
-						fontSize: '100px',
-						opacity: 80,
-					}, 200 )
-					.animate({
-						fontSize: '40px',
-						opacity: 0,
-					}, 100 )
-				;
-
+				var actor = new FlashScoreActor( score );
+				actor.setProperty( 'img', self.img );
+				actor.init();
+				gaco.engine.addActor( actor );
 			};
 			picker.appendChild( this.img );
 		};
