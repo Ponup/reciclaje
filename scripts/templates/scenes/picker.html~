@@ -1,5 +1,0 @@
-<style> body { background: #2d3e50;} </style> <!-- color de fondo para el picker / eliminar si esta en un lugar incorrecto -->
-<div id="picker" class="Scene" style="background-repeat: no-repeat; xposition: absolute;">
-	<img src="images/scenes/picker_brief.png" id="pickerBrief" />
-</div>
-
