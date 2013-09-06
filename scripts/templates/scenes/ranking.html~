@@ -1,7 +1,5 @@
 
 <style>
-/* COLOR DE FONDO PARA LA INTRO, ELIMINAR SI ES INCORRECTA LA POSICION */
-body { background: #17bc99; }
 	
 #pageFold 
 {

@@ -65,23 +65,26 @@ img.Button
 
 div.Scene
 {
-	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+	/*box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);*/
 	width: 1024px;
 	height: 768px;
 	margin: 0px auto;
-	background-color: #EFECEA;
+	/*background-color: #EFECEA;*/
 	position: relative;
 }
 
 #loadingScene
 {
-	background: #46c2c6;
+	/*background: #46c2c6;*/
 	position: relative;
 }
 	#loadingLogo
 	{
 		display: block;
-		margin: 0px auto;
+		/*margin: auto;*/
+		position:absolute;
+		top: 114px ;
+		left: 118px;
 	}
 
 /* all */
