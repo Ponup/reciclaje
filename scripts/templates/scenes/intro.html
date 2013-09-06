@@ -7,6 +7,7 @@ body { background: #17bc99; }
 {
 	background: #17bc99;
 	display: none;
+	/*border:1px red solid;*/
 }
 
 #introBg
@@ -28,18 +29,30 @@ body { background: #17bc99; }
 #introLogo
 {
 	display: block;
-	margin: 0px auto;
+	margin: 40px auto 0 auto;
 }
 
 #playerName
 {
-	margin: 30px auto 30px auto;
+	/*margin: 30px auto 30px auto;*/
 	display: block;
-	background: rgba(255, 255, 255, .1);
+	background: rgba(255, 255, 255, .0);
+	position:absolute;
+	width: 430px;
+	top: 460px;
+	left: 285px;
+	color:#f2c40f;
+	text-shadow: 0px 5px 0px rgba(0, 0, 0, .1);
 }
 #playerName:active,#playerName:focus
 {
-	background: rgba(255, 255, 255, .4);
+	background: rgba(255, 255, 255, .1);
+}
+
+#introIntrucciones {
+	font-size: 3em;
+	text-align:center;
+	text-shadow: 0px 5px 0px rgba(0, 0, 0, .1);
 }
 
 </style>
@@ -55,9 +68,11 @@ body { background: #17bc99; }
 		<img src="images/scenes/intro/button_conveyorBelt.png" id="introBtnConveyorBelt" />
 	</div>
 
-	<img src="images/logo.png" id="introLogo" />
+	<img src="images/intro_logo.png" id="introLogo" />
 
 	<input type="text" id="playerName" placeholder="Tu nombre" />
+	
+	<div id="introIntrucciones">Toque la pantalla para comenzar a Jugar!</div>
 
 </div>
 
