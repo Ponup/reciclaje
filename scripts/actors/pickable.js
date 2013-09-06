@@ -34,7 +34,6 @@ define( [ 'scullge/actor', 'scullge/utils/dom', 'data/context' ], function( Base
 			this.img.style.width = ( ( this.properties.y > 500 ? 1.5 : 0.7 ) * 60 ) + 'px'; 
 			this.img.style.width = ( this.getProperty( 'scale' ) * 60 ) + 'px'; 
 			this.img.style.position = 'absolute';
-
 			this.img.onclick = function()
 			{
 				self.img.onclick = function() {};
@@ -60,10 +59,11 @@ define( [ 'scullge/actor', 'scullge/utils/dom', 'data/context' ], function( Base
 					this.img.style.top = this.properties.y + 'px';
 					break;
 				case PickableState.CLICKED:
-					$( this.img ).animate({ opacity: 0 }, 100, function()
+					$( this.img ).animate({ opacity: 0 }, 300, function()
 						{
 							self.state = PickableState.DEAD;
 					});
+					
 					break;
 				case PickableState.DEAD:
 					DomUtils.removeNode( this.img );

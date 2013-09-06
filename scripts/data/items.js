@@ -420,6 +420,19 @@ define( [ 'data/containerType' ], function( ContainerType )
 			}
 		},
 		{
+			name: 'aceite',
+			container: ContainerType.ORGANIC,
+			scoring:
+			{
+				ph: 2,
+				picker:
+				{
+					bioDigester: 10,
+					recyclingPlant: -10,
+				}
+			}
+		},
+		{
 			name: 'manzana',
 			container: ContainerType.ORGANIC,
 			scoring:
