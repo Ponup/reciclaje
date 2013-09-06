@@ -36,9 +36,40 @@ define( [ 'scullge/actor', 'scullge/utils/dom', 'data/context' ], function( Base
 			this.img.style.position = 'absolute';
 			this.img.onclick = function()
 			{
+				var score = self.properties.data.scoring.picker[ gaco.finalSceneName ];
+
 				self.img.onclick = function() {};
-				gaco.gameVars.score += self.properties.data.scoring.picker[ gaco.finalSceneName ];
+				gaco.gameVars.score += score;
 				self.state = PickableState.CLICKED;
+
+				var flashScore = document.createElement( 'div' );
+				flashScore.className = 'FlashScore';
+				flashScore.innerHTML = ( score > 0 ? '+' : '-' ) + Math.abs( score );
+
+				var style = flashScore.style;
+				style.position = 'absolute';
+				style.top = self.img.style.top;
+				style.left = self.img.style.left;
+				style.fontSize = '44px';
+				style.fontFamily = 'GameFont';
+				style.color = 'black';
+				style.opacity = 0;
+				style.zIndex = 5;
+				$( '.Scene' ).append( flashScore );
+
+				var scoreBoard = $( '.ScoreBoard' )[0];
+
+				$( flashScore )
+					.animate({
+						fontSize: '100px',
+						opacity: 80,
+					}, 200 )
+					.animate({
+						fontSize: '40px',
+						opacity: 0,
+					}, 100 )
+				;
+
 			};
 			picker.appendChild( this.img );
 		};
