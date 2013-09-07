@@ -25,7 +25,7 @@ define( [ 'data/context', 'scullge/actor'  ], function( gaco, BaseActor )
 
 	Container.prototype.init = function()
 	{
-		var image = new Image();
+		var image = document.createElement( 'img' );
 		image.id = this.id;
 		image.style.left = ( this.properties.position * 200 ) + 'px';
 		image.style.top = '400px';

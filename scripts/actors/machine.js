@@ -1,11 +1,11 @@
 
-define( [ 'scullge/actor', 'scullge/utils/arrays', 'data/context' ], function( BaseActor, ArraysUtils, gaco )
+define( [ 'scullge/actor', 'scullge/utils/arrays', 'data/context', 'jqueryui' ], function( BaseActor, ArraysUtils, gaco )
 	{
 		function Machine()
 		{
 			BaseActor.call( this );
 
-			this.machines = this.machine = null;
+			this.machines = this.machine = this.newMachine = null;
 		}
 
 		Machine.prototype = new BaseActor();
@@ -21,6 +21,7 @@ define( [ 'scullge/actor', 'scullge/utils/arrays', 'data/context' ], function( B
 			this.node.style.bottom = '120px';
 			this.node.style.position = 'absolute';
 			this.node.src = CONTEXT_PATH + '/images/actors/process/' + this.machine.name + '.png';
+			this.node.style.left = ( 60 + this.properties.position * 180 ) + 'px';
 			recyclingPlant.appendChild( this.node );
 
 			$( this.node ).on( 'click', function()
@@ -44,9 +45,8 @@ define( [ 'scullge/actor', 'scullge/utils/arrays', 'data/context' ], function( B
 			}
 			else
 			{
-				var tempMachine = this.machines.shift();
+				this.newMachine = this.machines.shift();
 				this.machines.push( this.machine );
-				this.machine = tempMachine;
 			}
 
 			var userPositions = gaco.userPositions.split( '' );
@@ -56,8 +56,21 @@ define( [ 'scullge/actor', 'scullge/utils/arrays', 'data/context' ], function( B
 
 		Machine.prototype.redraw = function()
 		{
-			this.node.src = CONTEXT_PATH + '/images/actors/process/' + this.machine.name + '.png';
-			this.node.style.left = ( 60 + this.properties.position * 180 ) + 'px';
+			var self = this;
+
+			if( null !== this.newMachine )
+			{
+				this.machine = this.newMachine;
+				this.newMachine = null;
+
+				$( this.node ).effect( 'explode', 200, function()
+					{
+						this.src = CONTEXT_PATH + '/images/actors/process/' + self.machine.name + '.png';
+
+						$( this ).fadeIn( 175 );
+					}
+				);				
+			}
 		};
 
 		return Machine;

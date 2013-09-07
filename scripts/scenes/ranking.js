@@ -13,6 +13,7 @@ define( [ 'handlebars', 'data/context', 'scullge/scenes/base', 'data/scores', 't
 	RankingScene.prototype.switchFrom = function( prevScene )
 	{
 		document.title = 'Salón de la fama - El juego del reciclaje';
+		document.body.style.backgroundColor = '#17bc99';
 
 		$( '#canvas' ).empty().append( $( tplHtml ) );
 

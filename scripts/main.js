@@ -3,6 +3,7 @@ require.config({
 	baseUrl: CONTEXT_PATH + '/scripts',
 	paths: {
 		jquery: 'jquery-1.10.2.min',
+		jqueryui: 'jquery-ui-1.10.3.custom.min',
 		TweenMax: 'tweening/TweenMax.min',
 	},
 	shim: {
