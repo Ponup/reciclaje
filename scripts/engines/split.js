@@ -52,13 +52,6 @@ define( [ 'scullge/engine', 'data/containerType', 'actors/statspanel', 'actors/a
 			gaco.uniqueIndex = 0;
 
 			gaco.activeElement = null;
-
-			gaco.audioManager.load( 'introMusic', CONTEXT_PATH + '/sounds/music.mp3' );
-			gaco.audioManager.load( 'helpMusic', CONTEXT_PATH + '/sounds/level-start.mp3' );
-			gaco.audioManager.load( 'gameWin', CONTEXT_PATH + '/sounds/game-win.mp3' );
-			gaco.audioManager.load( 'gameLose', CONTEXT_PATH + '/sounds/gameover.mp3' ); 
-			gaco.audioManager.load( 'tap', CONTEXT_PATH + '/sounds/tap.mp3' );
-			gaco.audioManager.load( 'tapWrong', CONTEXT_PATH + '/sounds/tap-wrong.mp3' );
 		};
 
 		SplitEngine.prototype.canPassLevel = function()

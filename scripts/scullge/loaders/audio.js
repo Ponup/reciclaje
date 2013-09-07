@@ -14,15 +14,35 @@ define( function()
 		this.audios[ name ] = audio;
 	};
 
-	AudioLoader.prototype.play = function( name )
+	AudioLoader.prototype.play = function( name, inLoop )
 	{
 		if( 'undefined' === typeof( this.audios[ name ] ) )
 		{
 			throw 'Audio was not loaded: ' + name;
 		}
 
-		this.audios[ name ].play();
-		return this.audios[ name ];
+		var audio = this.audios[ name ];
+
+		if( 'undefined' !== typeof( inLoop ) )
+		{
+			if( 'boolean' === typeof( audio.loop ) )
+			{
+				    audio.loop = inLoop;
+			}
+			else
+			{
+				audio.addEventListener( 'ended', function()
+					{
+						this.currentTime = 0;
+						this.play();
+					}, false
+				);
+			}
+		}
+
+		audio.play();
+
+		return audio;
 	};
 
 	return AudioLoader;
