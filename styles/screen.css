@@ -122,15 +122,27 @@ input:-moz-placeholder { color:rgba(255, 255, 255, .5); }
 	10% { -webkit-transform: translate(1px, -2px) rotate(0deg); }
 }
 
-@-webkit-keyframes introLogo {
+@-webkit-keyframes fadeZoomRotateIn {
 	0% { opacity:0; -webkit-transform: scale(.5) rotate(-2deg); }
 	85% {opacity:1; -webkit-transform:scale(1.05) rotate(1deg);}
 	100% { opacity:1;-webkit-transform: scale(1) rotate(0deg); }
 }
-@-webkit-keyframes introInput {
+@-webkit-keyframes fadeZoomIn {
 	0% { opacity:0; -webkit-transform: scale(.5);  }
 	100% { opacity:1;-webkit-transform: scale(1);}
 }
+
+/* BRIEF ANIMATIONS DEFINITIONS */
+
+@-webkit-keyframes fadein {	0% { opacity:0; } 100% { opacity:1; }  }
+@-webkit-keyframes bubbleIn {	
+
+	0% { opacity:0; -webkit-transform: translate(0px, 0px) scale(1,0.1) rotate(-5deg);  } 
+	70% { opacity:1; -webkit-transform: translate(0px, 0px) scale(1,1.1) rotate(3deg); }  
+	100% { opacity:1; -webkit-transform: translate(0px, 0px) scale(1,1) rotate(0deg); }  
+	}
+/* BRIEF ANIMATIONS DEFINITIONS */
+
 
 .Shaker {
 	display:inline-block;
@@ -152,7 +164,7 @@ input:-moz-placeholder { color:rgba(255, 255, 255, .5); }
 .IntroLogoAnim {
 	
 
-	-webkit-animation-name: introLogo;
+	-webkit-animation-name: fadeZoomRotateIn;
 	-webkit-animation-duration: 2s;
 	-webkit-transform-origin:50% 50%;
 	-webkit-animation-iteration-count: 1;
@@ -161,7 +173,7 @@ input:-moz-placeholder { color:rgba(255, 255, 255, .5); }
 .IntroInputAnim {
 	opacity:0;
 
-	-webkit-animation-name: introInput;
+	-webkit-animation-name: fadeZoomIn;
 	-webkit-animation-duration: 1s;
 	-webkit-transform-origin:50% 50%;
 	-webkit-animation-iteration-count: 1;
@@ -171,3 +183,49 @@ input:-moz-placeholder { color:rgba(255, 255, 255, .5); }
 }
 
 
+/* BRIEF ELEMENTS */
+#brief_overlay {
+	opacity:0;
+	-webkit-animation-name: fadein;
+	-webkit-animation-duration: 1s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+#brief_titulo {
+	position:absolute;
+	top: 150px;
+	left : 265px;
+	opacity:0;
+	-webkit-animation-name: fadeZoomRotateIn;
+	-webkit-animation-duration: 1s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+#brief_puntos {
+	position:absolute;
+	top: 480px;
+	right : 62px;
+	opacity:0;
+	-webkit-animation-name: bubbleIn;
+	-webkit-animation-duration: .2s;
+	-webkit-transform-origin:70% 100%;
+	-webkit-animation-delay: 2s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-out;
+}
+
+#brief_tiempo {
+	position:absolute;
+	top: 480px;
+	left : 15px;
+	opacity:0;
+	-webkit-animation-name: bubbleIn;
+	-webkit-animation-duration: .2s;
+	-webkit-transform-origin:20% 100%;
+	-webkit-animation-delay: 4s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+}
