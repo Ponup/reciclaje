@@ -82,10 +82,18 @@ div.Scene
 	#loadingLogo
 	{
 		display: block;
-		/*margin: auto;*/
-		position:absolute;
-		top: 114px ;
-		left: 118px;
+		position: relative;
+		margin: auto;
+		width: 350px;
+		font-size: 4.5em;
+		text-align:center;
+		font-weight: normal;
+		margin-top: 280px;
+		-webkit-animation-name: Loading;
+	-webkit-animation-duration: 2s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: ease-in-out;
 	}
 
 /* Input placeholder */
@@ -131,16 +139,20 @@ input:-moz-placeholder { color:rgba(255, 255, 255, .5); }
 	0% { opacity:0; -webkit-transform: scale(.5);  }
 	100% { opacity:1;-webkit-transform: scale(1);}
 }
+@-webkit-keyframes Loading {
+	0%,100% { opacity:0.5; -webkit-transform: scale(.9);  }
+	50% { opacity:0.8;-webkit-transform: scale(1);}
+}
 
 /* BRIEF ANIMATIONS DEFINITIONS */
 
 @-webkit-keyframes fadein {	0% { opacity:0; } 100% { opacity:1; }  }
 @-webkit-keyframes bubbleIn {	
-
 	0% { opacity:0; -webkit-transform: translate(0px, 0px) scale(1,0.1) rotate(-5deg);  } 
-	70% { opacity:1; -webkit-transform: translate(0px, 0px) scale(1,1.1) rotate(3deg); }  
+	70% { opacity:1; -webkit-transform: translate(0px, 0px) scale(1,1.1) rotate(1deg); }  
 	100% { opacity:1; -webkit-transform: translate(0px, 0px) scale(1,1) rotate(0deg); }  
 	}
+	
 /* BRIEF ANIMATIONS DEFINITIONS */
 
 

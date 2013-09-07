@@ -22,6 +22,13 @@ body { background: #17bc99; }
 }
 	#introButtons img
 	{
+		opacity:0;
+		-webkit-animation-name: bubbleIn;
+		-webkit-animation-duration: .3s;
+		-webkit-transform-origin:50% 0%;
+		-webkit-animation-delay:2s;
+		-webkit-animation-fill-mode: forwards;
+		-webkit-animation-timing-function: ease-in-out;
 		cursor: pointer;
 		margin:0 10px;
 	}
@@ -51,8 +58,18 @@ body { background: #17bc99; }
 
 #introIntrucciones {
 	font-size: 3em;
+	font-weight: normal;
 	text-align:center;
 	text-shadow: 0px 5px 0px rgba(0, 0, 0, .1);
+}
+#intrucciones_container {
+	opacity:0;
+		-webkit-animation-name: fadein;
+		-webkit-animation-duration: .3s;
+		-webkit-transform-origin:50% 0%;
+		-webkit-animation-delay:4s;
+		-webkit-animation-fill-mode: forwards;
+		-webkit-animation-timing-function: ease-in-out;
 }
 
 </style>
@@ -72,7 +89,11 @@ body { background: #17bc99; }
 
 	<input type="text" id="playerName" placeholder="Tu nombre" class="IntroInputAnim" />
 	
-	<div id="introIntrucciones" class="ShakerInfinite" >Toque la pantalla para comenzar a Jugar!</div>
+	<div id="intrucciones_container">
+		<div id="introIntrucciones" class="ShakerInfinite" >
+		Toque la pantalla para comenzar a Jugar!
+		</div>
+	</div>
 
 </div>
 
