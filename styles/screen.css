@@ -7,18 +7,18 @@
 
 body
 {
-	background-color: white;
+	background: #17bc99;
 	font-family: 'GameFont';
 	color: white;
 	margin: 0px;
-	
 }
 
-*::-webkit-scrollbar { 
-	width: 0 !important 
-	-webkit-appearance: none;
+*::-webkit-scrollbar
+{
+	width: 0 !important;
 	display: none;
-	}
+	-webkit-appearance: none;
+}
 
 /* Selection disabler */
 body
@@ -81,27 +81,23 @@ div.Scene
 	position: relative;
 }
 
-#loadingScene
+#loadingText
 {
-	/*background: #46c2c6;*/
+	display: block;
 	position: relative;
+	margin: auto;
+	width: 350px;
+	font-size: 4.5em;
+	text-align: center;
+	font-weight: normal;
+	margin-top: 280px;
+
+	-webkit-animation-name: Loading;
+	-webkit-animation-duration: 2s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: ease-in-out;
 }
-	#loadingLogo
-	{
-		display: block;
-		position: relative;
-		margin: auto;
-		width: 350px;
-		font-size: 4.5em;
-		text-align:center;
-		font-weight: normal;
-		margin-top: 280px;
-		-webkit-animation-name: Loading;
-		-webkit-animation-duration: 2s;
-		-webkit-transform-origin:50% 50%;
-		-webkit-animation-iteration-count: infinite;
-		-webkit-animation-timing-function: ease-in-out;
-	}
 
 /* Input placeholder */
 ::-webkit-input-placeholder { color:rgba(255, 255, 255, .5); }
@@ -245,3 +241,4 @@ input:-moz-placeholder { color:rgba(255, 255, 255, .5); }
 	-webkit-animation-fill-mode: forwards;
 	-webkit-animation-timing-function: ease-in-out;
 }
+

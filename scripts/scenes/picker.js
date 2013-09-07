@@ -19,6 +19,7 @@ define(
 		prevScene.hide();
 
 		document.title = 'Recoje elementos - El juego del reciclaje';
+		document.body.style.backgroundColor = '#2d3e50';
 
 		var canvas = document.getElementById( 'canvas' ),
 			$canvas = $( canvas );

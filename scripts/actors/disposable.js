@@ -52,9 +52,7 @@ define( [ 'scullge/actor', 'actors/flashScore', 'TweenMax', 'data/context' ], fu
 					onComplete: function()
 					{
 						self.state = DisposableActorState.DEAD;
-						var phmeter = gaco.engine.findActorById( 'phmeter' );
-						var phLevel = Math.min( 10, Math.max( 0, phmeter.getProperty( 'phLevel' ) + self.properties.phDelta ) );
-						phmeter.setProperty( 'phLevel', phLevel );
+						gaco.gameVars.phLevel = Math.min( 10, Math.max( 0, gaco.gameVars.phLevel + self.properties.phDelta ) );
 
 						var score = self.properties.phDelta;
 						var actor = new FlashScoreActor( score );
@@ -72,7 +70,7 @@ define( [ 'scullge/actor', 'actors/flashScore', 'TweenMax', 'data/context' ], fu
 			switch( this.state )
 			{
 				case DisposableActorState.MOVING:
-					this.properties.left += 3;
+					this.properties.left += 2;
 					if( this.properties.left > 1024 )
 					{
 						this.state = DisposableActorState.DEAD;

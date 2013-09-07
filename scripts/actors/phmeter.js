@@ -1,12 +1,11 @@
 
-define( [ 'scullge/actor' ], function( BaseActor )
+define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 	{
 		function Phmeter()
 		{
 			BaseActor.call( this );
 
 			this.setId( 'phmeter' );
-			this.setProperty( 'phLevel', 0 );
 		}
 
 		Phmeter.prototype = new BaseActor();
@@ -31,7 +30,7 @@ define( [ 'scullge/actor' ], function( BaseActor )
 
 		Phmeter.prototype.redraw = function()
 		{
-			this.node.style.backgroundPosition = -( this.properties.phLevel * 207 ) + 'px 0px';
+			this.node.style.backgroundPosition = -( gaco.gameVars.phLevel * 207 ) + 'px 0px';
 		};
 
 		return Phmeter;

@@ -21,6 +21,7 @@ define(
 		IntroScene.prototype.switchFrom = function( prevScene )
 		{
 			document.title = 'El juego del reciclaje';
+			document.body.style.backgroundColor = '#17bc99';
 
 			var canvas = document.getElementById( 'canvas' ),
 				$canvas = $( canvas ),

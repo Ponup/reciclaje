@@ -43,12 +43,14 @@ define( [ 'data/context', 'scullge/scenes/base', 'data/scores', 'text!templates/
 			gaco.audioManager.play( 'gameWin' );
 			$( '#gameoverScene' ).addClass( 'Winner' ).fadeIn();
 			$( 'div.Winner' ).removeClass( 'Hidden' );
+			document.body.style.backgroundColor = '#17bc99';
 		}
 		else
 		{
 			gaco.audioManager.play( 'gameLose' );
 			$( '#gameoverScene' ).addClass( 'Loser' ).fadeIn();
 			$( 'div.Loser' ).removeClass( 'Hidden' );
+			document.body.style.backgroundColor = '#e94c3d';
 		}
 
 		$( '.Puntos' ).html( gaco.gameVars.score );

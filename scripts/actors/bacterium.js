@@ -30,18 +30,15 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 		{
 			this.frameNum = 0;
 
-			var phLevel = gaco.engine.findActorById( 'phmeter' ).getProperty( 'phLevel' );
-
 			var relation = {
 				0: 0, 1: 0, 2: 0,
-				3: 1, 4: 1, 5: 1,
-				6: 2, 7: 2, 8: 2,
-				9: 3, 10: 3, 11: 3,
-				12: 4, 13: 4, 14: 4,
-				15: 4
+				3: 1, 4: 1,
+				5: 2, 6: 2, 7: 2, // Winning condition
+				8: 3, 9: 3, 10: 3,
+				11: 4, 12: 4, 13: 4
 			};
 
-			var newframeNum = relation[ phLevel ];
+			var newframeNum = relation[ gaco.gameVars.phLevel ];
 			if( newframeNum != this.frameNum )
 			{
 				this.newframeNum = newframeNum;

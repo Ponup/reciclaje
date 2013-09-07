@@ -18,6 +18,7 @@ define( [ 'scullge/engine', 'actors/machine', 'actors/chronometer', 'actors/scor
 				{ code: 'p', name: 'reciclado_prop_prensa' },
 				{ code: 't', name: 'reciclado_prop_trituradora' },
 			];
+
 			gaco.rightPositions = 'atphg';
 			gaco.userPositions = '     ';
 			gaco.numTries = 0;
@@ -39,11 +40,18 @@ define( [ 'scullge/engine', 'actors/machine', 'actors/chronometer', 'actors/scor
 
 		RecyclingPlantEngine.prototype.onUpdate = function()
 		{
-			if( gaco.engine.getElapsedTime( true ) > 20 )
+			if( this.getElapsedTime( true ) > 20 )
 			{
-				gaco.engine.stop();
+				this.stop();
+
+				this.updateGameStatus();
 				gaco.sceneManager.switchTo( 'gameover' );
 			}
+		};
+
+		RecyclingPlantEngine.prototype.updateGameStatus = function()
+		{
+			gaco.hasWin = ( gaco.userPositions == gaco.rightPositions );
 		};
 
 		return RecyclingPlantEngine;

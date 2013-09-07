@@ -30,7 +30,7 @@ define(
 		$( '#startRecyclingButton' ).on( 'click', function()
 			{
 				gaco.numTries++;
-				gaco.hasWin = gaco.userPositions == gaco.rightPositions;
+				gaco.engine.updateGameStatus();
 
 				var img = this;
 				this.src = CONTEXT_PATH + '/images/actors/recyclingPlant/processing.png';
