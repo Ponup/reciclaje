@@ -1,7 +1,7 @@
 
 define(
-	[ 'scullge/scenes/base', 'engines/recyclingPlant', 'data/context', 'text!templates/scenes/recyclingPlant.html' ],
-	function( BaseScene, RecyclingPlantEngine, gaco, tplHtml )
+	[ 'scullge/scenes/base', 'engines/recyclingPlant', 'data/context' ],
+	function( BaseScene, RecyclingPlantEngine, gaco )
 {
 	function RecyclingPlantScene()
 	{
@@ -16,18 +16,29 @@ define(
 	RecyclingPlantScene.prototype.switchFrom = function( prevScene )
 	{
 		document.title = 'Reciclar papel - El juego del reciclaje';
+		document.body.style.backgroundColor = '#2d3e50';
 
 		prevScene.hide();
 
 		var canvas = document.getElementById( 'canvas' ),
 			$canvas = $( canvas );
 
-		$canvas.empty().append( tplHtml );
+		var sceneDiv = document.createElement( 'div' );
+		sceneDiv.id = 'recyclingPlant';
+		sceneDiv.className = 'Scene';
+		sceneDiv.style.background = "url('images/scenes/recyclingPlant.png') no-repeat";
 
+		var startButton = document.createElement( 'img' );
+		startButton.id = 'startRecyclingButton';
+		startButton.src = 'images/actors/recyclingPlant/start.png';
+		startButton.style.cssText = 'position: absolute; bottom: 0px;';
+		sceneDiv.appendChild( startButton );
+
+		$canvas.empty().append( sceneDiv );
 
 		gaco.engine = new RecyclingPlantEngine();
 
-		$( '#startRecyclingButton' ).on( 'click', function()
+		$( startButton ).on( 'click', function()
 			{
 				gaco.numTries++;
 				gaco.engine.updateGameStatus();

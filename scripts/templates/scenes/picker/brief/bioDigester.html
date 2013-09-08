@@ -1,0 +1,49 @@
+
+<style>
+
+.BriefTitle {
+	position:absolute;
+	top: 150px;
+	left : 265px;
+	opacity:0;
+	-webkit-animation-name: fadeZoomRotateIn;
+	-webkit-animation-duration: 1s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.BriefScore {
+	position:absolute;
+	top: 480px;
+	right : 62px;
+	opacity:0;
+	-webkit-animation-name: bubbleIn;
+	-webkit-animation-duration: .2s;
+	-webkit-transform-origin:70% 100%;
+	-webkit-animation-delay: 2s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-out;
+}
+
+.BriefTime {
+	position:absolute;
+	top: 480px;
+	left : 15px;
+	opacity:0;
+	-webkit-animation-name: bubbleIn;
+	-webkit-animation-duration: .2s;
+	-webkit-transform-origin:20% 100%;
+	-webkit-animation-delay: 4s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+</style>
+
+<div id="pickerBrief" style="background: url('images/scenes/brief/brief_overlay.png'); width: 1024px; height: 768px;"> 
+	<img src="images/scenes/brief/brief_picker_titulo_biodigestor.png" class="BriefTitle" />
+	<img src="images/scenes/brief/brief_puntos.png" class="BriefScore" />
+	<img src="images/scenes/brief/brief_tiempo.png" class="BriefTime" />
+</div>
+

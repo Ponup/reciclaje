@@ -1,7 +1,6 @@
 
 define(
-	[ 'engines/picker', 'scullge/scenes/base', 'data/context', 'text!templates/scenes/picker.html' ],
-	function( PickerEngine, BaseScene, gaco, tplHtml )
+	[ 'engines/picker', 'scullge/scenes/base', 'data/context', 'text!templates/scenes/picker/brief/bioDigester.html', 'text!templates/scenes/picker/brief/recyclingPlant.html' ], function( PickerEngine, BaseScene, gaco, bioDigesterBriefHtml, recyclingPlantBriefHtml  )
 {
 	function PickerScene( nextScene )
 	{
@@ -24,7 +23,20 @@ define(
 		var canvas = document.getElementById( 'canvas' ),
 			$canvas = $( canvas );
 
-		$canvas.empty().append( tplHtml );
+		var sceneDiv = document.createElement( 'div' ),
+		    	$sceneDiv = $( sceneDiv );
+
+		sceneDiv.id = 'picker';
+		sceneDiv.className = 'Scene';
+		sceneDiv.style.display = 'none';
+		sceneDiv.style.backgroundRepeat = 'no-repeat';
+
+		$canvas.empty().append( sceneDiv );
+
+		if( 'bioDigester' == gaco.finalSceneName )
+			$sceneDiv.append( bioDigesterBriefHtml );
+		else
+			$sceneDiv.append( recyclingPlantBriefHtml );
 
 		var picker = document.getElementById( 'picker' );
 		$( picker ).fadeIn();
