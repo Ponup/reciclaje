@@ -8,36 +8,112 @@
 	height: 740px;
 	background: url('images/scenes/brief/brief_overlay.png');
 }
+
+	#gameplay dt
+	{
+		display:none;
+	}	
 	#gameplay dl
 	{
-		position: absolute;
+		/*position: absolute;
 		text-align: right;
 		top: 50px;
 		right: 80px;
 		color: #fff;
 		font-size: 1.5em;
 		margin: 0;
-		padding: 0;
+		padding: 0;*/
 	}
 	#gameplay dd {
-		color:#f2c40f;
+		/*color:#f2c40f;
 		font-size: 1.5em;
 		margin: 0;
-		padding: 0;
+		padding: 0;*/
 	}
+	#gameplay #correctMovements {
+		display:block;
+		position:absolute;
+		top:6px;
+		right: 4px;
+		font-size: 3em;
+		width: 130px ;
+		text-align:center;
+		text-shadow: 0px 4px 0 rgba(0,0,0,0.1)
+	}
+	
+	#gameplay #level {
+		display:block;
+		position:absolute;
+		top:83px;
+		right: 145px;
+		font-size: 2.2em;
+		width: 50px ;
+		text-align:center;
+		text-shadow: 0px 4px 0 rgba(0,0,0,0.1)
+	}
+	
+		
+	#gameplay #pendingElements {
+		display:block;
+		position:absolute;
+		color:#f2c40f;
+		top:85px;
+		right: -5px;
+		font-size: 1.6em;
+		width: 50px ;
+		text-align:center;
+		text-shadow: 0px 4px 0 rgba(0,0,0,0.1)
+	}
+	#gameplay #elapsedTime {
+		display:block;
+		position:absolute;
+		color:#30cb71;
+		top:143px;
+		right: -5px;
+		font-size: 1.3em;
+		width: 120px ;
+		text-align:left;
+		text-shadow: 0px 4px 0 rgba(0,0,0,0.1);
+		font-weight:normal;
+	}
+	
+div#stats {
+	background: url('images/bonus_datos.png');
+	width: 278px;
+	height: 167px;
+	position: absolute;
+	right: 70px;
+	top:100px;
+	opacity:0;
+	-webkit-animation-name: fadein;
+	-webkit-animation-duration: 1s;
+	-webkit-transform-origin:50% 100%;
+	-webkit-animation-delay:.5s;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-fill-mode: forwards;
+}
 
 div#cinta
 {
-	overflow: hidden;
-	margin: 5px auto 0 auto;
-	width: 186px;
-	height: 269px;
-	background: url('images/cinta.png') no-repeat;
+	position:absolute;
+	top:-10px;
+	left: 300px; 
+	margin: 0px auto 0 auto;
+	width: 388px;
+	height: 402px;
+	background: url('images/cinta.png') center center  no-repeat;
+	opacity:0;
+	-webkit-animation-name: bubbleIn;
+	-webkit-animation-duration: .5s;
+	-webkit-transform-origin:50% 0%;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-fill-mode: forwards;
 }
 	div#cinta img#cintaFg
 	{
-		margin-left: 25px;
-		margin-top: 1px;
+		display:none;
+		/*margin-left: 25px;
+		margin-top: 1px;*/
 	}
 
 div#containers
@@ -57,7 +133,13 @@ div#containers
 		div#containers div.Container img
 		{
 			cursor: pointer;
-			width:70%;
+			width:65%;
+			opacity:0;
+			-webkit-animation-name: bubbleIn;
+			-webkit-animation-duration: .5s;
+			-webkit-transform-origin:50% 100%;
+			-webkit-animation-timing-function: ease-in-out;
+			-webkit-animation-fill-mode: forwards;
 		}
 
 	img.Element
@@ -69,19 +151,21 @@ div#containers
 </style>
 
 <div id="gameplay" class="Scene">
-	<dl>
-		<dt>Nivel</dt>
-		<dd id="level">0</dd>
+	<div id="stats">
+		<dl>
+			<dt>Nivel</dt>
+			<dd id="level">0</dd>
+		
+			<dt>Tiempo</dt>
+			<dd id="elapsedTime">0</dd>
 	
-		<dt>Tiempo</dt>
-		<dd id="elapsedTime">0</dd>
-
-		<dt>Puntos</dt>
-		<dd id="correctMovements">0</dd>
-
-		<dt>Elementos restantes</dt>
-		<dd id="pendingElements">0</dd>
-	</dl>
+			<dt>Puntos</dt>
+			<dd id="correctMovements">0</dd>
+	
+			<dt>Elementos restantes</dt>
+			<dd id="pendingElements">0</dd>
+		</dl>
+	</div>
 
 	<div id="cinta">
 		<img src="images/cinta-anim.gif" id="cintaFg" />
