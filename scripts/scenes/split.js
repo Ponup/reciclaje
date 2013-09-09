@@ -24,6 +24,9 @@ define( [ 'data/context', 'scullge/scenes/base', 'actors/element', 'actors/conta
 		document.title = 'Separá la basura - El juego del reciclaje';
 		document.body.style.backgroundColor = '#2d3e50';
 
+		gaco.audioManager.stopAll();
+		gaco.audioManager.play( 'bgmusicGameplay', true );
+
 		prevScene.hide();
 
 		var introImg = document.createElement( 'img' );
@@ -44,7 +47,6 @@ define( [ 'data/context', 'scullge/scenes/base', 'actors/element', 'actors/conta
 				
 				gaco.engine = new SplitEngine();
 				gaco.engine.init();
-
 
 				self.start();
 			}

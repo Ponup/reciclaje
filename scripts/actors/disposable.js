@@ -54,6 +54,11 @@ define( [ 'scullge/actor', 'actors/flashScore', 'TweenMax', 'data/context' ], fu
 						self.state = DisposableActorState.DEAD;
 						gaco.gameVars.phLevel = Math.min( 10, Math.max( 0, gaco.gameVars.phLevel + self.properties.phDelta ) );
 
+						if( self.properties.phDelta > 0 )
+							gaco.audioManager.play( 'tap' );
+						else
+							gaco.audioManager.play( 'tapWrong' );
+
 						var score = self.properties.phDelta;
 						var actor = new FlashScoreActor( score );
 						actor.setProperty( 'img', { style: { top: '160px', left: '460px' } } );

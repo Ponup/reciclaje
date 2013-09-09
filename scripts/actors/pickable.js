@@ -42,6 +42,11 @@ define( [ 'scullge/actor', 'scullge/utils/dom', 'actors/flashScore', 'data/conte
 				gaco.gameVars.score += score;
 				self.state = PickableState.CLICKED;
 
+				if( score > 0 )
+					gaco.audioManager.play( 'tap' );
+				else
+					gaco.audioManager.play( 'tapWrong' );
+
 				var actor = new FlashScoreActor( score );
 				actor.setProperty( 'img', self.img );
 				actor.init();

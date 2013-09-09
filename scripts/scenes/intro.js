@@ -23,7 +23,11 @@ define(
 			document.title = 'El juego del reciclaje';
 			document.body.style.backgroundColor = '#17bc99';
 
-			gaco.audioManager.play( 'menuMusic', true );
+			if( null !== prevScene && 'ranking' !== prevScene.getId() )
+			{
+				gaco.audioManager.stopAll();
+			}
+			gaco.audioManager.play( 'bgmusicMenu', true );
 
 			var canvas = document.getElementById( 'canvas' ),
 				$canvas = $( canvas ),

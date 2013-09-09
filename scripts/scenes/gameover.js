@@ -38,16 +38,18 @@ define( [ 'data/context', 'scullge/scenes/base', 'data/scores', 'text!templates/
 			}
 		);
 
+		gaco.audioManager.stopAll();
+
 		if( gaco.hasWin ) 
 		{
-			gaco.audioManager.play( 'gameWin' );
+			gaco.audioManager.play( 'gameoverWon' );
 			$( '#gameoverScene' ).addClass( 'Winner' ).fadeIn();
 			$( 'div.Winner' ).removeClass( 'Hidden' );
 			document.body.style.backgroundColor = '#17bc99';
 		}
 		else
 		{
-			gaco.audioManager.play( 'gameLose' );
+			gaco.audioManager.play( 'gameoverLost' );
 			$( '#gameoverScene' ).addClass( 'Loser' ).fadeIn();
 			$( 'div.Loser' ).removeClass( 'Hidden' );
 			document.body.style.backgroundColor = '#e94c3d';

@@ -20,6 +20,9 @@ define(
 		document.title = 'Recoje elementos - El juego del reciclaje';
 		document.body.style.backgroundColor = '#2d3e50';
 
+		gaco.audioManager.stopAll();
+		gaco.audioManager.play( 'bgmusicGameplay', true );
+
 		var canvas = document.getElementById( 'canvas' ),
 			$canvas = $( canvas );
 

@@ -18,11 +18,10 @@ require( [ 'jquery', 'data/context', 'scullge/loaders/audio', 'scullge/scenes/ma
 		$( document ).on( 'dragstart', function() { return false; });
 
                 gaco.audioManager = new AudioLoader();
-                gaco.audioManager.load( 'menuMusic', CONTEXT_PATH + '/sounds/menu-music-loop.mp3' );
-                gaco.audioManager.load( 'introMusic', CONTEXT_PATH + '/sounds/music.mp3' );
-                gaco.audioManager.load( 'helpMusic', CONTEXT_PATH + '/sounds/level-start.mp3' );
-                gaco.audioManager.load( 'gameWin', CONTEXT_PATH + '/sounds/game-win.mp3' );
-                gaco.audioManager.load( 'gameLose', CONTEXT_PATH + '/sounds/gameover.mp3' ); 
+                gaco.audioManager.load( 'bgmusicMenu', CONTEXT_PATH + '/sounds/bgmusic-menu.mp3' );
+                gaco.audioManager.load( 'bgmusicGameplay', CONTEXT_PATH + '/sounds/bgmusic-gameplay.mp3' );
+                gaco.audioManager.load( 'gameoverLost', CONTEXT_PATH + '/sounds/gameover-lost.mp3' );
+                gaco.audioManager.load( 'gameoverWon', CONTEXT_PATH + '/sounds/gameover-won.mp3' ); 
                 gaco.audioManager.load( 'tap', CONTEXT_PATH + '/sounds/tap.mp3' );
                 gaco.audioManager.load( 'tapWrong', CONTEXT_PATH + '/sounds/tap-wrong.mp3' );
 

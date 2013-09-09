@@ -14,6 +14,21 @@ define( function()
 		this.audios[ name ] = audio;
 	};
 
+	AudioLoader.prototype.stopAll = function()
+	{
+		for( var i in this.audios )
+		{
+			if( this.audios.hasOwnProperty( i ) )
+			{
+				if( !this.audios[ i ].paused )
+				{
+					this.audios[ i ].pause();
+					this.audios[ i ].currentTime = 0;
+				}
+			}
+		}
+	};
+
 	AudioLoader.prototype.play = function( name, inLoop )
 	{
 		if( 'undefined' === typeof( this.audios[ name ] ) )
