@@ -1,23 +1,63 @@
 
 <style>
 	
+#pageFold 
+{
+	opacity:0;
+	-webkit-animation-name: bubbleIn;
+	-webkit-animation-duration: .3s;
+	-webkit-transform-origin:50% 0%;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+	background:url('images/scenes/bg_mensaje.png') center top no-repeat;
+	position: absolute;
+	width:722px;
+	height:612px;
+	right:160px;
+	top: 0px;
+	z-index:-1;
+}
+
+	
 #gameoverScene h1
 {
-	color: #F7DD63;
-	font-size: 50px;
-	text-align: center;
+	font-weight: normal;
+	text-align:center;
+	
+	font-size: 4em;
+	width: 340px;
+	position:absolute;
+	top:180px;
+	left:330px;
+	text-shadow: 0px 5px 0px rgba(0, 0, 0, .1);
 }
 #gameoverScene h2
 {
-	font-size: 35px;
+	text-align:center;
+	width: 540px;
+	position:absolute;
+	top:280px;
+	left:240px;
+	font-weight: normal;
+	font-size: 3em;
+	color: #25ae5e;
 	text-align: center;
+	text-shadow: 0px 5px 0px rgba(0, 0, 0, .1);
 }
 
+.Puntos {
+	color: #58aee5;
+	font-size: 1.7em;
+	}
+.Segundos {
+	color:#e94c3d;
+	font-size: 1.6em;
+	}
 #gameoverButtons
 {
 	text-align: center;
 	position:absolute;
-	bottom:-7px;
+	bottom:0px;
 	width:98%;
 }
 	#gameoverButtons img
@@ -36,6 +76,9 @@
 {
 	background: #17bc99;
 	display: none;
+	z-index:0;
+	padding-top: 0;
+	margin-top:0;
 }
 	#gameoverScene.Winner
 	{
@@ -48,28 +91,29 @@
 
 #gameoverBg
 {
-	position: absolute;
-	bottom: 0px;
+	/*position: absolute;
+	padding-top: 0;
+	bottom: 0px;*/
 }
 
 </style>
 
 <div id="gameoverScene" class="Scene">
 
+	<div id="pageFold"></div>
+
 	<div id="gameoverButtons">
 		<img src="images/scenes/intro/button_puntaje.png" id="viewHalloffame2" />
 		<img src="images/scenes/intro/button_volver.png" id="gotoIntro" />
 	</div>
 
-	<img src="images/logo.png" id="gameoverLogo" />
-
 	<div class="Winner Hidden">
-	<h1>¡Ganaste! :)</h1>
+	<h1 style="color: #58aee5;">Felicitaciones!</h1>
 	<h2>Lograste <span class="Puntos">0</span> puntos<br />en <span class="Segundos">0</span> segundos.</h2>
 	</div>
 
 	<div class="Loser Hidden">
-	<h1>Perdiste :(</h1>
+	<h1 style="color: #e94c3d;">No has ganado</h1>
 	<h2>Lograste <span class="Puntos">0</span> puntos<br />en <span class="Segundos">0</span> segundos.</h2>
 	</div>
 
