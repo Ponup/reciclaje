@@ -21,7 +21,7 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 			nodeStyle.fontFamily = 'GameFont';
 			nodeStyle.fontSize = '60px';
 			nodeStyle.color = '#e94c3d';
-			nodeStyle.textShadow = '0px 1px 15px rgba(0, 0, 0, 0.4)';
+			nodeStyle.textShadow = '0px 5px 0px rgba(0, 0, 0, .1)';
 			nodeStyle.position = 'absolute';
 			nodeStyle.left = '60px';
 			nodeStyle.top = '680px';

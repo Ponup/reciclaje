@@ -23,7 +23,8 @@ define( [ 'scullge/actor' ], function( BaseActor )
 			style.left = ( parseInt( this.properties.img.style.left ) - 64 ) + 'px';
 			style.fontSize = '44px';
 			style.fontFamily = 'GameFont';
-			style.color = 'black';
+			style.textShadow = '0px 5px 0px rgba(0, 0, 0, .2)';
+			style.color = '#f2c40f';
 			style.opacity = 0;
 			style.zIndex = 5;
 			style.textAlign = 'center';
@@ -35,13 +36,13 @@ define( [ 'scullge/actor' ], function( BaseActor )
 
 			$( flashScore )
 				.animate({
-					fontSize: '100px',
+					fontSize: '120px',
 					opacity: 80,
 				}, 200 )
 				.animate({
 					fontSize: '40px',
 					opacity: 0,
-				}, 100 )
+				}, 200 )
 			;
 		};
 

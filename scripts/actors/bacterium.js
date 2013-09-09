@@ -18,8 +18,8 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 			var style = this.node.style;
 			style.width = '180px';
 			style.position = 'absolute';
-			style.right = '0px';
-			style.top = '50px';
+			style.right = '38px';
+			style.top = '80px';
 		
 			this.newframeNum = null;
 

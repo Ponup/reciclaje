@@ -34,7 +34,7 @@ define( [ 'data/context', 'scullge/actor'  ], function( gaco, BaseActor )
 		$( image ).on( 'click', function( ev )
 			{
 				var actor = gaco.engine.findActorById( 'container_' + this.getAttribute( 'data-name' ) );
-
+				
 				if( actor.getProperty( 'full' ) )
 				{
 					gaco.audioManager.play( 'tapWrong' );

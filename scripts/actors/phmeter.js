@@ -16,7 +16,7 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 			this.node = document.createElement( 'div' );
 			this.node.className = 'Phmeter';
 			this.node.style.position = 'absolute';
-			this.node.style.left = '0px';
+			this.node.style.left = '25px';
 			this.node.style.top = '60px';
 			this.node.style.width = '200px';
 			this.node.style.height = '400px';
