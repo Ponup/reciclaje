@@ -30,6 +30,13 @@
 	top:180px;
 	left:330px;
 	text-shadow: 0px 5px 0px rgba(0, 0, 0, .1);
+	opacity:0;
+	-webkit-animation-name: fadeZoomRotateIn;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-delay: .3s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
 }
 #gameoverScene h2
 {
@@ -43,6 +50,13 @@
 	color: #25ae5e;
 	text-align: center;
 	text-shadow: 0px 5px 0px rgba(0, 0, 0, .1);
+	opacity:0;
+	-webkit-animation-name: fadein;
+	-webkit-animation-duration: .5s;
+	-webkit-animation-delay: 1s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
 }
 
 .Puntos {
@@ -59,6 +73,14 @@
 	position:absolute;
 	bottom:0px;
 	width:98%;
+	
+	opacity:0;
+	-webkit-animation-name: bubbleIn;
+	-webkit-animation-duration: .3s;
+	-webkit-transform-origin:50% 100%;
+	-webkit-animation-delay:2s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
 }
 	#gameoverButtons img
 		{
