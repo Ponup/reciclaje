@@ -3,15 +3,109 @@
 
 #brief
 {
+	
+	background: url('images/scenes/conveyorBelt.png');
+}
+
+#overlay {
 	background: url('images/scenes/brief/brief_overlay.png');
+	height: 768px;
+	width: 1024px;
+	margin: auto;
+	position:absolute;
+}
+
+#BriefTitle {
+	position:absolute;
+	top: 160px;
+	left : 265px;
+	opacity:0;
+	-webkit-animation-name: fadeZoomRotateIn;
+	-webkit-animation-duration: 1s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+#BriefItems {
+	position:absolute;
+	top: 530px;
+	left : 245px;
+	opacity:0;
+	-webkit-animation-name: fadein;
+	-webkit-animation-duration: .5s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-delay: 1.5s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-out;
+}
+
+#BriefMonitor {
+	position:absolute;
+	top: 95px;
+	right : 70px;
+	opacity:0;
+	-webkit-animation-name: bubbleIn;
+	-webkit-animation-duration: .2s;
+	-webkit-transform-origin:50% 100%;
+	-webkit-animation-delay: 3.5s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+#BriefPH {
+	position:absolute;
+	top: 131px;
+	left : 40px;
+	opacity:0;
+	-webkit-animation-name: bubbleIn;
+	-webkit-animation-duration: .2s;
+	-webkit-transform-origin:50% 100%;
+	-webkit-animation-delay: 5s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+
+.BriefScore {
+	position:absolute;
+	top: 480px;
+	right : 62px;
+	opacity:0;
+	-webkit-animation-name: bubbleIn;
+	-webkit-animation-duration: .2s;
+	-webkit-transform-origin:70% 100%;
+	-webkit-animation-delay: 8s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-out;
+}
+
+.BriefTime {
+	position:absolute;
+	top: 480px;
+	left : 15px;
+	opacity:0;
+	-webkit-animation-name: bubbleIn;
+	-webkit-animation-duration: .2s;
+	-webkit-transform-origin:20% 100%;
+	-webkit-animation-delay: 9s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
 }
 
 </style>
 
+
 <div id="brief" class="Scene">
-	<img src="images/scenes/brief/brief_biodigestor_titulo.png" />
-	<img src="images/scenes/brief/brief_biodigestor_items.png" />
-	<img src="images/scenes/brief/brief_biodigestor_monitor.png" />
-	<img src="images/scenes/brief/brief_biodigestor_PH.png" />
+	<div id="overlay" ></div>
+
+	<img src="images/scenes/brief/brief_biodigestor_titulo.png" id="BriefTitle"/>
+	<img src="images/scenes/brief/brief_biodigestor_items.png" id="BriefItems"/>
+	<img src="images/scenes/brief/brief_biodigestor_monitor.png" id="BriefMonitor"/>
+	<img src="images/scenes/brief/brief_biodigestor_PH.png" id="BriefPH" />
+	
+	<img src="images/scenes/brief/brief_puntos.png" class="BriefScore" />
+	<img src="images/scenes/brief/brief_tiempo.png" class="BriefTime" />
+	
 </div>
 
