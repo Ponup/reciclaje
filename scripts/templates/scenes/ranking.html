@@ -49,24 +49,30 @@
 			cursor: pointer;
 		}
 
-#h1_puntajes
+h1
 	{
-	 position:absolute;
-	 top:200px;
-	 left:400px;
-	 opacity:0;
-	-webkit-animation-name: fadein;
-	-webkit-animation-duration: .3s;
+	font-weight: normal;
+	text-align:center;
+	color: #17bc99;
+	font-size: 5em;
+	width: 590px;
+	position:absolute;
+	top:80px;
+	left:240px;
+	text-shadow: 0px 5px 0px rgba(0, 0, 0, .1);
+	opacity:0;
+	-webkit-animation-name: fadeZoomRotateIn;
+	-webkit-animation-duration: .5s;
+	-webkit-animation-delay: .3s;
 	-webkit-transform-origin:50% 50%;
-	-webkit-animation-delay:.5s;
 	-webkit-animation-fill-mode: forwards;
-	-webkit-animation-timing-function: ease-in-out;	
+	-webkit-animation-timing-function: ease-in-out;
 	 }
 
 
 table
 {
-	text-shadow: 0px 3px 0px rgba(0, 0, 0, .1);
+	/*text-shadow: 0px 3px 0px rgba(0, 0, 0, .1);*/
 
 	opacity:0;
 	-webkit-animation-name: fadein;
@@ -76,7 +82,7 @@ table
 	-webkit-animation-fill-mode: forwards;
 	-webkit-animation-timing-function: ease-in-out;	
 	 position:absolute;
-	 top:280px;
+	 top:250px;
 	 left:290px;
 	color: #25ae5e;
 	z-index:5;
@@ -96,7 +102,7 @@ table
 	}
 	.table_nombre {
 		text-align:left;
-		font-size: 1.1em;
+		font-size: 1.2em;
 	}
 	.table_puntos {
 		color:#e94c3d;
@@ -110,9 +116,9 @@ table
 
 <div id="rankingScene" class="Scene">
 	
-	<img src="images/scenes/h1_puntuaciones.png" id="h1_puntajes" />
+	<img style="display:none;" src="images/scenes/h1_puntuaciones.png" id="h1_puntajes" />
 
-	<h1 style="display:none;">Puntajes</h1>
+	<h1 >Puntajes</h1>
 
 	<table id="players" >
 		<thead>
