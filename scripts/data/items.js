@@ -37,8 +37,8 @@ define( [ 'data/containerType' ], function( ContainerType )
 				ph: 0,
 				picker:
 				{
-					bioDigester: 0,
-					recyclingPlant: 0,
+					bioDigester: -10,
+					recyclingPlant: -10,
 				}
 			}
 		},
@@ -50,8 +50,8 @@ define( [ 'data/containerType' ], function( ContainerType )
 				ph: 0,
 				picker:
 				{
-					bioDigester: 0,
-					recyclingPlant: 0,
+					bioDigester: -10,
+					recyclingPlant: -10,
 				}
 			}
 		},
@@ -63,8 +63,8 @@ define( [ 'data/containerType' ], function( ContainerType )
 				ph: 0,
 				picker:
 				{
-					bioDigester: 0,
-					recyclingPlant: 0,
+					bioDigester: -10,
+					recyclingPlant: -10,
 				}
 			}
 		},
@@ -76,8 +76,8 @@ define( [ 'data/containerType' ], function( ContainerType )
 				ph: 0,
 				picker:
 				{
-					bioDigester: 0,
-					recyclingPlant: 0,
+					bioDigester: -10,
+					recyclingPlant: -10,
 				}
 			}
 		},
@@ -128,8 +128,8 @@ define( [ 'data/containerType' ], function( ContainerType )
 				ph: 0,
 				picker:
 				{
-					bioDigester: 0,
-					recyclingPlant: 0,
+					bioDigester: -10,
+					recyclingPlant: -10,
 				}
 			}
 		},
@@ -154,8 +154,8 @@ define( [ 'data/containerType' ], function( ContainerType )
 				ph: 0,
 				picker:
 				{
-					bioDigester: 0,
-					recyclingPlant: 0,
+					bioDigester: -10,
+					recyclingPlant: -10,
 				}
 			}
 		},
@@ -375,8 +375,8 @@ define( [ 'data/containerType' ], function( ContainerType )
 				ph: 0,
 				picker:
 				{
-					bioDigester: 0,
-					recyclingPlant: 0,
+					bioDigester: -10,
+					recyclingPlant: -10,
 				}
 			}
 		},
@@ -388,8 +388,8 @@ define( [ 'data/containerType' ], function( ContainerType )
 				ph: 0,
 				picker:
 				{
-					bioDigester: 0,
-					recyclingPlant: 0,
+					bioDigester: -10,
+					recyclingPlant: -10,
 				}
 			}
 		},
