@@ -29,6 +29,7 @@ define(
 				var sceneDiv = document.createElement( 'div' );
 				sceneDiv.id = 'conveyorBelt';
 				sceneDiv.className = 'Scene';
+				sceneDiv.style.overflow = 'hidden';
 				sceneDiv.style.background = "url('images/scenes/conveyorBelt.png') no-repeat";
 
 				$canvas.empty().append( sceneDiv );
