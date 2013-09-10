@@ -4,12 +4,68 @@
 #brief
 {
 	
-	background: url('images/scenes/brief/brief_bonus_titulo.png');
+	background: url('images/scenes/brief/brief_overlay.png');
+}
+.BriefTitle {
+	position:absolute;
+	top: 108px;
+	left : 304px;
+	z-index:21;
+	opacity:0;
+	-webkit-animation-name: fadeZoomRotateIn;
+	-webkit-animation-duration: 1s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.BriefH1 {
+	position:absolute;
+	z-index:19;
+	top: 322px;
+	left : 300px;
+	opacity:0;
+	-webkit-animation-name: fadein;
+	-webkit-animation-duration: .5s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-delay: 1.5s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-out;
+}
+
+.BriefContainers {
+	position:absolute;
+	top: 474px;
+	left : 96px;
+	opacity:0;
+	-webkit-animation-name: bubbleIn;
+	-webkit-animation-duration: .5s;
+	-webkit-transform-origin:50% 100%;
+	-webkit-animation-delay: 3s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+
+.BriefFlechas {
+	position:absolute;
+	top: 352px;
+	right : 142px;
+	opacity:0;
+	-webkit-animation-name: bubbleIn;
+	-webkit-animation-duration: .5s;
+	-webkit-transform-origin:50% 0%;
+	-webkit-animation-delay: 4s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-out;
 }
 
 </style>
 
 <div id="brief" class="Scene">
-
+	<img src="images/scenes/brief/brief_bonus_titulo.png" class="BriefTitle" />
+	<img src="images/scenes/brief/brief_bonus_h1.png" class="BriefH1" />
+	<img src="images/scenes/brief/brief_bonus_containers.png" class="BriefContainers" />
+	<img src="images/scenes/brief/brief_bonus_flechas.png" class="BriefFlechas" />
 </div>
 
