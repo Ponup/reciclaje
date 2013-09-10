@@ -18,7 +18,7 @@ define( [ 'scullge/actor', 'scullge/utils/arrays', 'data/context', 'jqueryui' ],
 			this.updateMachine();
 
 			this.node = document.createElement( 'img' );
-			this.node.style.bottom = '120px';
+			this.node.style.bottom = '160px';
 			this.node.style.position = 'absolute';
 			this.node.src = CONTEXT_PATH + '/images/actors/process/' + this.machine.name + '.png';
 			this.node.style.left = ( 60 + this.properties.position * 180 ) + 'px';
@@ -63,11 +63,11 @@ define( [ 'scullge/actor', 'scullge/utils/arrays', 'data/context', 'jqueryui' ],
 				this.machine = this.newMachine;
 				this.newMachine = null;
 
-				$( this.node ).effect( 'explode', 200, function()
+				$( this.node ).effect( 'fade', 100, function()
 					{
 						this.src = CONTEXT_PATH + '/images/actors/process/' + self.machine.name + '.png';
 
-						$( this ).fadeIn( 175 );
+						$( this ).fadeIn( 100 );
 					}
 				);				
 			}

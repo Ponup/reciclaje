@@ -29,6 +29,13 @@ define(
 		sceneDiv.style.background = "url('images/scenes/conveyorBelt.png') no-repeat";
 
 		$canvas.empty().append( sceneDiv );
+		
+		//revisar estas lineas , no llevan a ningun lado
+		var btSalir = document.createElement( 'img' );
+		btSalir.id = 'goHome'; //revisar esto, el link no anda
+		btSalir.src = 'images/bt_salir.png';
+		btSalir.style.cssText = 'position: absolute; top: 20px; left: 12px;';
+		sceneDiv.appendChild( btSalir );
 
 		gaco.engine = new BioDigesterEngine();
 		gaco.engine.init();
