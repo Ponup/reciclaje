@@ -1,5 +1,5 @@
 
-define( [ 'scullge/engine', 'data/containerType', 'actors/split/statspanel', 'actors/split/analogClock', 'data/context' ], function( BaseEngine, ContainerType, StatsPanelActor, AnalogClockActor, gaco )
+define( [ 'scullge/engine', 'data/containerType', 'actors/split/statspanel', 'actors/split/analogClock', 'actors/quitButton', 'data/context' ], function( BaseEngine, ContainerType, StatsPanelActor, AnalogClockActor, QuitButtonActor, gaco )
 	{
 		function SplitEngine()
 		{
@@ -9,6 +9,7 @@ define( [ 'scullge/engine', 'data/containerType', 'actors/split/statspanel', 'ac
 
 			this.addActor( new StatsPanelActor() );
 			this.addActor( new AnalogClockActor() );
+			this.addActor( new QuitButtonActor() );
 		}
 
 		SplitEngine.prototype = new BaseEngine();

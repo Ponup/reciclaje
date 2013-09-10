@@ -33,17 +33,6 @@ define(
 
 				$canvas.empty().append( sceneDiv );
 				
-				var btSalir = document.createElement( 'img' );
-				btSalir.src = 'images/bt_salir.png';
-				btSalir.style.cssText = 'position: absolute; top: 20px; left: 12px;';
-				$( btSalir ).on( 'click', function()
-					{
-						gaco.engine.stop();
-						gaco.sceneManager.switchTo( 'intro' );
-					}
-				);
-				sceneDiv.appendChild( btSalir );
-
 				gaco.engine = new BioDigesterEngine();
 				gaco.engine.init();
 				gaco.engine.start();

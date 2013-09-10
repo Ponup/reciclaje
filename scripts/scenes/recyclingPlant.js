@@ -32,13 +32,6 @@ define(
 				sceneDiv.className = 'Scene';
 				sceneDiv.style.background = "url('images/scenes/recyclingPlant.png') no-repeat";
 				
-				//revisar estas lineas , no llevan a ningun lado
-				var btSalir = document.createElement( 'img' );
-				btSalir.id = 'goHome'; //revisar esto, el link no anda
-				btSalir.src = 'images/bt_salir.png';
-				btSalir.style.cssText = 'position: absolute; top: 20px; left: 12px;';
-				sceneDiv.appendChild( btSalir );
-				
 				var startButton = document.createElement( 'img' );
 				startButton.id = 'startRecyclingButton';
 				startButton.src = 'images/actors/recyclingPlant/start.png';

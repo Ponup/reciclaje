@@ -36,13 +36,6 @@ define(
 
 		$canvas.empty().append( sceneDiv );
 
-		//revisar estas lineas , no llevan a ningun lado
-		var btSalir = document.createElement( 'img' );
-		btSalir.id = 'goHome'; //revisar esto, el link no anda
-		btSalir.src = 'images/bt_salir.png';
-		btSalir.style.cssText = 'position: absolute; top: 20px; left: 12px;';
-		sceneDiv.appendChild( btSalir );
-
 		if( 'bioDigester' == gaco.finalSceneName )
 			$sceneDiv.append( bioDigesterBriefHtml );
 		else

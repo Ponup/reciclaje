@@ -1,5 +1,5 @@
 
-define( [ 'scullge/engine', 'actors/recyclingPlant/machine', 'actors/chronometer', 'actors/scoreboard', 'data/context' ], function( BaseEngine, MachineActor, ChronometerActor, ScoreboardActor, gaco )
+define( [ 'scullge/engine', 'actors/recyclingPlant/machine', 'actors/chronometer', 'actors/scoreboard', 'actors/quitButton', 'data/context' ], function( BaseEngine, MachineActor, ChronometerActor, ScoreboardActor, QuitButtonActor, gaco )
 	{
 		function RecyclingPlantEngine()
 		{
@@ -34,6 +34,7 @@ define( [ 'scullge/engine', 'actors/recyclingPlant/machine', 'actors/chronometer
 
 			this.addActor( new ChronometerActor() );
 			this.addActor( new ScoreboardActor() );
+			this.addActor( new QuitButtonActor() );
 
 			this.initActors();
 		};

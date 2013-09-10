@@ -1,5 +1,5 @@
 
-define( [ 'scullge/engine', 'actors/bioDigester/phmeter', 'actors/bioDigester/disposable', 'actors/chronometer', 'actors/scoreboard', 'actors/bioDigester/bacterium', 'scullge/utils/arrays', 'data/items', 'data/context' ], function( BaseEngine, PhmeterActor, DisposableActor, ChronometerActor, ScoreboardActor, BacteriumActor, ArraysUtils, itemsData, gaco )
+define( [ 'scullge/engine', 'actors/bioDigester/phmeter', 'actors/bioDigester/disposable', 'actors/chronometer', 'actors/scoreboard', 'actors/bioDigester/bacterium', 'actors/quitButton', 'scullge/utils/arrays', 'data/items', 'data/context' ], function( BaseEngine, PhmeterActor, DisposableActor, ChronometerActor, ScoreboardActor, BacteriumActor, QuitButtonActor, ArraysUtils, itemsData, gaco )
 	{
 		function BioDigesterEngine()
 		{
@@ -30,6 +30,7 @@ define( [ 'scullge/engine', 'actors/bioDigester/phmeter', 'actors/bioDigester/di
 			this.addActor( new BacteriumActor() );
 			this.addActor( new ChronometerActor() );
 			this.addActor( new ScoreboardActor() );
+			this.addActor( new QuitButtonActor() );
 
 			this.initActors();
 
