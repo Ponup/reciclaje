@@ -13,14 +13,12 @@ define( [ 'scullge/engine', 'actors/bioDigester/phmeter', 'actors/bioDigester/di
 
 		BioDigesterEngine.prototype.init = function()
 		{
-			for( i = 0; i < itemsData.length; i++ )
+			var randomItemsData = ArraysUtils.shuffle( itemsData );
+			for( i = 0; i < randomItemsData.length; i++ )
 			{
-				var el = itemsData[ i ];
-				var actor = new DisposableActor();
-				actor.setProperty( 'phDelta', el.scoring.ph );
-				actor.setProperty( 'image', el.name );
-				actor.setProperty( 'left', i * -BioDigesterEngine.DISTANCE_BETWEEN_ITEMS );
-				this.addActor( actor );
+				var itemData = randomItemsData[ i ];
+				itemData.position = i;
+				this.addDisposableActor( itemData );
 			}
 
 			var initialPhmeterLevels = [ 0, 1, 2, 3, 4, 5, 9, 10, 11, 12, 13 ];
@@ -51,10 +49,16 @@ define( [ 'scullge/engine', 'actors/bioDigester/phmeter', 'actors/bioDigester/di
 		BioDigesterEngine.prototype.addDisposable = function()
 		{
 			var itemData = ArraysUtils.randomItem( itemsData );
+			itemData.position = 13;
+			this.addDisposableActor( itemData );
+		};
+
+		BioDigesterEngine.prototype.addDisposableActor = function( itemData )
+		{
 			var actor = new DisposableActor();
 			actor.setProperty( 'phDelta', itemData.scoring.ph );
 			actor.setProperty( 'image', itemData.name );
-			actor.setProperty( 'left', 13 * -BioDigesterEngine.DISTANCE_BETWEEN_ITEMS );
+			actor.setProperty( 'left', itemData.position * -BioDigesterEngine.DISTANCE_BETWEEN_ITEMS );
 			actor.init();
 			this.addActor( actor );
 		};
