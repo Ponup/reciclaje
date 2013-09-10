@@ -1,7 +1,5 @@
 
-define(
-	[ 'scullge/scenes/base', 'scenes/picker', 'data/context', 'text!templates/scenes/intro.html' ],
-	function( BaseScene, PickerScene, gaco, tplHtml )
+define( [ 'scullge/scenes/base', 'scenes/picker', 'data/context', 'text!templates/scenes/intro.html' ], function( BaseScene, PickerScene, gaco, tplHtml )
 	{
 		function IntroScene()
 		{
@@ -29,8 +27,7 @@ define(
 			}
 			gaco.audioManager.play( 'bgmusicMenu', true );
 
-			var canvas = document.getElementById( 'canvas' ),
-				$canvas = $( canvas ),
+			var $canvas = $( document.getElementById( 'canvas' ) ),
 				self = this;
 			
 			$canvas.empty().append( tplHtml );

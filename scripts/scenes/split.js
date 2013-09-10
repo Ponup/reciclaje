@@ -1,5 +1,5 @@
 
-define( [ 'data/context', 'scullge/scenes/base', 'actors/split/element', 'actors/split/container', 'engines/split', 'text!templates/scenes/split.html', 'actors/split/analogClock', 'scullge/utils/arrays', 'data/items', 'data/containerType' ], function( gaco, BaseScene, Element, Container, SplitEngine, tplHtml, AnalogClockActor, ArraysUtils, dataItems, ContainerType )
+define( [ 'data/context', 'scullge/scenes/base', 'actors/split/element', 'actors/split/container', 'engines/split', 'text!templates/scenes/split.html', 'actors/split/analogClock', 'scullge/utils/arrays', 'data/items', 'data/containerType', 'data/containers', 'text!templates/scenes/brief/split.html' ], function( gaco, BaseScene, Element, Container, SplitEngine, tplHtml, AnalogClockActor, ArraysUtils, dataItems, ContainerType, containersData, briefHtml )
 {
 	function SplitScene()
 	{
@@ -29,21 +29,15 @@ define( [ 'data/context', 'scullge/scenes/base', 'actors/split/element', 'actors
 
 		prevScene.hide();
 
-		var introImg = document.createElement( 'img' );
-		introImg.src = CONTEXT_PATH + '/images/scenes/brief/brief_bonus_titulo.png';
-		var style = introImg.style;
-		style.margin = '0px auto';
-		style.display = 'block';
-		style.width = '1024px';
-		style.zIndex = 5;
+		var $canvas = $( document.getElementById( 'canvas' ) );
 
-		$( '#canvas' ).empty().append( introImg );
+		$canvas.empty().append( briefHtml );
 
-		$( introImg ).on( 'click', function()
+		$( '#brief' ).on( 'click', function()
 			{
 				$( this ).remove();
 
-				$( '#canvas' ).empty().append( $( tplHtml ) );
+				$canvas.empty().append( tplHtml );
 				
 				gaco.engine = new SplitEngine();
 				gaco.engine.init();
@@ -147,9 +141,13 @@ define( [ 'data/context', 'scullge/scenes/base', 'actors/split/element', 'actors
 	{
 		$( '.Container' ).remove();
 
-		for( var i = 0; i < gaco.containers.length; i++ )
+		for( var i = 0; i < containersData.length; i++ )
 		{
-			var container = gaco.containers[i];
+			var container = containersData[ i ];
+
+			// Organic bin is not included in the bonus game.
+			if( container.type == ContainerType.ORGANIC ) continue;
+
 			var elementId = 'container_' + container.name;
 			var properties = {
 				name: container.name,

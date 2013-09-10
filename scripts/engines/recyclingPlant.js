@@ -1,5 +1,5 @@
 
-define( [ 'scullge/engine', 'actors/recyclingPlant/machine', 'actors/chronometer', 'actors/scoreboard', 'actors/quitButton', 'data/context' ], function( BaseEngine, MachineActor, ChronometerActor, ScoreboardActor, QuitButtonActor, gaco )
+define( [ 'scullge/engine', 'actors/recyclingPlant/machine', 'actors/chronometer', 'actors/scoreboard', 'actors/quitButton', 'actors/recyclingPlant/startButton', 'data/context' ], function( BaseEngine, MachineActor, ChronometerActor, ScoreboardActor, QuitButtonActor, StartButtonActor, gaco )
 	{
 		function RecyclingPlantEngine()
 		{
@@ -32,6 +32,7 @@ define( [ 'scullge/engine', 'actors/recyclingPlant/machine', 'actors/chronometer
 
 			gaco.engine.addUpdateListener( $.proxy( this.onUpdate, this ) );
 
+			this.addActor( new StartButtonActor() );
 			this.addActor( new ChronometerActor() );
 			this.addActor( new ScoreboardActor() );
 			this.addActor( new QuitButtonActor() );

@@ -25,14 +25,14 @@ define( [ 'data/context', 'scullge/scenes/base', 'data/scores', 'text!templates/
 		};
 		Scores.save( score );
 
-		$( '#canvas' ).empty().append( $( gameoverHtml ) );
+		$( '#canvas' ).empty().append( gameoverHtml );
 
-		$( '#viewHalloffame2' ).on( 'click', function( ev )
+		$( '#gotoRanking' ).on( 'click', function()
 			{
 				gaco.sceneManager.switchTo( 'ranking' );
 			}
 		);
-		$( '#gotoIntro' ).on( 'click', function( ev )
+		$( '#gotoIntro' ).on( 'click', function()
 			{
 				gaco.sceneManager.switchTo( 'intro' );
 			}
@@ -40,25 +40,27 @@ define( [ 'data/context', 'scullge/scenes/base', 'data/scores', 'text!templates/
 
 		gaco.audioManager.stopAll();
 
+		var $scene = $( document.getElementById( 'gameoverScene' ) );
+
 		if( gaco.hasWin ) 
 		{
 			gaco.audioManager.play( 'gameoverWon' );
-			$( '#gameoverScene' ).addClass( 'Winner' ).fadeIn();
+			$scene.addClass( 'Winner' );
 			$( 'div.Winner' ).removeClass( 'Hidden' );
 			document.body.style.backgroundColor = '#17bc99';
 		}
 		else
 		{
 			gaco.audioManager.play( 'gameoverLost' );
-			$( '#gameoverScene' ).addClass( 'Loser' ).fadeIn();
+			$scene.addClass( 'Loser' );
 			$( 'div.Loser' ).removeClass( 'Hidden' );
 			document.body.style.backgroundColor = '#e94c3d';
 		}
 
 		$( '.Puntos' ).html( gaco.gameVars.score );
-		$( '.Segundos' ).html( gaco.engine.getElapsedTime( true ) );
+		$( '.Segundos' ).html( parseInt( gaco.engine.getElapsedTime( true ), 10 ) );
 
-		$( '#gameover' ).fadeIn();
+		$scene.fadeIn();
 	};
 
 	return GameoverScene;

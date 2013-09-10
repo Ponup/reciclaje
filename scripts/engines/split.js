@@ -44,12 +44,6 @@ define( [ 'scullge/engine', 'data/containerType', 'actors/split/statspanel', 'ac
 				{ minCorrectMovements: 12 },
 			];
 
-			gaco.containers = [
-				{ name: 'papel', type: ContainerType.PAPER },
-				{ name: 'plastico', type: ContainerType.PLASTIC },
-				{ name: 'vidrio', type: ContainerType.GLASS },
-			];
-
 			gaco.uniqueIndex = 0;
 
 			gaco.activeElement = null;

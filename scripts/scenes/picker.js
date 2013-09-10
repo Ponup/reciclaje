@@ -23,9 +23,6 @@ define(
 		gaco.audioManager.stopAll();
 		gaco.audioManager.play( 'bgmusicGameplay', true );
 
-		var canvas = document.getElementById( 'canvas' ),
-			$canvas = $( canvas );
-
 		var sceneDiv = document.createElement( 'div' ),
 		    	$sceneDiv = $( sceneDiv );
 
@@ -34,6 +31,7 @@ define(
 		sceneDiv.style.display = 'none';
 		sceneDiv.style.backgroundRepeat = 'no-repeat';
 
+		var $canvas = $( document.getElementById( 'canvas' ) );
 		$canvas.empty().append( sceneDiv );
 
 		if( 'bioDigester' == gaco.finalSceneName )
@@ -41,8 +39,7 @@ define(
 		else
 			$sceneDiv.append( recyclingPlantBriefHtml );
 
-		var picker = document.getElementById( 'picker' );
-		$( picker ).fadeIn();
+		$( sceneDiv ).fadeIn();
 
 		gaco.engine = new PickerEngine( this.nextScene );
 		gaco.engine.init();

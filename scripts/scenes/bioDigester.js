@@ -19,9 +19,7 @@ define(
 
 		prevScene.hide();
 
-		var canvas = document.getElementById( 'canvas' ),
-			$canvas = $( canvas );
-
+		var $canvas = $( document.getElementById( 'canvas' ) );
 		$canvas.empty().append( briefHtml );
 
 		$( '#brief' ).on( 'click', function()
@@ -31,7 +29,6 @@ define(
 				sceneDiv.className = 'Scene';
 				sceneDiv.style.overflow = 'hidden';
 				sceneDiv.style.background = "url('images/scenes/conveyorBelt.png') no-repeat";
-
 				$canvas.empty().append( sceneDiv );
 				
 				gaco.engine = new BioDigesterEngine();
