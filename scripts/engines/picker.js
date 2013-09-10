@@ -1,5 +1,5 @@
 
-define( [ 'scullge/engine', 'actors/pickable', 'actors/scoreboard', 'actors/chronometer', 'scullge/utils/arrays', 'data/context', 'data/items', 'data/places' ], function( BaseEngine, PickableActor, ScoreBoardActor, ChronometerActor, ArraysUtils, gaco, itemsData, placesData )
+define( [ 'scullge/engine', 'actors/picker/pickable', 'actors/scoreboard', 'actors/chronometer', 'scullge/utils/arrays', 'data/context', 'data/items', 'data/places' ], function( BaseEngine, PickableActor, ScoreBoardActor, ChronometerActor, ArraysUtils, gaco, itemsData, placesData )
 	{
 		function PickerEngine( nextScene )
 		{

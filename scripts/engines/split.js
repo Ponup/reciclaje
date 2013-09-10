@@ -1,5 +1,5 @@
 
-define( [ 'scullge/engine', 'data/containerType', 'actors/statspanel', 'actors/analogClock', 'data/context' ], function( BaseEngine, ContainerType, StatsPanelActor, AnalogClockActor, gaco )
+define( [ 'scullge/engine', 'data/containerType', 'actors/split/statspanel', 'actors/split/analogClock', 'data/context' ], function( BaseEngine, ContainerType, StatsPanelActor, AnalogClockActor, gaco )
 	{
 		function SplitEngine()
 		{

@@ -1,5 +1,5 @@
 
-define( [ 'data/context', 'scullge/scenes/base', 'actors/element', 'actors/container', 'engines/split', 'text!templates/scenes/split.html', 'actors/analogClock', 'scullge/utils/arrays', 'data/items', 'data/containerType' ], function( gaco, BaseScene, Element, Container, SplitEngine, tplHtml, AnalogClockActor, ArraysUtils, dataItems, ContainerType )
+define( [ 'data/context', 'scullge/scenes/base', 'actors/split/element', 'actors/split/container', 'engines/split', 'text!templates/scenes/split.html', 'actors/split/analogClock', 'scullge/utils/arrays', 'data/items', 'data/containerType' ], function( gaco, BaseScene, Element, Container, SplitEngine, tplHtml, AnalogClockActor, ArraysUtils, dataItems, ContainerType )
 {
 	function SplitScene()
 	{

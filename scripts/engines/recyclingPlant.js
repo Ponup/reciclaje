@@ -1,5 +1,5 @@
 
-define( [ 'scullge/engine', 'actors/machine', 'actors/chronometer', 'actors/scoreboard', 'data/context' ], function( BaseEngine, MachineActor, ChronometerActor, ScoreboardActor, gaco )
+define( [ 'scullge/engine', 'actors/recyclingPlant/machine', 'actors/chronometer', 'actors/scoreboard', 'data/context' ], function( BaseEngine, MachineActor, ChronometerActor, ScoreboardActor, gaco )
 	{
 		function RecyclingPlantEngine()
 		{

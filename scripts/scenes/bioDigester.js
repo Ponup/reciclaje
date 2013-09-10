@@ -1,7 +1,6 @@
 
 define(
-	[ 'scullge/scenes/base', 'engines/bioDigester', 'data/context' ],
-	function( BaseScene, BioDigesterEngine, gaco )
+	[ 'scullge/scenes/base', 'engines/bioDigester', 'data/context', 'text!templates/scenes/brief/bioDigester.html' ], function( BaseScene, BioDigesterEngine, gaco, briefHtml )
 {
 	function BioDigesterScene()
 	{
@@ -23,23 +22,33 @@ define(
 		var canvas = document.getElementById( 'canvas' ),
 			$canvas = $( canvas );
 
-		var sceneDiv = document.createElement( 'div' );
-		sceneDiv.id = 'conveyorBelt';
-		sceneDiv.className = 'Scene';
-		sceneDiv.style.background = "url('images/scenes/conveyorBelt.png') no-repeat";
+		$canvas.empty().append( briefHtml );
 
-		$canvas.empty().append( sceneDiv );
-		
-		//revisar estas lineas , no llevan a ningun lado
-		var btSalir = document.createElement( 'img' );
-		btSalir.id = 'goHome'; //revisar esto, el link no anda
-		btSalir.src = 'images/bt_salir.png';
-		btSalir.style.cssText = 'position: absolute; top: 20px; left: 12px;';
-		sceneDiv.appendChild( btSalir );
+		$( '#brief' ).on( 'click', function()
+			{
+				var sceneDiv = document.createElement( 'div' );
+				sceneDiv.id = 'conveyorBelt';
+				sceneDiv.className = 'Scene';
+				sceneDiv.style.background = "url('images/scenes/conveyorBelt.png') no-repeat";
 
-		gaco.engine = new BioDigesterEngine();
-		gaco.engine.init();
-		gaco.engine.start();
+				$canvas.empty().append( sceneDiv );
+				
+				var btSalir = document.createElement( 'img' );
+				btSalir.src = 'images/bt_salir.png';
+				btSalir.style.cssText = 'position: absolute; top: 20px; left: 12px;';
+				$( btSalir ).on( 'click', function()
+					{
+						gaco.engine.stop();
+						gaco.sceneManager.switchTo( 'intro' );
+					}
+				);
+				sceneDiv.appendChild( btSalir );
+
+				gaco.engine = new BioDigesterEngine();
+				gaco.engine.init();
+				gaco.engine.start();
+			}
+		);
 	};
 
 	return BioDigesterScene;

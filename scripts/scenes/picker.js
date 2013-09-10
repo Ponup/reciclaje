@@ -1,6 +1,6 @@
 
 define(
-	[ 'engines/picker', 'scullge/scenes/base', 'data/context', 'text!templates/scenes/picker/brief/bioDigester.html', 'text!templates/scenes/picker/brief/recyclingPlant.html' ], function( PickerEngine, BaseScene, gaco, bioDigesterBriefHtml, recyclingPlantBriefHtml  )
+	[ 'engines/picker', 'scullge/scenes/base', 'data/context', 'text!templates/scenes/brief/picker/bioDigester.html', 'text!templates/scenes/brief/picker/recyclingPlant.html' ], function( PickerEngine, BaseScene, gaco, bioDigesterBriefHtml, recyclingPlantBriefHtml  )
 {
 	function PickerScene( nextScene )
 	{

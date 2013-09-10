@@ -1,5 +1,5 @@
 
-define( [ 'scullge/engine', 'actors/phmeter', 'actors/disposable', 'actors/chronometer', 'actors/bacterium', 'scullge/utils/arrays', 'data/items', 'data/context' ], function( BaseEngine, PhmeterActor, DisposableActor, ChronometerActor, BacteriumActor, ArraysUtils, itemsData, gaco )
+define( [ 'scullge/engine', 'actors/bioDigester/phmeter', 'actors/bioDigester/disposable', 'actors/chronometer', 'actors/scoreboard', 'actors/bioDigester/bacterium', 'scullge/utils/arrays', 'data/items', 'data/context' ], function( BaseEngine, PhmeterActor, DisposableActor, ChronometerActor, ScoreboardActor, BacteriumActor, ArraysUtils, itemsData, gaco )
 	{
 		function BioDigesterEngine()
 		{
@@ -27,8 +27,9 @@ define( [ 'scullge/engine', 'actors/phmeter', 'actors/disposable', 'actors/chron
 			gaco.gameVars.phLevel = ArraysUtils.randomItem( initialPhmeterLevels );
 
 			this.addActor( new PhmeterActor() );
-			this.addActor( new ChronometerActor() );
 			this.addActor( new BacteriumActor() );
+			this.addActor( new ChronometerActor() );
+			this.addActor( new ScoreboardActor() );
 
 			this.initActors();
 
