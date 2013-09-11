@@ -27,8 +27,11 @@ define( [ 'scullge/scenes/base', 'scenes/picker', 'data/context', 'text!template
 			}
 			gaco.audioManager.play( 'bgmusicMenu', true );
 
-			gaco.audioManager.load( 'menu_a_reciclar', CONTEXT_PATH + '/sounds/voces/menu_a_reciclar.mp3' );
-			gaco.audioManager.play( 'menu_a_reciclar' );
+			setTimeout( function() { 
+				gaco.audioManager.load( 'menu_a_reciclar', CONTEXT_PATH + '/sounds/voces/menu_a_reciclar.mp3' );
+				gaco.audioManager.play( 'menu_a_reciclar' );
+			}, 200 );
+			
 
 			var $canvas = $( document.getElementById( 'canvas' ) ),
 				self = this;
