@@ -16,14 +16,11 @@ define(
 	PickerScene.prototype.switchFrom = function( prevScene )
 	{
 		prevScene.hide();
-		
-		
 
 		document.title = 'Recoje elementos - El juego del reciclaje';
 		document.body.style.backgroundColor = '#2d3e50';
 
 		gaco.audioManager.stopAll();
-		//gaco.audioManager.play( 'bgmusicGameplay', true );
 
 		var sceneDiv = document.createElement( 'div' ),
 		    	$sceneDiv = $( sceneDiv );
@@ -37,25 +34,48 @@ define(
 		$canvas.empty().append( sceneDiv );
 
 		if( 'bioDigester' == gaco.finalSceneName )
+		{
 			$sceneDiv.append( bioDigesterBriefHtml );
-			
+
+			gaco.audioManager.load( 'encotra_bio', CONTEXT_PATH + '/sounds/voces/brief_picker_encontra_biodigestor.mp3' );
+			gaco.audioManager.load( 'brief_puntos', CONTEXT_PATH + '/sounds/voces/brief_puntos.mp3' );
+			gaco.audioManager.load( 'brief_tiempo', CONTEXT_PATH + '/sounds/voces/brief_tiempo.mp3' );
+
+			setTimeout( function() { gaco.audioManager.play( 'encotra_bio' );	}, 100 );
+			setTimeout( function() { gaco.audioManager.play( 'brief_puntos' );	}, 4000 );
+			setTimeout( function() { gaco.audioManager.play( 'brief_tiempo' );	}, 8000 );		
+		}
 		else
+		{
 			$sceneDiv.append( recyclingPlantBriefHtml );
+
+			gaco.audioManager.load( 'encotra_papel', CONTEXT_PATH + '/sounds/voces/brief_picker_encontra_reciclador.mp3' );
+			gaco.audioManager.load( 'brief_puntos', CONTEXT_PATH + '/sounds/voces/brief_puntos.mp3' );
+			gaco.audioManager.load( 'brief_tiempo', CONTEXT_PATH + '/sounds/voces/brief_tiempo.mp3' );
+
+			setTimeout( function() { gaco.audioManager.play( 'encotra_papel' );	}, 100 );
+			setTimeout( function() { gaco.audioManager.play( 'brief_puntos' );	}, 4000 );
+			setTimeout( function() { gaco.audioManager.play( 'brief_tiempo' );	}, 8000 );
+		}
 
 		$( sceneDiv ).fadeIn();
 
 		gaco.engine = new PickerEngine( this.nextScene );
 		gaco.engine.init();
 
-		$( '#pickerBrief' ).on( 'click', function()
+		setTimeout( function()
 			{
-				$( this ).remove();
+				$( '#pickerBrief' ).on( 'click', function()
+					{
+						$( this ).remove();
 
-				// Init the remaining actors.
-				gaco.engine.initActors();
+						// Init the remaining actors.
+						gaco.engine.initActors();
 
-				gaco.engine.start();
-			}
+						gaco.engine.start();
+					}
+				);
+			}, 11000
 		);
 	};
 
