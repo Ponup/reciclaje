@@ -6,7 +6,15 @@ define(
 	function RecyclingPlantScene()
 	{
 		BaseScene.call( this );
+		
+		gaco.audioManager.load( 'encotra_papel', CONTEXT_PATH + '/sounds/voces/brief_picker_encontra_reciclador.mp3' );
+		gaco.audioManager.load( 'brief_puntos', CONTEXT_PATH + '/sounds/voces/brief_puntos.mp3' );
+		gaco.audioManager.load( 'brief_tiempo', CONTEXT_PATH + '/sounds/voces/brief_tiempo.mp3' );
 
+		setTimeout( function() { gaco.audioManager.play( 'encotra_papel' );	}, 100 );
+		setTimeout( function() { gaco.audioManager.play( 'brief_puntos' );	}, 4000 );
+		setTimeout( function() { gaco.audioManager.play( 'brief_tiempo' );	}, 8000 );
+		
 		this.setId( 'recyclingPlant' );
 	}
 
@@ -24,8 +32,16 @@ define(
 
 		$canvas.empty().append( briefHtml );
 
+		gaco.audioManager.load( 'brief_reci_h1', CONTEXT_PATH + '/sounds/voces/brief_reci_h1.mp3' );
+		gaco.audioManager.load( 'brief_reci_enchufe', CONTEXT_PATH + '/sounds/voces/brief_reci_enchufe.mp3' );
+
+		setTimeout( function() { gaco.audioManager.play( 'brief_reci_h1' );	}, 100 );
+		setTimeout( function() { gaco.audioManager.play( 'brief_reci_enchufe' );	}, 6000 );
+		setTimeout( function() { gaco.audioManager.play( 'brief_tiempo' );	}, 13000 );	
+
 		$( '#brief' ).on( 'click', function()
 			{
+				gaco.audioManager.stopAll(); // stop all sounds
 				var sceneDiv = document.createElement( 'div' );
 				sceneDiv.id = 'recyclingPlant';
 				sceneDiv.className = 'Scene';

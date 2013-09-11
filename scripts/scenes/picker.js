@@ -16,12 +16,14 @@ define(
 	PickerScene.prototype.switchFrom = function( prevScene )
 	{
 		prevScene.hide();
+		
+		
 
 		document.title = 'Recoje elementos - El juego del reciclaje';
 		document.body.style.backgroundColor = '#2d3e50';
 
 		gaco.audioManager.stopAll();
-		gaco.audioManager.play( 'bgmusicGameplay', true );
+		//gaco.audioManager.play( 'bgmusicGameplay', true );
 
 		var sceneDiv = document.createElement( 'div' ),
 		    	$sceneDiv = $( sceneDiv );
@@ -36,6 +38,7 @@ define(
 
 		if( 'bioDigester' == gaco.finalSceneName )
 			$sceneDiv.append( bioDigesterBriefHtml );
+			
 		else
 			$sceneDiv.append( recyclingPlantBriefHtml );
 

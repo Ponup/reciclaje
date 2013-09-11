@@ -43,6 +43,10 @@ define( [ 'data/context', 'scullge/scenes/base', 'data/scores', 'text!templates/
 
 		if( gaco.hasWin ) 
 		{
+			
+			gaco.audioManager.load( 'felicitaciones', CONTEXT_PATH + '/sounds/voces/gameover_felicitaciones.mp3' );
+			setTimeout( function() { gaco.audioManager.play( 'felicitaciones' );	}, 1000 );		
+		
 			gaco.audioManager.play( 'gameoverWon' );
 			$scene.addClass( 'Winner' );
 			$( 'div.Winner' ).removeClass( 'Hidden' );
@@ -50,6 +54,10 @@ define( [ 'data/context', 'scullge/scenes/base', 'data/scores', 'text!templates/
 		}
 		else
 		{
+			
+			gaco.audioManager.load( 'gracias', CONTEXT_PATH + '/sounds/voces/gameover_gracias.mp3' );
+			setTimeout( function() { gaco.audioManager.play( 'gracias' );	}, 1000 );		
+			
 			gaco.audioManager.play( 'gameoverLost' );
 			$scene.addClass( 'Loser' );
 			$( 'div.Loser' ).removeClass( 'Hidden' );
