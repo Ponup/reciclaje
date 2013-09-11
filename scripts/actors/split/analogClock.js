@@ -19,7 +19,7 @@ define( [ 'scullge/actor' ], function( BaseActor )
 			node.style.top = '60px';
 			node.style.left = '60px';
 			
-			$( '#gameplay' ).append( node );
+			$( '.Scene' ).append( node );
 		};
 
 		return AnalogClockActor;

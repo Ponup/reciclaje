@@ -27,13 +27,12 @@ define( [ 'data/context', 'scullge/scenes/base', 'actors/split/element', 'actors
 		gaco.audioManager.stopAll();
 		gaco.audioManager.play( 'bgmusicGameplay', true );
 
-		prevScene.hide();
-
 		var $canvas = $( document.getElementById( 'canvas' ) );
 
 		$canvas.empty().append( briefHtml );
 
-		$( '#brief' ).on( 'click', function()
+		var $brief = $( document.getElementById( 'brief' ) );
+		$brief.on( 'click', function()
 			{
 				$( this ).remove();
 
@@ -45,6 +44,9 @@ define( [ 'data/context', 'scullge/scenes/base', 'actors/split/element', 'actors
 				self.start();
 			}
 		);
+
+		prevScene.hide();
+		$brief.fadeIn();
 	};
 
 	SplitScene.prototype.start = function()
@@ -62,10 +64,7 @@ define( [ 'data/context', 'scullge/scenes/base', 'actors/split/element', 'actors
 
 		gaco.activeElement = null;
 
-		var $gameplay = $( '#gameplay' );
 		$( '.Element' ).remove();
-
-		$gameplay.fadeIn();
 
 		gaco.engine.addUpdateListener( $.proxy( this.updateElements, this ) );
 		gaco.engine.start();
@@ -78,8 +77,7 @@ define( [ 'data/context', 'scullge/scenes/base', 'actors/split/element', 'actors
 		switch( gaco.gameVars.state )
 		{
 			case gaco.GameState.NEW_GAME:
-				var $gameplay = $( '#gameplay' );
-				this.setupContainers( $gameplay );
+				this.setupContainers();
 				var containers = gaco.engine.findActorsByType( 'Container' );
 				for( var i = 0; i < containers.length; i++ )
 				{
@@ -129,15 +127,12 @@ define( [ 'data/context', 'scullge/scenes/base', 'actors/split/element', 'actors
 				break;
 			case gaco.GameState.GAME_OVER:
 				gaco.engine.stop();
-
-				$( '#gameplay' ).hide();
-
 				gaco.sceneManager.switchTo( 'gameover' );
 				break;
 		}
 	};
 
-	SplitScene.prototype.setupContainers = function( $gameplay )
+	SplitScene.prototype.setupContainers = function()
 	{
 		$( '.Container' ).remove();
 

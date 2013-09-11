@@ -26,7 +26,7 @@ define( [ 'data/context', 'scullge/actor' ], function( gaco, BaseActor )
 		img.id = this.id;
 		img.className = 'Element';
 
-		$( '#gameplay' ).append( img );
+		$( '.Scene' ).append( img );
 	};
 
 	Element.prototype.update = function()
