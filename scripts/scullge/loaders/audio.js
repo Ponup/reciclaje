@@ -31,7 +31,6 @@ define( function()
 
 	AudioLoader.prototype.play = function( name, inLoop )
 	{
-		return;
 		if( 'undefined' === typeof( this.audios[ name ] ) )
 		{
 			throw 'Audio was not loaded: ' + name;

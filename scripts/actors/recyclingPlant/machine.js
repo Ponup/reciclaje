@@ -15,6 +15,8 @@ define( [ 'scullge/actor', 'scullge/utils/arrays', 'data/context', 'jqueryui' ],
 		{
 			var self = this;
 
+			this.machines = ArraysUtils.shuffle( gaco.machines.slice() );
+
 			this.updateMachine();
 
 			this.node = document.createElement( 'img' );
@@ -34,11 +36,6 @@ define( [ 'scullge/actor', 'scullge/utils/arrays', 'data/context', 'jqueryui' ],
 
 		Machine.prototype.updateMachine = function()
 		{
-			if( null == this.machines )
-			{
-				this.machines = ArraysUtils.shuffle( gaco.machines.slice() );
-			}
-			
 			if( null == this.machine )
 			{
 				this.machine = this.machines.pop();
@@ -47,6 +44,7 @@ define( [ 'scullge/actor', 'scullge/utils/arrays', 'data/context', 'jqueryui' ],
 			{
 				this.newMachine = this.machines.shift();
 				this.machines.push( this.machine );
+				this.machine = this.newMachine;
 			}
 
 			var userPositions = gaco.userPositions.split( '' );
@@ -60,7 +58,6 @@ define( [ 'scullge/actor', 'scullge/utils/arrays', 'data/context', 'jqueryui' ],
 
 			if( null !== this.newMachine )
 			{
-				this.machine = this.newMachine;
 				this.newMachine = null;
 
 				$( this.node ).effect( 'fade', 100, function()

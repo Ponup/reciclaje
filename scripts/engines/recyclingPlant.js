@@ -53,6 +53,7 @@ define( [ 'scullge/engine', 'actors/recyclingPlant/machine', 'actors/chronometer
 
 		RecyclingPlantEngine.prototype.updateGameStatus = function()
 		{
+			console.log(gaco.userPositions,gaco.rightPositions);
 			gaco.hasWin = ( gaco.userPositions == gaco.rightPositions );
 		};
 

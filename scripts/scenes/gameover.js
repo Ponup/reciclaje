@@ -20,7 +20,6 @@ define( [ 'data/context', 'scullge/scenes/base', 'data/scores', 'text!templates/
 			},
 			game: {
 				score: gaco.gameVars.score,
-				datetime: new Date(),
 			},
 		};
 		Scores.save( score );

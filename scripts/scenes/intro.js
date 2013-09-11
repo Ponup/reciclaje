@@ -27,7 +27,8 @@ define( [ 'scullge/scenes/base', 'scenes/picker', 'data/context', 'text!template
 			}
 			gaco.audioManager.play( 'bgmusicMenu', true );
 
-			gaco.audioManager.play( 'menu_a_reciclar' ); // revisar esta linea no se donde iria el audio.
+			gaco.audioManager.load( 'menu_a_reciclar', CONTEXT_PATH + '/sounds/voces/menu_a_reciclar.mp3' );
+			gaco.audioManager.play( 'menu_a_reciclar' );
 
 			var $canvas = $( document.getElementById( 'canvas' ) ),
 				self = this;

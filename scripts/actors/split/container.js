@@ -69,7 +69,7 @@ define( [ 'data/context', 'scullge/actor'  ], function( gaco, BaseActor )
 
 	Container.prototype.update = function()
 	{
-		this.properties.full = ( this.properties.numElements >= 5 );
+		this.properties.full = ( this.properties.numElements >= this.properties.capacity );
 	};
 
 	Container.prototype.redraw = function()

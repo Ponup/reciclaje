@@ -97,8 +97,8 @@ define( [ 'data/context', 'scullge/scenes/base', 'actors/split/element', 'actors
 				var containers = gaco.engine.findActorsByType( 'Container' );
 				for( var i = 0; i < containers.length; i++ )
 				{
-					containers[i].setFull( false );
-					containers[i].properties.numElements = 0;
+					containers[ i ].setFull( false );
+					containers[ i ].properties.numElements = 0;
 				}
 
 				gaco.gameVars.correctMovements = 0;
@@ -148,12 +148,20 @@ define( [ 'data/context', 'scullge/scenes/base', 'actors/split/element', 'actors
 			// Organic bin is not included in the bonus game.
 			if( container.type == ContainerType.ORGANIC ) continue;
 
+			var capacity = 0;
+			for( var c = 0; c < this.nonOrganicItems.length; c++ )
+			{
+				capacity += ( this.nonOrganicItems[ c ].container == container.type ? 1 : 0 );
+			}
+
 			var elementId = 'container_' + container.name;
 			var properties = {
 				name: container.name,
 				type: container.type,
 				position: i,
+				capacity: capacity,
 			};
+
 			var actor = new Container( elementId, properties );
 			actor.init();
 			gaco.engine.addActor( actor );

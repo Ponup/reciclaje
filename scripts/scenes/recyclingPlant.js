@@ -20,8 +20,6 @@ define(
 
 		prevScene.hide();
 
-		
-		
 		var $canvas = $( document.getElementById( 'canvas' ) );
 
 		$canvas.empty().append( briefHtml );
@@ -33,21 +31,21 @@ define(
 				sceneDiv.className = 'Scene';
 				sceneDiv.style.background = "url('images/scenes/recyclingPlant.png') no-repeat";
 				
-				$canvas.empty().append( sceneDiv );
-
-				// ::::::::::::::::::::::::::::::: test ::::::::::::::::::::::::::::::: //
 				var lightbulb = document.createElement( 'img' );
-						lightbulb.className = 'lightbulb';
-						lightbulb.src = 'images/scenes/recyclingPlant/lightbulb.png';
-						$canvas.append( lightbulb );
+					lightbulb.className = 'lightbulb';
+					lightbulb.src = 'images/scenes/recyclingPlant/lightbulb.png';
+					lightbulb.style.position = 'absolute';
+					lightbulb.style.left  = '200px';
+					sceneDiv.appendChild( lightbulb );
 				
 				var lightbulb2 = document.createElement( 'img' );
-						lightbulb2.className = 'lightbulb';
-						lightbulb2.src = 'images/scenes/recyclingPlant/lightbulb.png';
-						lightbulb2.style.left  = '800px';
-						
-						$canvas.append( lightbulb2 );
-				// :::::::::::::::::::::::::: fin test BORRAR SI ESTA MAL :::::::::::::::::::::::::: //
+					lightbulb2.className = 'lightbulb';
+					lightbulb2.src = 'images/scenes/recyclingPlant/lightbulb.png';
+					lightbulb2.style.position = 'absolute';
+					lightbulb2.style.left  = '800px';
+					sceneDiv.appendChild( lightbulb2 );
+
+				$canvas.empty().append( sceneDiv );
 		
 				gaco.engine = new RecyclingPlantEngine();
 				gaco.engine.init();

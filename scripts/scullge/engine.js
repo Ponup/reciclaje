@@ -1,5 +1,5 @@
 
-define( [ 'scullge/actor' ], function( BaseActor )
+define( [ 'scullge/actor', 'scullge/utils/animations' ], function( BaseActor, AnimationsUtils )
 	{
 		function BaseEngine()
 		{
@@ -70,7 +70,18 @@ define( [ 'scullge/actor' ], function( BaseActor )
 		BaseEngine.prototype.start = function()
 		{
 			this.startTime = Date.now();
-			this.runId = setInterval( $.proxy( this.gameLoop, this ), 1000 / 50 );
+
+			this.runAnimations();
+		};
+
+		BaseEngine.prototype.runAnimations = function()
+		{
+			this.runId = window.requestAnimationFrame( $.proxy( this.gameLoop, this ) );
+		};
+
+		BaseEngine.prototype.stopAnimations = function()
+		{
+			window.cancelAnimationFrame( this.runId );
 		};
 
 		BaseEngine.prototype.getElapsedTime = function( inSeconds )
@@ -92,11 +103,13 @@ define( [ 'scullge/actor' ], function( BaseActor )
 
 		BaseEngine.prototype.stop = function()
 		{
-			clearInterval( this.runId );
+			this.stopAnimations();
 		};
 
 		BaseEngine.prototype.gameLoop = function()
 		{
+			this.runAnimations();
+
 			for( var i = 0; i < this.updateListeners.length; i++ )
 			{
 				this.updateListeners[i]();
