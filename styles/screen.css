@@ -214,5 +214,25 @@ input:-moz-placeholder { color:rgba(255, 255, 255, .5); }
 
 }
 
+@-webkit-keyframes pan
+{
+	0% { -webkit-transform: translate(-8000px, 0px) }
+	100% { -webkit-transform: translate(1000px, 0px) }
+}
+
+#bg_circle {
+	background: url('../images/scenes/intro/bg_plane.png');
+	position: absolute;
+	width:10000px;
+	height:768px;
+	top: 0px;
+	left: 0px;
+	z-index:-1;
+	-webkit-animation-name: pan;
+	-webkit-animation-duration: 500s;
+	-webkit-transform-origin: 50% 50%;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
 
 
