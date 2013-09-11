@@ -32,17 +32,23 @@ define(
 				sceneDiv.style.background = "url('images/scenes/recyclingPlant.png') no-repeat";
 				
 				var lightbulb = document.createElement( 'img' );
-					lightbulb.className = 'lightbulb';
+					lightbulb.className = 'LightBulb';
 					lightbulb.src = 'images/scenes/recyclingPlant/lightbulb.png';
 					lightbulb.style.position = 'absolute';
 					lightbulb.style.left  = '200px';
+					lightbulb.style.top = '32px';
+					lightbulb.style.width = '27px';
+					lightbulb.style.height = '153px';
 					sceneDiv.appendChild( lightbulb );
 				
 				var lightbulb2 = document.createElement( 'img' );
-					lightbulb2.className = 'lightbulb';
+					lightbulb2.className = 'LightBulb';
 					lightbulb2.src = 'images/scenes/recyclingPlant/lightbulb.png';
 					lightbulb2.style.position = 'absolute';
 					lightbulb2.style.left  = '800px';
+					lightbulb2.style.top = '32px';
+					lightbulb2.style.width = '27px';
+					lightbulb2.style.height = '153px';
 					sceneDiv.appendChild( lightbulb2 );
 
 				$canvas.empty().append( sceneDiv );

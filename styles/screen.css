@@ -154,12 +154,6 @@ input:-moz-placeholder { color:rgba(255, 255, 255, .5); }
 	}
 	
 /* BRIEF ANIMATIONS DEFINITIONS */
-@-webkit-keyframes tictoc {	
-
-	0%,100% { -webkit-transform: rotate(-5deg);  } 
-	50% { -webkit-transform: rotate(5deg);  }  
-}
-
 
 .Shaker {
 	display:inline-block;
@@ -199,16 +193,18 @@ input:-moz-placeholder { color:rgba(255, 255, 255, .5); }
 	-webkit-animation-timing-function: ease-in-out;
 }
 
-.lightbulb {
-	width:27px;
-	height:153px;
-	position: absolute;
-	top: 32px ;
-	left: 256px;
-	
+@-webkit-keyframes tictoc
+{
+	0%,100% { -webkit-transform: rotate(-5deg); }
+	50% { -webkit-transform: rotate(5deg); }
+}
+
+.LightBulb
+{
 	-webkit-animation-name: tictoc;
 	-webkit-animation-duration: 3s;
-	-webkit-transform-origin:50% 0%;
+	-webkit-transform-origin: 50% 0%;
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-timing-function: ease-in-out;
 }
+
