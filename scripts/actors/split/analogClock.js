@@ -19,18 +19,20 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 
 			var node = document.createElement( 'img' );
 			node.src = CONTEXT_PATH + '/images/actors/nivelometro.png';
+			node.id = 'nivelometro';
 			node.style.position = 'absolute';
-			node.style.top = '60px';
-			node.style.left = '0px';
+			node.style.top = '100px';
+			node.style.left = '30px';
 			node.style.width = '300px';
 
 			this.needle = document.createElement( 'img' );
+			this.needle.id = 'needle';
 			this.needle.src = CONTEXT_PATH + '/images/actors/nivelometro_aguja.png';
 			this.needle.style.position = 'absolute';
-			this.needle.style.top = '100px';
-			this.needle.style.left = '150px';
+			this.needle.style.top = '150px';
+			this.needle.style.left = '188px';
 			this.needle.style.width = '40px';
-			this.needle.style['-webkit-transform-origin'] = '50% 62%';
+			this.needle.style['-webkit-transform-origin'] = '46% 77%';
 			
 			$( '.Scene' ).append( node );
 			$( '.Scene' ).append( this.needle );
