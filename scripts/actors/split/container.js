@@ -1,12 +1,11 @@
 
 define( [ 'data/context', 'scullge/actor'  ], function( gaco, BaseActor )
 {
-	function Container( id, properties )
+	function Container( properties )
 	{
 		BaseActor.call( this );
 
-		this.id = id;
-
+		this.node = null;
 		this.properties = {
 			name: null,
 			full: false,
@@ -25,17 +24,16 @@ define( [ 'data/context', 'scullge/actor'  ], function( gaco, BaseActor )
 
 	Container.prototype.init = function()
 	{
-		var image = document.createElement( 'img' );
-		image.id = this.id;
-		image.style.left = ( this.properties.position * 200 ) + 'px';
-		image.style.top = '400px';
-		image.setAttribute( 'data-name', this.properties.name );
-		image.setAttribute( 'draggable', false );
-		$( image ).on( 'click', function( ev )
+		var self = this;
+
+		this.node = document.createElement( 'img' );
+		this.node.style.left = ( this.properties.position * 200 ) + 'px';
+		this.node.style.top = '400px';
+		this.node.setAttribute( 'data-name', this.properties.name );
+		this.node.setAttribute( 'draggable', false );
+		$( this.node ).on( 'click', function( ev )
 			{
-				var actor = gaco.engine.findActorById( 'container_' + this.getAttribute( 'data-name' ) );
-				
-				if( actor.getProperty( 'full' ) )
+				if( self.getProperty( 'full' ) )
 				{
 					gaco.audioManager.play( 'tapWrong' );
 					return;
@@ -45,12 +43,14 @@ define( [ 'data/context', 'scullge/actor'  ], function( gaco, BaseActor )
 				gaco.audioManager.play( 'tap' );
 
 				gaco.activeElement.active = false;
-				actor.properties.numElements++;
-				$( document.getElementById( gaco.activeElement.id ) ).animate({ opacity: 0, top: $this.offset().top, left: $this.position().left });
+				self.properties.numElements++;
+				$( gaco.activeElement.node ).animate({ opacity: 0, top: $this.offset().top, left: $this.position().left });
 		
-				var correctMovement = ( gaco.activeElement.properties.container == actor.properties.type );
+				var correctMovement = ( gaco.activeElement.properties.container == self.properties.type );
 				if( correctMovement )
 				{
+					gaco.engine.findActorById( 'nivelometro' ).increase();
+
 					gaco.gameVars.correctMovements += 1;
 					gaco.gameVars.score += ( gaco.gameVars.currentLevel + 1 );
 				}
@@ -62,7 +62,7 @@ define( [ 'data/context', 'scullge/actor'  ], function( gaco, BaseActor )
 		var div = document.createElement( 'div' );
 		div.className = 'Container';
 		div.setAttribute( 'draggable', false );
-		div.appendChild( image );
+		div.appendChild( this.node );
 
 		$( '#containers' ).append( div );
 	};
@@ -74,14 +74,13 @@ define( [ 'data/context', 'scullge/actor'  ], function( gaco, BaseActor )
 
 	Container.prototype.redraw = function()
 	{
-		var img = document.getElementById( this.id );
 		if( this.getProperty( 'full' ) )
 		{
-			img.src = CONTEXT_PATH + '/images/containers/' + this.properties.name + '_llena.png';
+			this.node.src = CONTEXT_PATH + '/images/containers/' + this.properties.name + '_llena.png';
 		}
 		else
 		{
-			img.src = CONTEXT_PATH + '/images/containers/' + this.properties.name + '.png';
+			this.node.src = CONTEXT_PATH + '/images/containers/' + this.properties.name + '.png';
 		}
 	};
 

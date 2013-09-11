@@ -22,8 +22,6 @@ define( [ 'scullge/engine', 'actors/picker/pickable', 'actors/scoreboard', 'acto
 		{
 			this.initActors();
 
-			$( '#currentLevel' ).html( this.context.currentLevel );
-
 			var allElements = itemsData.slice();
 			var allElementsShuffled = ArraysUtils.shuffle( allElements );
 
@@ -71,7 +69,6 @@ define( [ 'scullge/engine', 'actors/picker/pickable', 'actors/scoreboard', 'acto
 				score: 0,
 			};
 
-			this.context.currentLevel = 1;
 			this.seconds = { 0: 1 };
 		};
 
