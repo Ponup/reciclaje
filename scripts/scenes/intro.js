@@ -43,7 +43,6 @@ define( [ 'scullge/scenes/base', 'scenes/picker', 'data/context', 'text!template
 
 			$( '#introScene' ).fadeIn();
 			
-			
 			$( '#introBtnRanking' ).on( 'click', function()
 				{
 					self.savePlayerName();
