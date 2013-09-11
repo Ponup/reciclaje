@@ -9,6 +9,7 @@ define( [ 'handlebars', 'data/context', 'scullge/scenes/base', 'data/scores', 't
 	}
 
 	RankingScene.prototype = new BaseScene();
+	RankingScene.prototype.constructor = RankingScene;
 
 	RankingScene.prototype.switchFrom = function( prevScene )
 	{
@@ -22,30 +23,41 @@ define( [ 'handlebars', 'data/context', 'scullge/scenes/base', 'data/scores', 't
 				gaco.sceneManager.switchTo( 'intro' );
 			}
 		);
-		$( '#resetScores' ).on( 'click', function( ev )
-			{
-				localStorage.removeItem( 'scores' );
-				$( '#hofEntries' ).html( '' );
-				$( this ).slideDown( 4000, function() { $( this ).remove(); } );
-			}
-		);
 
-		var $hofEntries = $( '#hofEntries' );
-		$hofEntries.html( '' );
-
-		var source = $( '#hofEntry' ).html();
-		var template = Handlebars.compile( source );
+		var $hofEntries = $( document.getElementById( 'hofEntries' ) );
 
 		var scores = Scores.list( 5 );
-		for( var i = 0; i < scores.length; i++ )
+		if( scores.length > 0 )
 		{
-			var score = scores[ i ];
-			if( score.player.name == '' )
-				score.player.name = 'Anónimo';
-			score.position = i + 1;
+			var $resetScores = $( document.getElementById( 'resetScores' ) );
+			$resetScores.show();
+			$resetScores.on( 'click', function( ev )
+				{
+					localStorage.removeItem( 'scores' );
+					$( '#hofEntries' ).html( '' );
+					$( this ).slideToggle( 240, function() { $( this ).remove(); } );
+				}
+			);
 
-			var html = template( score );
-			$hofEntries.append( html );
+			$hofEntries.html( '' );
+
+			var source = $( '#hofEntry' ).html();
+			var template = Handlebars.compile( source );
+
+			for( var i = 0; i < scores.length; i++ )
+			{
+				var score = scores[ i ];
+				if( score.player.name == '' )
+					score.player.name = 'Anónimo';
+				score.position = i + 1;
+
+				var html = template( score );
+				$hofEntries.append( html );
+			}
+		}
+		else
+		{
+			$hofEntries.append( '<tr><td colspan="3">No hay puntuaciones aún</td></tr>' );
 		}
 
 		prevScene.hide();
