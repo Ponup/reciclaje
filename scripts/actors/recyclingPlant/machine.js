@@ -18,10 +18,10 @@ define( [ 'scullge/actor', 'scullge/utils/arrays', 'data/context', 'jqueryui' ],
 			this.updateMachine();
 
 			this.node = document.createElement( 'img' );
-			this.node.style.bottom = '160px';
+			this.node.style.bottom = '166px';
 			this.node.style.position = 'absolute';
 			this.node.src = CONTEXT_PATH + '/images/actors/process/' + this.machine.name + '.png';
-			this.node.style.left = ( 60 + this.properties.position * 180 ) + 'px';
+			this.node.style.left = ( 63 + this.properties.position * 174 ) + 'px';
 			recyclingPlant.appendChild( this.node );
 
 			$( this.node ).on( 'click', function()

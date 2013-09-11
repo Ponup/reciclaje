@@ -27,15 +27,30 @@
 	-webkit-animation-timing-function: ease-in-out;
 }
 
+@-webkit-keyframes move-x {
+	0% { opacity:0; -webkit-transform: translate(0px, 0px)  }
+	50% { opacity:1;-webkit-transform:translate(200px, 0px) }
+	100% { opacity:0;-webkit-transform:translate(400px, 0px) }
+}
+
+#anim {
+	-webkit-animation-name: move-x;
+	-webkit-animation-duration:15s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-delay: 0s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: linear;
+}
+
 #BriefItems {
 	position:absolute;
-	top: 530px;
-	left : 245px;
+	top: 536px;
+	left : 0px;
 	opacity:0;
 	-webkit-animation-name: fadein;
 	-webkit-animation-duration: .5s;
 	-webkit-transform-origin:50% 50%;
-	-webkit-animation-delay: 1.5s;
+	-webkit-animation-delay: 1s;
 	-webkit-animation-fill-mode: forwards;
 	-webkit-animation-timing-function: ease-out;
 }
@@ -100,7 +115,9 @@
 	<div id="overlay" ></div>
 
 	<img src="images/scenes/brief/brief_biodigestor_titulo.png" id="BriefTitle"/>
-	<img src="images/scenes/brief/brief_biodigestor_items.png" id="BriefItems"/>
+	<div id="anim">
+		<img src="images/scenes/brief/brief_biodigestor_items.png" id="BriefItems"/>
+	</div>
 	<img src="images/scenes/brief/brief_biodigestor_monitor.png" id="BriefMonitor"/>
 	<img src="images/scenes/brief/brief_biodigestor_PH.png" id="BriefPH" />
 	

@@ -44,17 +44,31 @@
 
 #BriefStartButton {
 	position:absolute;
-	top: 535px;
+	top: 545px;
 	left : 202px;
+	z-index:18;
 	opacity:0;
 	-webkit-animation-name: bubbleIn;
 	-webkit-animation-duration: .5s;
+	-webkit-transform-origin:50% 100%;
+	-webkit-animation-delay: 4.5s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.enchufe {
+	position:absolute;
+	top: 668px;
+	left : 0px;
+	z-index:17;
+	opacity:0;
+	-webkit-animation-name: fadein;
+	-webkit-animation-duration: .2s;
 	-webkit-transform-origin:50% 100%;
 	-webkit-animation-delay: 4s;
 	-webkit-animation-fill-mode: forwards;
 	-webkit-animation-timing-function: ease-in-out;
 }
-
 
 .BriefScore {
 	display: none;
@@ -94,8 +108,11 @@
 	<img src="images/scenes/brief/brief_reciclador_maquinas.png" id="BriefItems"/>
 	<img src="images/scenes/brief/brief_reciclador_enchufe.png" id="BriefStartButton" />
 	
-	
 	<img src="images/scenes/brief/brief_puntos.png" class="BriefScore" />
 	<img src="images/scenes/brief/brief_tiempo.png" class="BriefTime" />
+	
+	<img src="images/actors/recyclingPlant/start.png" class="enchufe" />
+
+	
 </div>
 

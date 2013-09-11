@@ -26,7 +26,9 @@ define( [ 'scullge/scenes/base', 'scenes/picker', 'data/context', 'text!template
 				gaco.audioManager.stopAll();
 			}
 			gaco.audioManager.play( 'bgmusicMenu', true );
-			
+
+			gaco.audioManager.play( 'menu_a_reciclar' ); // revisar esta linea no se donde iria el audio.
+
 			var $canvas = $( document.getElementById( 'canvas' ) ),
 				self = this;
 			
@@ -37,7 +39,6 @@ define( [ 'scullge/scenes/base', 'scenes/picker', 'data/context', 'text!template
 
 			$( '#introScene' ).fadeIn();
 			
-			gaco.audioManager.play( 'voces/menu_a_reciclar', true ); // revisar esta linea no se donde iria el audio.
 			
 			$( '#introBtnRanking' ).on( 'click', function()
 				{
