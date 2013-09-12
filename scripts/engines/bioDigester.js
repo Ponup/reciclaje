@@ -4,6 +4,8 @@ define( [ 'scullge/engine', 'actors/bioDigester/phmeter', 'actors/bioDigester/di
 		function BioDigesterEngine()
 		{
 			BaseEngine.call( this );
+
+			this.positionOffset = -BioDigesterEngine.DISTANCE_BETWEEN_ITEMS;
 		}
 
 		BioDigesterEngine.prototype = new BaseEngine();
@@ -31,7 +33,6 @@ define( [ 'scullge/engine', 'actors/bioDigester/phmeter', 'actors/bioDigester/di
 			for( i = 0; i < randomItemsData.length; i++ )
 			{
 				var itemData = randomItemsData[ i ];
-				itemData.position = i;
 				this.addDisposableActor( itemData );
 			}
 
@@ -64,15 +65,23 @@ define( [ 'scullge/engine', 'actors/bioDigester/phmeter', 'actors/bioDigester/di
 			{
 				this.stop()
 
-				gaco.hasWin = ( gaco.gameVars.phLevel >= 5 && gaco.gameVars.phLevel <= 7 );
+				$( '.Disposable' ).remove();
+
+				gaco.hasWin = ( gaco.gameVars.phLevel >= 6 && gaco.gameVars.phLevel <= 7 );
 				gaco.sceneManager.switchTo( 'gameover' );
 			}
+
+			if( $( '.Disposable' ).length < 10 )
+			{
+				this.addDisposable();
+			}
+
+			this.positionOffset += 2;
 		};
 		
 		BioDigesterEngine.prototype.addDisposable = function()
 		{
 			var itemData = ArraysUtils.randomItem( itemsData );
-			itemData.position = 13;
 			this.addDisposableActor( itemData );
 		};
 
@@ -82,8 +91,12 @@ define( [ 'scullge/engine', 'actors/bioDigester/phmeter', 'actors/bioDigester/di
 			actor.setProperty( 'phDelta', itemData.scoring.ph );
 			actor.setProperty( 'image', itemData.name );
 			actor.setProperty( 'data', itemData );
-			actor.setProperty( 'left', itemData.position * -BioDigesterEngine.DISTANCE_BETWEEN_ITEMS );
+			actor.setProperty( 'left', this.positionOffset );
+			actor.init();
+
 			this.addActor( actor );
+
+			this.positionOffset -= BioDigesterEngine.DISTANCE_BETWEEN_ITEMS;
 		};
 
 		return BioDigesterEngine;

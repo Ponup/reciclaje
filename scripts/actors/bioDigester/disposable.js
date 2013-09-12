@@ -51,8 +51,6 @@ define( [ 'scullge/actor', 'actors/flashScore', 'TweenMax', 'data/containerType'
 					ease: Power1.easeInOut,
 					onComplete: function()
 					{
-						self.state = DisposableActorState.DEAD;
-
 						var score = self.properties.phDelta;
 						if( self.properties.data.container === ContainerType.ORGANIC )
 						{
@@ -70,10 +68,12 @@ define( [ 'scullge/actor', 'actors/flashScore', 'TweenMax', 'data/containerType'
 
 						gaco.gameVars.score += score;
 
-						if( self.properties.phDelta > 0 )
+						if( score > 0 )
 							gaco.audioManager.play( 'tap' );
 						else
 							gaco.audioManager.play( 'tapWrong' );
+
+						self.state = DisposableActorState.DEAD;
 
 						var actor = new FlashScoreActor( score );
 						actor.setProperty( 'img', { style: { top: '160px', left: '460px' } } );
@@ -94,7 +94,6 @@ define( [ 'scullge/actor', 'actors/flashScore', 'TweenMax', 'data/containerType'
 					if( this.properties.left > 1024 )
 					{
 						this.state = DisposableActorState.DEAD;
-						gaco.engine.addDisposable();
 					}
 					break;
 			}
