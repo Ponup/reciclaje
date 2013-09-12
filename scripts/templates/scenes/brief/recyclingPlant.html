@@ -3,8 +3,8 @@
 
 #brief
 {
-	
-	background: url('images/scenes/recyclingPlant.png');
+	height: 768px;
+	width: 1024px;
 }
 
 #overlay {
@@ -42,35 +42,6 @@
 	-webkit-animation-timing-function: ease-out;
 }
 
-#BriefStartButton {
-	position:absolute;
-	top: 545px;
-	left : 202px;
-	z-index:18;
-	opacity:0;
-	-webkit-animation-name: bubbleIn;
-	-webkit-animation-duration: .5s;
-	-webkit-transform-origin:50% 100%;
-	-webkit-animation-delay: 6s;
-	-webkit-animation-fill-mode: forwards;
-	-webkit-animation-timing-function: ease-in-out;
-}
-
-.enchufe {
-	position:absolute;
-	top: 668px;
-	left : 0px;
-	z-index:17;
-	opacity:0;
-	-webkit-animation-name: fadein;
-	-webkit-animation-duration: .2s;
-	-webkit-transform-origin:50% 100%;
-	-webkit-animation-delay: 5.5s;
-	-webkit-animation-fill-mode: forwards;
-	-webkit-animation-timing-function: ease-in-out;
-}
-
-
 .BriefTime {
 	position:absolute;
 	top: 480px;
@@ -85,9 +56,24 @@
 	-webkit-animation-timing-function: ease-in-out;
 }
 
+#BriefStartButton {
+	position:absolute;
+	top: 545px;
+	left : 202px;
+	z-index:18;
+	opacity:0;
+	-webkit-animation-name: bubbleIn;
+	-webkit-animation-duration: .5s;
+	-webkit-transform-origin:50% 100%;
+	-webkit-animation-delay: 6s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+
 </style>
 
-<div id="brief" class="Scene">
+<div id="brief">
 
 	<div id="overlay"></div>
 
@@ -96,11 +82,7 @@
 	<img src="images/scenes/brief/brief_reciclador_maquinas.png" id="BriefItems"/>
 	<img src="images/scenes/brief/brief_reciclador_enchufe.png" id="BriefStartButton" />
 	
-	<img src="images/scenes/brief/brief_puntos.png" class="BriefScore" />
 	<img src="images/scenes/brief/brief_tiempo.png" class="BriefTime" />
-	
-	<img src="images/actors/recyclingPlant/start.png" class="enchufe" />
-
 	
 </div>
 

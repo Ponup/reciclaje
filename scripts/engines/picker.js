@@ -6,10 +6,6 @@ define( [ 'scullge/engine', 'actors/picker/pickable', 'actors/scoreboard', 'acto
 			BaseEngine.call( this );
 
 			this.nextScene = nextScene;
-
-			this.addActor( new ChronometerActor() );
-			this.addActor( new ScoreBoardActor() );
-			this.addActor( new QuitButtonActor() );
 		}
 
 		PickerEngine.prototype = new BaseEngine();
@@ -18,10 +14,33 @@ define( [ 'scullge/engine', 'actors/picker/pickable', 'actors/scoreboard', 'acto
 		PickerEngine.MAX_SCORE = 40;
 		PickerEngine.MAX_SECONDS = 20;
 
+		PickerEngine.prototype.preInit = function()
+		{
+			this.initScene();
+
+			this.addActor( new ChronometerActor() );
+			this.addActor( new ScoreBoardActor() );
+
+			this.initActors();
+		};
+
+		PickerEngine.prototype.initScene = function()
+		{
+			this.place = ArraysUtils.randomItem( placesData );	
+
+			var sceneDiv = document.createElement( 'div' );
+			sceneDiv.id = 'picker';
+			sceneDiv.className = 'Scene';
+			sceneDiv.style.display = 'none';
+			sceneDiv.style.backgroundRepeat = 'no-repeat';
+			sceneDiv.style.backgroundImage = "url('images/scenes/picker/" + this.place.code + ".png')";
+
+			var $canvas = $( document.getElementById( 'canvas' ) );
+			$canvas.empty().append( sceneDiv );
+		};
+
 		PickerEngine.prototype.init = function()
 		{
-			this.initActors();
-
 			var allElements = itemsData.slice();
 			var allElementsShuffled = ArraysUtils.shuffle( allElements );
 
@@ -40,16 +59,13 @@ define( [ 'scullge/engine', 'actors/picker/pickable', 'actors/scoreboard', 'acto
 				}
 			}
 
-			var place = ArraysUtils.randomItem( placesData );
-
+			var place = this.place;
 			var maxNumElements = place.elements.length;
 			var numPosElements = Math.min( parseInt( maxNumElements >> 1, 10 ) + 1, posElements.length );
 			var numNegElements = maxNumElements - numPosElements;
 
 			var availableElements = posElements.slice( 0, numPosElements );
 			availableElements = availableElements.concat( negElements.slice( 0, numNegElements ) );
-
-			document.getElementById( 'picker' ).style.backgroundImage = "url('images/scenes/picker/" + place.code + ".png')";
 
 			for( i = 0; i < place.elements.length; i++ )
 			{
@@ -61,11 +77,13 @@ define( [ 'scullge/engine', 'actors/picker/pickable', 'actors/scoreboard', 'acto
 
 				this.addActor( actor );
 			}
+			this.addActor( new QuitButtonActor() );
+
+			this.initActors();
 
 			this.addUpdateListener( $.proxy( this.onUpdate, this ) );
 
 			gaco.gameVars = {
-				elapsedSecons: 0,
 				score: 0,
 			};
 

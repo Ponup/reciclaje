@@ -11,6 +11,8 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 
 		ScoreBoard.prototype.init = function()
 		{
+			BaseActor.prototype.init.call( this );
+
 			this.node = document.createElement( 'div' );
 			this.node.className = 'ScoreBoard';
 			this.node.innerHTML = '0 <span style="color:#17bc99;font-size:.6em;">puntos</span>';
@@ -23,6 +25,7 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 			style.position = 'absolute';
 			style.right = '60px';
 			style.top = '680px';
+			style.zIndex = 10;
 
 			$( '.Scene' ).append( this.node );
 		};

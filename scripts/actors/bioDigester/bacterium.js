@@ -3,6 +3,7 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 	{
 		function BacteriumActor()
 		{
+			BaseActor.call( this );
 		}
 
 		BacteriumActor.prototype = new BaseActor();
@@ -10,6 +11,8 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 
 		BacteriumActor.prototype.init = function()
 		{
+			BaseActor.prototype.init.call( this );
+
 			this.frameNum = 0;
 
 			this.node = document.createElement( 'img' );

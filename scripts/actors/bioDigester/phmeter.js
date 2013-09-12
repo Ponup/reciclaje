@@ -13,6 +13,8 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 
 		Phmeter.prototype.init = function()
 		{
+			BaseActor.prototype.init.call( this );
+
 			this.node = document.createElement( 'div' );
 			this.node.className = 'Phmeter';
 			this.node.style.position = 'absolute';
@@ -21,7 +23,8 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 			this.node.style.width = '200px';
 			this.node.style.height = '400px';
 			this.node.style.background = 'url(images/actors/phmeter.png) no-repeat';
-			conveyorBelt.appendChild( this.node );
+			
+			$( '.Scene' ).append( this.node );
 		};
 
 		Phmeter.prototype.update = function()

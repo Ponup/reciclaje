@@ -11,6 +11,19 @@ define( [ 'scullge/engine', 'actors/bioDigester/phmeter', 'actors/bioDigester/di
 
 		BioDigesterEngine.DISTANCE_BETWEEN_ITEMS = 100;
 
+		BioDigesterEngine.prototype.preInit = function()
+		{
+			this.initScene();
+
+			var initialPhmeterLevels = [ 0, 1, 2, 3, 4, 5, 9, 10, 11, 12, 13 ];
+			gaco.gameVars.phLevel = ArraysUtils.randomItem( initialPhmeterLevels );
+
+			this.addActor( new ChronometerActor() );
+			this.addActor( new ScoreboardActor() );
+
+			this.initActors();
+		};
+
 		BioDigesterEngine.prototype.init = function()
 		{
 			var randomItemsData = ArraysUtils.shuffle( itemsData );
@@ -21,18 +34,26 @@ define( [ 'scullge/engine', 'actors/bioDigester/phmeter', 'actors/bioDigester/di
 				this.addDisposableActor( itemData );
 			}
 
-			var initialPhmeterLevels = [ 0, 1, 2, 3, 4, 5, 9, 10, 11, 12, 13 ];
-			gaco.gameVars.phLevel = ArraysUtils.randomItem( initialPhmeterLevels );
-
 			this.addActor( new PhmeterActor() );
 			this.addActor( new BacteriumActor() );
-			this.addActor( new ChronometerActor() );
-			this.addActor( new ScoreboardActor() );
 			this.addActor( new QuitButtonActor() );
 
 			this.initActors();
 
 			this.addUpdateListener( $.proxy( this.onUpdate, this ) );
+		};
+
+		BioDigesterEngine.prototype.initScene = function()
+		{
+			var sceneDiv = document.createElement( 'div' ),
+			    $canvas = $( document.getElementById( 'canvas' ) );
+
+			sceneDiv.id = 'conveyorBelt';
+			sceneDiv.className = 'Scene';
+			sceneDiv.style.overflow = 'hidden';
+			sceneDiv.style.background = "url('images/scenes/conveyorBelt.png') no-repeat";
+
+			$canvas.empty().append( sceneDiv );
 		};
 
 		BioDigesterEngine.prototype.onUpdate = function()
@@ -59,7 +80,6 @@ define( [ 'scullge/engine', 'actors/bioDigester/phmeter', 'actors/bioDigester/di
 			actor.setProperty( 'phDelta', itemData.scoring.ph );
 			actor.setProperty( 'image', itemData.name );
 			actor.setProperty( 'left', itemData.position * -BioDigesterEngine.DISTANCE_BETWEEN_ITEMS );
-			actor.init();
 			this.addActor( actor );
 		};
 

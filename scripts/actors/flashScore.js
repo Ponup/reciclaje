@@ -13,6 +13,8 @@ define( [ 'scullge/actor' ], function( BaseActor )
 
 		FlashScore.prototype.init = function()
 		{
+			BaseActor.prototype.init.call( this );
+
 			var flashScore = document.createElement( 'div' );
 			flashScore.className = 'FlashScore';
 			flashScore.innerHTML = ( this.score > 0 ? '+' : '-' ) + Math.abs( this.score );

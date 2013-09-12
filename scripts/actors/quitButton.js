@@ -11,6 +11,8 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 
 		QuitButtonActor.prototype.init = function()
 		{
+			BaseActor.prototype.init.call( this );
+
 			var node = document.createElement( 'img' );
 
 			node.src = CONTEXT_PATH + '/images/bt_salir.png';

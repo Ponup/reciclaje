@@ -22,16 +22,10 @@ define(
 
 		gaco.audioManager.stopAll();
 
-		var sceneDiv = document.createElement( 'div' ),
-		    	$sceneDiv = $( sceneDiv );
+		gaco.engine = new PickerEngine( this.nextScene );
+		gaco.engine.preInit();
 
-		sceneDiv.id = 'picker';
-		sceneDiv.className = 'Scene';
-		sceneDiv.style.display = 'none';
-		sceneDiv.style.backgroundRepeat = 'no-repeat';
-
-		var $canvas = $( document.getElementById( 'canvas' ) );
-		$canvas.empty().append( sceneDiv );
+		var $sceneDiv = $( document.getElementById( 'picker' ) );
 
 		if( 'bioDigester' == gaco.finalSceneName )
 		{
@@ -57,11 +51,8 @@ define(
 			setTimeout( function() { gaco.audioManager.play( 'brief_puntos' );	}, 4000 );
 			setTimeout( function() { gaco.audioManager.play( 'brief_tiempo' );	}, 8000 );
 		}
-
-		$( sceneDiv ).fadeIn();
-
-		gaco.engine = new PickerEngine( this.nextScene );
-		gaco.engine.init();
+		
+		$sceneDiv.fadeIn();
 
 		setTimeout( function()
 			{
@@ -69,9 +60,7 @@ define(
 					{
 						$( this ).remove();
 
-						// Init the remaining actors.
-						gaco.engine.initActors();
-
+						gaco.engine.init();
 						gaco.engine.start();
 					}
 				);

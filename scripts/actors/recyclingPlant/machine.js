@@ -1,18 +1,20 @@
 
 define( [ 'scullge/actor', 'scullge/utils/arrays', 'data/context', 'jqueryui' ], function( BaseActor, ArraysUtils, gaco )
 	{
-		function Machine()
+		function MachineActor()
 		{
 			BaseActor.call( this );
 
 			this.machines = this.machine = this.newMachine = null;
 		}
 
-		Machine.prototype = new BaseActor();
-		Machine.prototype.constructor = Machine;
+		MachineActor.prototype = new BaseActor();
+		MachineActor.prototype.constructor = MachineActor;
 
-		Machine.prototype.init = function()
+		MachineActor.prototype.init = function()
 		{
+			BaseActor.prototype.init.call( this );
+
 			var self = this;
 
 			this.machines = ArraysUtils.shuffle( gaco.machines.slice() );
@@ -24,7 +26,7 @@ define( [ 'scullge/actor', 'scullge/utils/arrays', 'data/context', 'jqueryui' ],
 			this.node.style.position = 'absolute';
 			this.node.src = CONTEXT_PATH + '/images/actors/process/' + this.machine.name + '.png';
 			this.node.style.left = ( 63 + this.properties.position * 174 ) + 'px';
-			recyclingPlant.appendChild( this.node );
+			$( '.Scene' ).append( this.node );
 
 			$( this.node ).on( 'click', function()
 				{
@@ -34,7 +36,7 @@ define( [ 'scullge/actor', 'scullge/utils/arrays', 'data/context', 'jqueryui' ],
 			);
 		};
 
-		Machine.prototype.updateMachine = function()
+		MachineActor.prototype.updateMachine = function()
 		{
 			if( null == this.machine )
 			{
@@ -52,7 +54,7 @@ define( [ 'scullge/actor', 'scullge/utils/arrays', 'data/context', 'jqueryui' ],
 			gaco.userPositions = userPositions.join( '' );
 		};
 
-		Machine.prototype.redraw = function()
+		MachineActor.prototype.redraw = function()
 		{
 			var self = this;
 
@@ -70,7 +72,7 @@ define( [ 'scullge/actor', 'scullge/utils/arrays', 'data/context', 'jqueryui' ],
 			}
 		};
 
-		return Machine;
+		return MachineActor;
 	}
 );
 

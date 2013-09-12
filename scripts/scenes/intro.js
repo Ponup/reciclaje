@@ -19,7 +19,7 @@ define( [ 'scullge/scenes/base', 'scenes/picker', 'data/context', 'text!template
 		IntroScene.prototype.switchFrom = function( prevScene )
 		{
 			document.title = 'El juego del reciclaje';
-			//document.body.style.backgroundColor = '#17bc99';
+			document.body.style.backgroundColor = '#17bc99';
 
 			if( null !== prevScene && 'ranking' !== prevScene.getId() )
 			{

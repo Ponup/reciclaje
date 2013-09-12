@@ -17,6 +17,8 @@ define( [ 'data/context', 'scullge/actor' ], function( gaco, BaseActor )
 
 	Element.prototype.init = function()
 	{
+		BaseActor.prototype.init.call( this );
+
 		this.node = document.createElement( 'img' );
 		this.node.src = CONTEXT_PATH + '/images/items/' + this.properties.name + '.png';
 		this.node.style.left = ( $( '#cinta' ).offset().left + 40 ) + 'px';

@@ -24,6 +24,8 @@ define( [ 'scullge/actor', 'scullge/utils/dom', 'actors/flashScore', 'data/conte
 
 		Pickable.prototype.init = function()
 		{
+			BaseActor.prototype.init.call( this );
+
 			var self = this;
 
 			this.img = document.createElement( 'img' );
@@ -52,7 +54,8 @@ define( [ 'scullge/actor', 'scullge/utils/dom', 'actors/flashScore', 'data/conte
 				actor.init();
 				gaco.engine.addActor( actor );
 			};
-			picker.appendChild( this.img );
+		
+			$( '.Scene' ).append( this.img );
 		};
 		
 		Pickable.prototype.setPosition = function( position )

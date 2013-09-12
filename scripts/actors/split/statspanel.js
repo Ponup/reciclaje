@@ -7,6 +7,7 @@ define( [ 'data/context', 'scullge/actor' ], function( gaco, BaseActor )
 		}
 
 		StatsPanel.prototype = new BaseActor();
+		StatsPanel.prototype.constructor = StatsPanel;
 
 		StatsPanel.prototype.redraw = function()
 		{

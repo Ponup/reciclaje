@@ -67,7 +67,7 @@ define( [ 'scullge/actor', 'actors/flashScore', 'TweenMax', 'data/context' ], fu
 				});
 			};
 
-			conveyorBelt.appendChild( this.node );
+			$( '.Scene' ).append( this.node );
 		};
 
 		DisposableActor.prototype.update = function()

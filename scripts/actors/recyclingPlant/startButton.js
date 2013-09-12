@@ -11,6 +11,8 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 
 		QuitButtonActor.prototype.init = function()
 		{
+			BaseActor.prototype.init.call( this );
+
 			var node = document.createElement( 'img' );
 
 			node.src = CONTEXT_PATH + '/images/actors/recyclingPlant/start.png';
@@ -18,6 +20,7 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 			node.style.position = 'absolute';
 			node.style.bottom = '0px';
 			node.style.cursor = 'pointer';
+			node.style.zIndex = 10;
 
 			$( node ).on( 'click', function()
 				{

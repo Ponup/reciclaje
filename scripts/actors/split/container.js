@@ -24,6 +24,8 @@ define( [ 'data/context', 'scullge/actor'  ], function( gaco, BaseActor )
 
 	Container.prototype.init = function()
 	{
+		BaseActor.prototype.init.call( this );
+
 		var self = this;
 
 		this.node = document.createElement( 'img' );

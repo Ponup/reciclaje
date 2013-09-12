@@ -21,50 +21,33 @@ define(
 		prevScene.hide();
 
 		var $canvas = $( document.getElementById( 'canvas' ) );
+		$canvas.empty();
 
-		$canvas.empty().append( briefHtml );
+		gaco.engine = new RecyclingPlantEngine();
+		gaco.engine.preInit();
+
+		$( '.Scene' ).append( briefHtml );
 
 		gaco.audioManager.load( 'brief_reci_h1', CONTEXT_PATH + '/sounds/voces/brief_reci_h1.mp3' );
 		gaco.audioManager.load( 'brief_reci_enchufe', CONTEXT_PATH + '/sounds/voces/brief_reci_enchufe.mp3' );
 
-		setTimeout( function() { gaco.audioManager.play( 'brief_reci_h1' );	}, 100 );
-		setTimeout( function() { gaco.audioManager.play( 'brief_reci_enchufe' );	}, 6000 );
-		setTimeout( function() { gaco.audioManager.play( 'brief_tiempo' );	}, 13000 );	
+		setTimeout( function() { gaco.audioManager.play( 'brief_reci_h1' ); }, 100 );
+		setTimeout( function() { gaco.audioManager.play( 'brief_reci_enchufe' ); }, 6000 );
+		setTimeout( function() { gaco.audioManager.play( 'brief_tiempo' ); }, 13000 );	
 
-		$( '#brief' ).on( 'click', function()
+		setTimeout( function()
 			{
-				gaco.audioManager.stopAll(); // stop all sounds
-				var sceneDiv = document.createElement( 'div' );
-				sceneDiv.id = 'recyclingPlant';
-				sceneDiv.className = 'Scene';
-				sceneDiv.style.background = "url('images/scenes/recyclingPlant.png') no-repeat";
-				
-				var lightbulb = document.createElement( 'img' );
-					lightbulb.className = 'LightBulb';
-					lightbulb.src = 'images/scenes/recyclingPlant/lightbulb.png';
-					lightbulb.style.position = 'absolute';
-					lightbulb.style.left  = '200px';
-					lightbulb.style.top = '32px';
-					lightbulb.style.width = '27px';
-					lightbulb.style.height = '153px';
-					sceneDiv.appendChild( lightbulb );
-				
-				var lightbulb2 = document.createElement( 'img' );
-					lightbulb2.className = 'LightBulb';
-					lightbulb2.src = 'images/scenes/recyclingPlant/lightbulb.png';
-					lightbulb2.style.position = 'absolute';
-					lightbulb2.style.left  = '800px';
-					lightbulb2.style.top = '32px';
-					lightbulb2.style.width = '27px';
-					lightbulb2.style.height = '153px';
-					sceneDiv.appendChild( lightbulb2 );
+				$( '#brief' ).on( 'click', function()
+					{
+						$( this ).remove();
 
-				$canvas.empty().append( sceneDiv );
-		
-				gaco.engine = new RecyclingPlantEngine();
-				gaco.engine.init();
-				gaco.engine.start();
-			}
+						gaco.audioManager.stopAll(); // stop all sounds
+
+						gaco.engine.init();
+						gaco.engine.start();
+					}
+				);
+			}, 15500
 		);
 	};
 
