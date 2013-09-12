@@ -4,6 +4,12 @@ define( function()
 	return [
 		{	code: 'park',
 			elements: [
+				{ x:500, y: 462, scale: 1 },
+				{ x:704, y: 296, scale: .7 },
+				{ x:57, y: 320, scale: .8 },
+				{ x:428, y: 325, scale: .9 },
+				{ x:671, y: 569, scale: 1 },
+				
 				{ x: 799, y: 385, scale: 1.1 },
 				{ x: 145, y: 420, scale: 1.2 },
 				{ x: 320, y: 440, scale: 1.3 },
@@ -21,6 +27,12 @@ define( function()
 
 		{	code: 'room',
 			elements: [
+				{ x:167, y: 459, scale: 1.1 },
+				{ x:290, y: 168, scale: 1 },
+				{ x:896, y: 146, scale: 1 },
+				{ x:890, y: 363, scale: 1 },
+				{ x:566, y: 578, scale: 1 },
+
 				{ x:87, y: 540, scale: 1.2 },
 				{ x:825, y: 510, scale: 1.4 },
 				{ x:500, y: 405, scale: 1.6 },
@@ -38,6 +50,12 @@ define( function()
 
 		{	code: 'kitchen',
 			elements: [
+				{ x:26, y: 380, scale: .9 },
+				{ x:534, y: 395, scale: .9 },
+				{ x:716, y: 309, scale: .8 },
+				{ x:851, y: 261, scale: .9 },
+				{ x:912, y: 310, scale: 1 },
+
 				{ x:137, y: 117, scale: 1.5 },
 				{ x:45, y: 132, scale: 1.3},
 				{ x:531, y: 548, scale: 1.4 },
@@ -55,6 +73,11 @@ define( function()
 
 		{	code: 'classroom',
 			elements: [
+				{ x:506, y: 537, scale: .9 },
+				{ x:432, y: 480, scale: .8 },
+				{ x:580, y: 263, scale: .8 },
+				{ x:279, y: 576, scale: .9 },
+
 				{ x:575, y: 372, scale: 1.1 },
 				{ x:534, y: 385, scale: .9 },
 				{ x:558, y: 110, scale: 1.2 },

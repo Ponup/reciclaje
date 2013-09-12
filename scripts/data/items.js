@@ -411,7 +411,7 @@ define( [ 'data/containerType' ], function( ContainerType )
 			container: ContainerType.ORGANIC,
 			scoring:
 			{
-				ph: 1,
+				ph: -1,
 				picker:
 				{
 					bioDigester: 10,
@@ -515,7 +515,7 @@ define( [ 'data/containerType' ], function( ContainerType )
 			container: ContainerType.PAPER,
 			scoring:
 			{
-				ph: 1,
+				ph: 2,
 				picker:
 				{
 					bioDigester: 10,
@@ -541,7 +541,7 @@ define( [ 'data/containerType' ], function( ContainerType )
 			container: ContainerType.PAPER,
 			scoring:
 			{
-				ph: 1,
+				ph: -1,
 				picker:
 				{
 					bioDigester: 10,
@@ -554,7 +554,7 @@ define( [ 'data/containerType' ], function( ContainerType )
 			container: ContainerType.PAPER,
 			scoring:
 			{
-				ph: 1,
+				ph: -1,
 				picker:
 				{
 					bioDigester: 10,
