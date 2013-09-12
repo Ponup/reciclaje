@@ -35,8 +35,8 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 
 			var relation = {
 				0: 0, 1: 0, 2: 0,
-				3: 1, 4: 1,
-				5: 2, 6: 2, 7: 2, // Winning condition
+				3: 1, 4: 1, 5: 1,
+				6: 2, 7: 2, // Winning condition
 				8: 3, 9: 3, 10: 3,
 				11: 4, 12: 4, 13: 4
 			};

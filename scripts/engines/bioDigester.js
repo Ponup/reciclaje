@@ -16,7 +16,7 @@ define( [ 'scullge/engine', 'actors/bioDigester/phmeter', 'actors/bioDigester/di
 		{
 			this.initScene();
 
-			var initialPhmeterLevels = [ 0, 1, 2, 3, 4, 5, 9, 10, 11, 12, 13 ];
+			var initialPhmeterLevels = [ 6, 7 ];
 			gaco.gameVars.phLevel = ArraysUtils.randomItem( initialPhmeterLevels );
 
 			this.addActor( new ChronometerActor() );
@@ -81,6 +81,7 @@ define( [ 'scullge/engine', 'actors/bioDigester/phmeter', 'actors/bioDigester/di
 			var actor = new DisposableActor();
 			actor.setProperty( 'phDelta', itemData.scoring.ph );
 			actor.setProperty( 'image', itemData.name );
+			actor.setProperty( 'data', itemData );
 			actor.setProperty( 'left', itemData.position * -BioDigesterEngine.DISTANCE_BETWEEN_ITEMS );
 			this.addActor( actor );
 		};

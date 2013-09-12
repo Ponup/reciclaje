@@ -1,5 +1,5 @@
 
-define( [ 'scullge/actor', 'actors/flashScore', 'TweenMax', 'data/context' ], function( BaseActor, FlashScoreActor, TweenMax, gaco )
+define( [ 'scullge/actor', 'actors/flashScore', 'TweenMax', 'data/containerType', 'data/context' ], function( BaseActor, FlashScoreActor, TweenMax, ContainerType, gaco )
 	{
 		var DisposableActorState = {
 			MOVING: 0,
@@ -52,16 +52,28 @@ define( [ 'scullge/actor', 'actors/flashScore', 'TweenMax', 'data/context' ], fu
 					onComplete: function()
 					{
 						self.state = DisposableActorState.DEAD;
-						gaco.gameVars.phLevel = Math.min( 10, Math.max( 0, gaco.gameVars.phLevel + self.properties.phDelta ) );
+
+						var score = self.properties.phDelta;
+						if( self.properties.data.container === ContainerType.ORGANIC )
+						{
+							gaco.gameVars.phLevel += score;
+
+							if( gaco.gameVars.phLevel < 0 )
+								gaco.gameVars.phLevel = 0;
+							else if( gaco.gameVars.phLevel > 13 )
+								gaco.gameVars.phLevel = 13;
+						}
+						else
+						{
+							score = -1;
+						}
+
+						gaco.gameVars.score += score;
 
 						if( self.properties.phDelta > 0 )
 							gaco.audioManager.play( 'tap' );
 						else
 							gaco.audioManager.play( 'tapWrong' );
-
-						var score = self.properties.phDelta;
-
-						gaco.gameVars.score += score;
 
 						var actor = new FlashScoreActor( score );
 						actor.setProperty( 'img', { style: { top: '160px', left: '460px' } } );
@@ -96,6 +108,7 @@ define( [ 'scullge/actor', 'actors/flashScore', 'TweenMax', 'data/context' ], fu
 					this.node.style.left = this.properties.left + 'px';
 					break;
 				case DisposableActorState.DEAD:
+					this.active = false;
 					$( this.node ).remove();
 					break;
 			}
