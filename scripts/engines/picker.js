@@ -12,11 +12,11 @@ define( [ 'scullge/engine', 'actors/picker/pickable', 'actors/scoreboard', 'acto
 		PickerEngine.prototype.constructor = PickerEngine;
 
 		PickerEngine.MAX_SCORE = 40;
-		PickerEngine.MAX_SECONDS = 20;
+		PickerEngine.MAX_SECONDS = PickerEngine.prototype.MAX_SECONDS = 60;
 
 		PickerEngine.prototype.preInit = function()
 		{
-			gaco.gameVars = { score: 0, };
+			gaco.gameVars = { score: 0 };
 
 			this.initScene();
 

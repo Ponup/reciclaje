@@ -9,6 +9,8 @@ define( [ 'scullge/engine', 'actors/recyclingPlant/machine', 'actors/chronometer
 		RecyclingPlantEngine.prototype = new BaseEngine();
 		RecyclingPlantEngine.prototype.constructor = RecyclingPlantEngine;
 
+		RecyclingPlantEngine.MAX_SECONDS = RecyclingPlantEngine.prototype.MAX_SECONDS = 20;
+
 		RecyclingPlantEngine.prototype.preInit = function()
 		{
 			this.initScene();
@@ -81,7 +83,7 @@ define( [ 'scullge/engine', 'actors/recyclingPlant/machine', 'actors/chronometer
 
 		RecyclingPlantEngine.prototype.onUpdate = function()
 		{
-			if( this.getElapsedTime( true ) > 20 )
+			if( this.getElapsedTime( true ) > RecyclingPlantEngine.MAX_SECONDS )
 			{
 				this.stop();
 

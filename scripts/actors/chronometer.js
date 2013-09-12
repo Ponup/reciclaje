@@ -1,21 +1,24 @@
 
 define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 	{
-		function Chronometer()
+		function ChronometerActor()
 		{
 			BaseActor.call( this );
+
+			this.seconds = null;
 		}
 
-		Chronometer.prototype = new BaseActor();
-		Chronometer.prototype.constructor = Chronometer;
+		ChronometerActor.prototype = new BaseActor();
+		ChronometerActor.prototype.constructor = ChronometerActor;
 
-		Chronometer.prototype.init = function()
+		ChronometerActor.prototype.init = function()
 		{
 			BaseActor.prototype.init.call( this );
 
 			this.node = document.createElement( 'div' );
-			this.node.className = 'Chronometer';
-			this.node.innerHTML = '0 <span style="color:#17bc99;font-size:.6em;">segundos</span>';
+
+			this.update();
+			this.redraw();
 
 			var nodeStyle = this.node.style;
 			nodeStyle.fontFamily = 'GameFont';
@@ -30,17 +33,22 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 			$( '.Scene' ).append( this.node );
 		};
 
-		Chronometer.prototype.redraw = function()
+		ChronometerActor.prototype.update = function()
 		{
-			var html = parseInt( gaco.engine.getElapsedTime( true ), 10 ) + ' <span style="color:#17bc99;font-size:.6em;">segundos</span>';
-			if( html.length < 11 )
+			this.seconds = gaco.engine.MAX_SECONDS - parseInt( gaco.engine.getElapsedTime( true ), 10 );
+		};
+
+		ChronometerActor.prototype.redraw = function()
+		{
+			var html = this.seconds + ' <span style="color: #17bc99; font-size: .6em;">segundos</span>';
+			if( this.seconds < 10 )
 			{
 				html = ' ' + html;
 			}
 			this.node.innerHTML = html;
 		};
 
-		return Chronometer;
+		return ChronometerActor;
 	}
 );
 

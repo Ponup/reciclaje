@@ -10,6 +10,7 @@ define( [ 'scullge/engine', 'actors/bioDigester/phmeter', 'actors/bioDigester/di
 		BioDigesterEngine.prototype.constructor = BioDigesterEngine;
 
 		BioDigesterEngine.DISTANCE_BETWEEN_ITEMS = 100;
+		BioDigesterEngine.MAX_SECONDS = BioDigesterEngine.prototype.MAX_SECONDS = 60;
 
 		BioDigesterEngine.prototype.preInit = function()
 		{
@@ -59,7 +60,7 @@ define( [ 'scullge/engine', 'actors/bioDigester/phmeter', 'actors/bioDigester/di
 
 		BioDigesterEngine.prototype.onUpdate = function()
 		{
-			if( this.getElapsedTime( true ) > 20 )
+			if( this.getElapsedTime( true ) > BioDigesterEngine.MAX_SECONDS )
 			{
 				this.stop()
 

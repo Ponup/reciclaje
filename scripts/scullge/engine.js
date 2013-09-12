@@ -88,7 +88,7 @@ define( [ 'scullge/actor', 'scullge/utils/animations' ], function( BaseActor, An
 		{
 			if( null === this.startTime )
 			{
-				return null;
+				return 0;
 			}
 
 			var deltaTime = Date.now() - this.startTime;
