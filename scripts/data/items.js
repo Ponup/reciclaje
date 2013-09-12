@@ -411,7 +411,7 @@ define( [ 'data/containerType' ], function( ContainerType )
 			container: ContainerType.ORGANIC,
 			scoring:
 			{
-				ph: 1,
+				ph: ,
 				picker:
 				{
 					bioDigester: 10,
@@ -538,6 +538,19 @@ define( [ 'data/containerType' ], function( ContainerType )
 		},
 		{
 			name: 'sandwitch',
+			container: ContainerType.PAPER,
+			scoring:
+			{
+				ph: 1,
+				picker:
+				{
+					bioDigester: 10,
+					recyclingPlant: -10,
+				}
+			}
+		},
+		{
+			name: 'pollo',
 			container: ContainerType.PAPER,
 			scoring:
 			{
