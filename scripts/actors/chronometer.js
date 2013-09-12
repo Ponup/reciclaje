@@ -25,7 +25,7 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 			nodeStyle.position = 'absolute';
 			nodeStyle.left = '60px';
 			nodeStyle.top = '680px';
-			nodeStyle.zIndex = 10;
+			nodeStyle.zIndex = 12;
 
 			$( '.Scene' ).append( this.node );
 		};

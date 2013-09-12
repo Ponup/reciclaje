@@ -16,6 +16,8 @@ define( [ 'scullge/engine', 'actors/picker/pickable', 'actors/scoreboard', 'acto
 
 		PickerEngine.prototype.preInit = function()
 		{
+			gaco.gameVars = { score: 0, };
+
 			this.initScene();
 
 			this.addActor( new ChronometerActor() );
@@ -82,10 +84,6 @@ define( [ 'scullge/engine', 'actors/picker/pickable', 'actors/scoreboard', 'acto
 			this.initActors();
 
 			this.addUpdateListener( $.proxy( this.onUpdate, this ) );
-
-			gaco.gameVars = {
-				score: 0,
-			};
 
 			this.seconds = { 0: 1 };
 		};

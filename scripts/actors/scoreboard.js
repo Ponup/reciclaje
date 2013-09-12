@@ -1,21 +1,22 @@
 
 define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 	{
-		function ScoreBoard()
+		function ScoreBoardActor()
 		{
 			BaseActor.call( this );
+
+			this.node = null;
 		}
 
-		ScoreBoard.prototype = new BaseActor();
-		ScoreBoard.prototype.constructor = ScoreBoard;
+		ScoreBoardActor.prototype = new BaseActor();
+		ScoreBoardActor.prototype.constructor = ScoreBoardActor;
 
-		ScoreBoard.prototype.init = function()
+		ScoreBoardActor.prototype.init = function()
 		{
 			BaseActor.prototype.init.call( this );
 
 			this.node = document.createElement( 'div' );
 			this.node.className = 'ScoreBoard';
-			this.node.innerHTML = '0 <span style="color:#17bc99;font-size:.6em;">puntos</span>';
 
 			var style = this.node.style;
 			style.fontFamily = 'GameFont';
@@ -25,21 +26,25 @@ define( [ 'scullge/actor', 'data/context' ], function( BaseActor, gaco )
 			style.position = 'absolute';
 			style.right = '60px';
 			style.top = '680px';
-			style.zIndex = 10;
+			style.zIndex = 12;
+
+			this.update();
+			this.redraw();
 
 			$( '.Scene' ).append( this.node );
 		};
 
-		ScoreBoard.prototype.update = function()
+		ScoreBoardActor.prototype.update = function()
 		{
+			this.score = gaco.gameVars.score;
 		};
 
-		ScoreBoard.prototype.redraw = function()
+		ScoreBoardActor.prototype.redraw = function()
 		{
-			this.node.innerHTML = gaco.gameVars.score + ' <span style="color:#17bc99;font-size:.6em;">puntos</span>';
+			this.node.innerHTML = this.score + ' <span style="color: #17bc99; font-size: .6em;">puntos</span>';
 		};
 
-		return ScoreBoard;
+		return ScoreBoardActor;
 	}
 );
 

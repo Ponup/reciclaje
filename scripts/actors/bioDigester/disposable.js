@@ -60,6 +60,9 @@ define( [ 'scullge/actor', 'actors/flashScore', 'TweenMax', 'data/context' ], fu
 							gaco.audioManager.play( 'tapWrong' );
 
 						var score = self.properties.phDelta;
+
+						gaco.gameVars.score += score;
+
 						var actor = new FlashScoreActor( score );
 						actor.setProperty( 'img', { style: { top: '160px', left: '460px' } } );
 						actor.init();

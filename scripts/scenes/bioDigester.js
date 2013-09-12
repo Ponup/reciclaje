@@ -23,9 +23,8 @@ define(
 		gaco.engine = new BioDigesterEngine();
 		gaco.engine.preInit();
 
-		$( '.Scene' ).append( briefHtml );
-
 		prevScene.hide();
+		$( '.Scene' ).append( briefHtml );
 		$( '.Scene' ).fadeIn();
 
 		gaco.audioManager.load( 'brief_bio_h1', CONTEXT_PATH + '/sounds/voces/brief_bio_h1.mp3' );

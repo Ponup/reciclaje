@@ -15,7 +15,7 @@ define( [ 'scullge/scenes/base', 'scenes/picker', 'data/context', 'text!template
 		{
 			localStorage.setItem( 'playerName', $( '#playerName' ).val() );
 		};
-
+		
 		IntroScene.prototype.switchFrom = function( prevScene )
 		{
 			document.title = 'El juego del reciclaje';

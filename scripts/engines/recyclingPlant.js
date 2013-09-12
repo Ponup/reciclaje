@@ -53,6 +53,7 @@ define( [ 'scullge/engine', 'actors/recyclingPlant/machine', 'actors/chronometer
 			var sceneDiv = document.createElement( 'div' );
 			sceneDiv.id = 'recyclingPlant';
 			sceneDiv.className = 'Scene';
+			sceneDiv.style.display = 'none';
 			sceneDiv.style.background = "url('images/scenes/recyclingPlant.png') no-repeat";
 			
 			var lightbulb = document.createElement( 'img' );

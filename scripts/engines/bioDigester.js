@@ -51,6 +51,7 @@ define( [ 'scullge/engine', 'actors/bioDigester/phmeter', 'actors/bioDigester/di
 			sceneDiv.id = 'conveyorBelt';
 			sceneDiv.className = 'Scene';
 			sceneDiv.style.overflow = 'hidden';
+			sceneDiv.style.display = 'none';
 			sceneDiv.style.background = "url('images/scenes/conveyorBelt.png') no-repeat";
 
 			$canvas.empty().append( sceneDiv );

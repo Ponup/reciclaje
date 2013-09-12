@@ -18,7 +18,6 @@ define(
 		document.title = 'Reciclar papel - El juego del reciclaje';
 		document.body.style.backgroundColor = '#2d3e50';
 
-		prevScene.hide();
 
 		var $canvas = $( document.getElementById( 'canvas' ) );
 		$canvas.empty();
@@ -26,7 +25,9 @@ define(
 		gaco.engine = new RecyclingPlantEngine();
 		gaco.engine.preInit();
 
+		prevScene.hide();
 		$( '.Scene' ).append( briefHtml );
+		$( '.Scene' ).fadeIn();
 
 		gaco.audioManager.load( 'brief_reci_h1', CONTEXT_PATH + '/sounds/voces/brief_reci_h1.mp3' );
 		gaco.audioManager.load( 'brief_reci_enchufe', CONTEXT_PATH + '/sounds/voces/brief_reci_enchufe.mp3' );
