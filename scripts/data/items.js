@@ -7,7 +7,7 @@ define( [ 'data/containerType' ], function( ContainerType )
 			container: ContainerType.ORGANIC,
 			scoring:
 			{
-				ph: -3,
+				ph: -1,
 				picker:
 				{
 					bioDigester: 10,
@@ -21,7 +21,7 @@ define( [ 'data/containerType' ], function( ContainerType )
 			container: ContainerType.ORGANIC,
 			scoring:
 			{
-				ph: -2,
+				ph: 1,
 				picker:
 				{
 					bioDigester: 10,
@@ -203,7 +203,7 @@ define( [ 'data/containerType' ], function( ContainerType )
 			container: ContainerType.ORGANIC,
 			scoring:
 			{
-				ph: 1,
+				ph: -1,
 				picker:
 				{
 					bioDigester: 10,
@@ -281,7 +281,7 @@ define( [ 'data/containerType' ], function( ContainerType )
 			container: ContainerType.ORGANIC,
 			scoring:
 			{
-				ph: -2,
+				ph: -1,
 				picker:
 				{
 					bioDigester: 10,
@@ -307,7 +307,7 @@ define( [ 'data/containerType' ], function( ContainerType )
 			container: ContainerType.ORGANIC,
 			scoring:
 			{
-				ph: 1,
+				ph: -1,
 				picker:
 				{
 					bioDigester: 10,
@@ -333,7 +333,7 @@ define( [ 'data/containerType' ], function( ContainerType )
 			container: ContainerType.ORGANIC,
 			scoring:
 			{
-				ph: -3,
+				ph: 1,
 				picker:
 				{
 					bioDigester: 10,
@@ -359,7 +359,7 @@ define( [ 'data/containerType' ], function( ContainerType )
 			container: ContainerType.ORGANIC,
 			scoring:
 			{
-				ph: 1,
+				ph: 2,
 				picker:
 				{
 					bioDigester: 10,
@@ -398,7 +398,20 @@ define( [ 'data/containerType' ], function( ContainerType )
 			container: ContainerType.ORGANIC,
 			scoring:
 			{
-				ph: -3,
+				ph: -2,
+				picker:
+				{
+					bioDigester: 10,
+					recyclingPlant: -10,
+				}
+			}
+		},
+		{
+			name: 'fideos',
+			container: ContainerType.ORGANIC,
+			scoring:
+			{
+				ph: 1,
 				picker:
 				{
 					bioDigester: 10,
@@ -411,7 +424,7 @@ define( [ 'data/containerType' ], function( ContainerType )
 			container: ContainerType.ORGANIC,
 			scoring:
 			{
-				ph: 3,
+				ph: 1,
 				picker:
 				{
 					bioDigester: 10,
@@ -424,7 +437,7 @@ define( [ 'data/containerType' ], function( ContainerType )
 			container: ContainerType.ORGANIC,
 			scoring:
 			{
-				ph: 2,
+				ph: 1,
 				picker:
 				{
 					bioDigester: 10,
@@ -437,7 +450,7 @@ define( [ 'data/containerType' ], function( ContainerType )
 			container: ContainerType.ORGANIC,
 			scoring:
 			{
-				ph: 2,
+				ph: -2,
 				picker:
 				{
 					bioDigester: 10,
@@ -450,7 +463,7 @@ define( [ 'data/containerType' ], function( ContainerType )
 			container: ContainerType.ORGANIC,
 			scoring:
 			{
-				ph: 4,
+				ph: 1,
 				picker:
 				{
 					bioDigester: 10,
@@ -494,6 +507,45 @@ define( [ 'data/containerType' ], function( ContainerType )
 				{
 					bioDigester: -10,
 					recyclingPlant: 10,
+				}
+			}
+		},
+		{
+			name: 'sandia',
+			container: ContainerType.PAPER,
+			scoring:
+			{
+				ph: 1,
+				picker:
+				{
+					bioDigester: 10,
+					recyclingPlant: -10,
+				}
+			}
+		},
+		{
+			name: 'choclo',
+			container: ContainerType.PAPER,
+			scoring:
+			{
+				ph: 1,
+				picker:
+				{
+					bioDigester: 10,
+					recyclingPlant: -10,
+				}
+			}
+		},
+		{
+			name: 'sandwitch',
+			container: ContainerType.PAPER,
+			scoring:
+			{
+				ph: 1,
+				picker:
+				{
+					bioDigester: 10,
+					recyclingPlant: -10,
 				}
 			}
 		},
