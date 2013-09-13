@@ -51,10 +51,12 @@ define( [ 'scullge/actor', 'actors/flashScore', 'TweenMax', 'data/containerType'
 					ease: Power1.easeInOut,
 					onComplete: function()
 					{
-						var score = self.properties.phDelta;
+						var phDelta = self.properties.phDelta,
+							score = null;
 						if( self.properties.data.container === ContainerType.ORGANIC )
 						{
-							gaco.gameVars.phLevel += score;
+							gaco.gameVars.phLevel += phDelta;
+							score = Math.abs( phDelta ); // Organic items always add up.
 
 							if( gaco.gameVars.phLevel < 0 )
 								gaco.gameVars.phLevel = 0;
@@ -68,10 +70,7 @@ define( [ 'scullge/actor', 'actors/flashScore', 'TweenMax', 'data/containerType'
 
 						gaco.gameVars.score += score;
 
-						if( score > 0 )
-							gaco.audioManager.play( 'tap' );
-						else
-							gaco.audioManager.play( 'tapWrong' );
+						gaco.audioManager.play( score > 0 ? 'tap' : 'tapWrong' );
 
 						self.state = DisposableActorState.DEAD;
 

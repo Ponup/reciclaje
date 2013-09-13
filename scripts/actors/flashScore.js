@@ -17,7 +17,7 @@ define( [ 'scullge/actor' ], function( BaseActor )
 
 			var flashScore = document.createElement( 'div' );
 			flashScore.className = 'FlashScore';
-			flashScore.innerHTML = ( this.score > 0 ? '+' : '-' ) + Math.abs( this.score );
+			flashScore.innerHTML = ( this.score >= 0 ? '+' : '' ) + this.score;
 
 			var style = flashScore.style;
 			style.position = 'absolute';
